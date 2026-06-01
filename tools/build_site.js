@@ -918,8 +918,15 @@ const site = String.raw`<!doctype html>
       line-height: 1.75;
       overflow-wrap: break-word;
     }
+    .definition-box,
+    .reference-box {
+      line-height: 1.65;
+      overflow-wrap: break-word;
+    }
     .formula-box,
     .ask-box,
+    .definition-box,
+    .reference-box,
     .explain-box {
       border-radius: 8px;
       padding: 12px;
@@ -929,6 +936,38 @@ const site = String.raw`<!doctype html>
     .formula-box {
       color: #0f2d52;
       font-weight: 700;
+    }
+    .definition-box {
+      background: #f8fafc;
+    }
+    .definition-box strong {
+      color: #0f2d52;
+    }
+    .reference-box {
+      background: #f5f3ff;
+      border-color: #ddd6fe;
+    }
+    .reference-box h4 {
+      margin: 0 0 8px;
+      color: #4c1d95;
+      font-size: 15px;
+    }
+    .reference-box ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+    .reference-box li {
+      list-style: none;
+    }
+    .reference-box a {
+      color: #1d4ed8;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .reference-box a:hover {
+      text-decoration: underline;
     }
     .pretest-toolbar {
       display: flex;
@@ -1119,7 +1158,7 @@ const site = String.raw`<!doctype html>
         <span class="pretest-kicker">高三考前複習｜科技情境｜素養題</span>
         <h2>2026 分科測驗物理科技情境與素養題預試題</h2>
         <p>半導體製程｜無人機｜光電感測｜AI資料中心散熱</p>
-        <p>目標使用者：高三學生、物理教師、分科測驗考前複習使用。內容以高中物理可掌握的模型、公式、圖表判讀與實驗探究為主。</p>
+        <p>內容以高中物理可掌握的模型、公式、圖表判讀與實驗探究為主，協助把科技新聞與真實工程情境轉換成可解題的物理語言。</p>
       </div>
       <div class="pretest-body">
         <nav class="pretest-nav" aria-label="預試題快速導覽">
@@ -1133,7 +1172,7 @@ const site = String.raw`<!doctype html>
         </nav>
 
         <article class="pretest-card" id="trendOverview">
-          <h3>A. 命題趨勢總覽</h3>
+          <h3>命題趨勢總覽</h3>
           <p>近年物理考題更重視「把真實情境翻譯成物理模型」。考生不只要會代公式，也要能辨認物理量、讀圖、估算量級，並把力學、波動、電磁、熱學與近代物理整合到同一個科技案例中。</p>
           <ul class="trend-list">
             <li><strong>真實科技情境化</strong><br>半導體、無人機、感測器、資料中心等都可成為題幹。</li>
@@ -1147,10 +1186,11 @@ const site = String.raw`<!doctype html>
 
         <div class="pretest-grid">
           <article class="theme-card" id="themeSemiconductor">
-            <h3>B. 主題一：半導體製程中的物理</h3>
+            <h3>主題一：半導體製程中的物理</h3>
             <div class="theme-layout">
               <div>
-                <p>半導體製程可從矽晶圓開始理解。光刻 Photolithography 利用光罩與光阻把電路圖形轉移到晶圓；EUV 短波長曝光可降低繞射限制，使更小線寬成為可能。摻雜會改變多數載子：P 型以電洞為主，N 型以電子為主；PN 接面可用內建電場分離電荷，應用到 LED、太陽能電池與 CMOS 感測器。</p>
+                <p>半導體製程可用「材料導電性可被控制」和「光把圖形轉到晶圓」兩條主線理解。矽晶圓先被塗上光阻，光刻 Photolithography 讓光罩圖形曝光在光阻上；顯影後保留下來的光阻可當作保護層，未被保護處再經蝕刻或離子佈植，形成電路結構。若用兩束相干光在光阻上形成明暗條紋，也可利用干涉強度分布製作週期性微結構，這就是干涉式微影的基本想法。</p>
+                <p>EUV 使用約 \(13.5\,\mathrm{nm}\) 的極紫外光。從高三波動觀點看，曝光圖形的最小可分辨尺度受繞射限制影響，波長越短，繞射造成的模糊越小，因此更有利於做出細線寬。摻雜則是把少量雜質原子放入矽晶格，改變自由電子或電洞的數量；P 型、N 型半導體接在一起形成 PN 接面，內建電場能分離電子與電洞，連結到 LED、太陽能電池、CMOS 感測器等元件。</p>
                 <ul>
                   <li>矽晶圓、光刻、EUV、繞射限制</li>
                   <li>摻雜、P 型與 N 型半導體、PN 接面</li>
@@ -1158,17 +1198,27 @@ const site = String.raw`<!doctype html>
                 </ul>
               </div>
               <div>
+                <div class="definition-box"><strong>名詞定義：</strong>EUV 是 Extreme Ultraviolet，指波長約 \(13.5\,\mathrm{nm}\) 的極紫外光；摻雜是加入微量雜質以改變多數載子；PN 接面是 P 型與 N 型半導體接觸後形成的電荷分離區與內建電場。</div>
                 <div class="formula-box">高三必懂公式：\(E=hf\)、\(c=f\lambda\)、解析度與波長成正相關，可用 \(d\propto \lambda\) 判斷趨勢。</div>
                 <div class="ask-box">可能分科測驗問法：短波長為何提升解析度？摻雜後多數載子為何？PN 接面如何分離光生載子？</div>
+                <div class="reference-box">
+                  <h4>參考網站／影片</h4>
+                  <ul>
+                    <li><a href="https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers" target="_blank" rel="noopener">ASML：Light & lasers in lithography</a></li>
+                    <li><a href="https://www.nist.gov/semiconductors" target="_blank" rel="noopener">NIST：Semiconductors</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=ASML+EUV+lithography+explained" target="_blank" rel="noopener">YouTube：ASML EUV lithography explained</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="theme-card" id="themeDrone">
-            <h3>C. 主題二：無人機飛行操控原理</h3>
+            <h3>主題二：無人機飛行操控原理</h3>
             <div class="theme-layout">
               <div>
-                <p>四旋翼無人機可用力與力矩分析。懸停時總升力等於重力；前進、後退、左右移動可由機身傾斜後的推力分量解釋。偏航 yaw、俯仰 pitch、滾轉 roll 對應不同轉軸的角加速度。螺旋槳反向旋轉是為了讓反作用力矩大致平衡，避免機身自轉。</p>
+                <p>四旋翼無人機的核心是「總力控制平動、總力矩控制轉動」。懸停時，四個螺旋槳的總升力等於重力，鉛直方向合力為零。若要前進，機身會先產生俯仰 pitch，使總推力不再完全鉛直；推力的水平分量提供向前加速度，鉛直分量則仍需接近重力以維持高度。</p>
+                <p>每個螺旋槳旋轉時都會給機身一個反作用力矩。四軸通常讓相鄰螺旋槳反向旋轉，使角動量與反作用力矩大致抵消。若要偏航 yaw，可讓順時針與逆時針兩組螺旋槳的轉速不再平衡，產生繞鉛直軸的淨力矩；若要滾轉 roll 或俯仰 pitch，則改變左右或前後螺旋槳升力，讓機身先傾斜，再利用推力分量改變行進方向。</p>
                 <ul>
                   <li>升力與重力、懸停條件</li>
                   <li>前進、後退、左右移動</li>
@@ -1176,17 +1226,27 @@ const site = String.raw`<!doctype html>
                 </ul>
               </div>
               <div>
+                <div class="definition-box"><strong>名詞定義：</strong>yaw 是繞鉛直軸的偏航轉動；pitch 是機頭上仰或下俯的俯仰轉動；roll 是左右側抬高或降低的滾轉。角動量守恆表示沒有外力矩時，系統總角動量不會自行改變。</div>
                 <div class="formula-box">高三必懂公式：\(\sum F=ma\)、\(\tau=rF\sin\theta\)、\(\sum \tau=I\alpha\)。</div>
                 <div class="ask-box">可能分科測驗問法：哪一組螺旋槳轉速改變會造成偏航？機身傾斜時推力如何分解？</div>
+                <div class="reference-box">
+                  <h4>參考網站／影片</h4>
+                  <ul>
+                    <li><a href="https://www.nasa.gov/stem-content/the-science-behind-quadcopters/" target="_blank" rel="noopener">NASA：The Science Behind Quadcopters</a></li>
+                    <li><a href="https://learn.parallax.com/courses/understanding-the-physics-of-multirotor-flight/lessons/rotation-torque-and-angular-momentum/" target="_blank" rel="noopener">Parallax：Rotation, Torque and Angular Momentum</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=quadcopter+yaw+pitch+roll+torque+angular+momentum" target="_blank" rel="noopener">YouTube：quadcopter yaw pitch roll</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="theme-card" id="themeOptic">
-            <h3>D. 主題三：雙狹縫／薄膜干涉 × 光電元件 × 半導體感測器</h3>
+            <h3>主題三：雙狹縫／薄膜干涉 × 光電元件 × 半導體感測器</h3>
             <div class="theme-layout">
               <div>
-                <p>雙狹縫干涉可用條紋間距判讀波長與狹縫間距；薄膜干涉可設計抗反射鍍膜，讓反射光相消以提高太陽能電池或鏡頭鍍膜效率。光電效應說明光訊號如何轉成電訊號；CMOS/CCD 感測器則把每個像素中的光生電荷讀出成影像。</p>
+                <p>干涉題的重點是路徑差造成相位差。雙狹縫中，兩束相干光在螢幕上疊加，亮紋代表相長干涉、暗紋代表相消干涉；條紋間距可用 \(\Delta y=\lambda L/d\) 估算。若把這種明暗分布照在光阻上，亮處與暗處的化學反應不同，顯影後可形成週期性圖案，再透過蝕刻把圖案轉移到材料表面，這就是干涉式微影與奈米圖案製作的基本模型。</p>
+                <p>薄膜干涉則是同一束光在膜的上下表面反射後再疊加。抗反射鍍膜利用相消干涉降低反射，使更多光進入鏡頭或太陽能電池。光電效應與半導體感測器則說明「光訊號如何變成電訊號」：CMOS/CCD 的像素吸收光子後產生電子與電洞，累積電荷再被讀出成影像亮度。</p>
                 <ul>
                   <li>雙狹縫干涉與條紋間距</li>
                   <li>薄膜干涉與抗反射鍍膜</li>
@@ -1194,17 +1254,28 @@ const site = String.raw`<!doctype html>
                 </ul>
               </div>
               <div>
+                <div class="definition-box"><strong>名詞定義：</strong>相干光是頻率相同且相位關係穩定的光；光阻是受光後化學性質改變的薄膜；CMOS/CCD 感測器是把像素中的光生電荷轉成電子訊號的影像元件。</div>
                 <div class="formula-box">高三必懂公式：\(\Delta y=\lambda L/d\)、\(2nt=(m+\frac12)\lambda\) 類型的相消條件、\(K_{\max}=hf-\phi\)。</div>
                 <div class="ask-box">可能分科測驗問法：改變狹縫距離條紋如何變？抗反射膜厚如何估？光強與頻率對光電效應有何差異？</div>
+                <div class="reference-box">
+                  <h4>參考網站／影片</h4>
+                  <ul>
+                    <li><a href="https://phet.colorado.edu/en/simulation/wave-interference" target="_blank" rel="noopener">PhET：Wave Interference 模擬</a></li>
+                    <li><a href="https://mtlsites.mit.edu/annual_reports/2010/scanning-beam-interference-lithography/" target="_blank" rel="noopener">MIT：Scanning-beam Interference Lithography</a></li>
+                    <li><a href="https://www.tel.com/museum/exhibition/principle/cmos.html" target="_blank" rel="noopener">Tokyo Electron：What Is a CMOS Image Sensor?</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=double+slit+interference+CMOS+image+sensor" target="_blank" rel="noopener">YouTube：double slit interference / CMOS sensor</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="theme-card" id="themeCooling">
-            <h3>E. 主題四：AI資料中心散熱 × 熱學 × 能量效率</h3>
+            <h3>主題四：AI資料中心散熱 × 熱學 × 能量效率</h3>
             <div class="theme-layout">
               <div>
-                <p>GPU 與 AI 伺服器耗電後，電能最後大多轉為熱能。散熱可用熱傳導、熱對流與熱輻射理解；風冷靠空氣帶走熱，液冷利用水的高比熱與較高密度，在同樣溫升下帶走更多熱量。PUE 是資料中心能源效率的重要指標。</p>
+                <p>AI 資料中心的熱學核心是能量守恆。GPU 與伺服器消耗的電能，除了極少部分轉成訊號或聲音外，最後大多以熱的形式釋放，因此高功率運算一定需要散熱設計。晶片到散熱片主要靠熱傳導，散熱片到空氣或冷卻液主要靠熱對流，任何高溫物體也會以熱輻射放出能量。</p>
+                <p>風冷利用空氣流動帶走熱；液冷則利用水或冷卻液的高比熱與較大密度，在同樣溫升下帶走更多熱量。若伺服器功率為 \(P\)，每秒產生的熱量約為 \(P\)；冷卻液帶走熱量可用 \(P=\dot{m}c\Delta T\) 估算。資料中心還會用 PUE 衡量能源效率，判斷冷卻、照明與供電轉換等非 IT 用電是否過高。</p>
                 <ul>
                   <li>GPU 耗電、熱產生與能量守恆</li>
                   <li>熱傳導、熱對流、熱輻射</li>
@@ -1212,8 +1283,18 @@ const site = String.raw`<!doctype html>
                 </ul>
               </div>
               <div>
+                <div class="definition-box"><strong>名詞定義：</strong>PUE 是 Power Usage Effectiveness，定義為資料中心總用電除以 IT 設備用電：\(PUE=P_{\rm total}/P_{\rm IT}\)。理想值接近 1，表示大多數電能都用在伺服器本身，額外冷卻與供電損耗較少。</div>
                 <div class="formula-box">高三必懂公式：\(Q=mc\Delta T\)、\(P=E/t\)、\(PUE=P_{\rm total}/P_{\rm IT}\)。</div>
                 <div class="ask-box">可能分科測驗問法：冷卻水流量如何估算？PUE 怎麼判讀？為什麼液冷比風冷適合高功率設備？</div>
+                <div class="reference-box">
+                  <h4>參考網站／影片</h4>
+                  <ul>
+                    <li><a href="https://www.trane.com/commercial/north-america/us/en/about-us/newsroom/glossary/power-usage-effectiveness.html" target="_blank" rel="noopener">Trane：Power Usage Effectiveness (PUE)</a></li>
+                    <li><a href="https://www.energystar.gov/products/select_sustainable_colocation_facility" target="_blank" rel="noopener">ENERGY STAR：Data center PUE</a></li>
+                    <li><a href="https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf" target="_blank" rel="noopener">U.S. DOE：Energy-efficient Data Center Design</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=data+center+cooling+PUE+liquid+cooling+explained" target="_blank" rel="noopener">YouTube：data center cooling / PUE explained</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>
