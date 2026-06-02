@@ -446,7 +446,7 @@ const pretestData = {
             "1.2"
           ],
           answer: "D",
-          explanation: "\\(PUE=P_{\\rm total}/P_{\\rm IT}=6.0/5.0=1.2\\)。PUE 越接近 1，代表冷卻、供電轉換等非 IT 額外耗能越少。"
+          explanation: "\\(PUE=P_{\\mathrm{total}}/P_{\\mathrm{IT}}=6.0/5.0=1.2\\)。PUE 越接近 1，代表冷卻、供電轉換等非 IT 額外耗能越少。"
         },
         {
           id: "cooling-5",
@@ -467,6 +467,928 @@ const pretestData = {
     }
   ]
 };
+
+const pretestExtraQuestions = {
+  semi: [
+    {
+      id: "semi-6",
+      difficulty: "基礎",
+      concept: "光子能量與波長",
+      intent: "確認學生會用 \\(E=hc/\\lambda\\) 判斷短波長光子能量較高。",
+      prompt: "EUV 的波長約為 \\(13.5\\,\\mathrm{nm}\\)，可見光常見波長約為 \\(540\\,\\mathrm{nm}\\)。若只比較單一光子能量，下列判斷何者正確？",
+      options: [
+        "EUV 光子能量較低，因為波長較短",
+        "EUV 光子能量較高，因為 \\(E=hc/\\lambda\\)",
+        "兩者光子能量相同，因為光速相同",
+        "可見光光子一定可直接打出矽中的所有電子"
+      ],
+      answer: "B",
+      explanation: "光子能量 \\(E=hc/\\lambda\\)。波長越短，單一光子能量越大；因此 \\(13.5\\,\\mathrm{nm}\\) 的 EUV 光子能量高於 \\(540\\,\\mathrm{nm}\\) 的可見光。"
+    },
+    {
+      id: "semi-7",
+      difficulty: "基礎",
+      concept: "光阻顯影",
+      intent: "檢查學生是否能把曝光、顯影與圖形轉移連起來。",
+      prompt: "在正光阻製程中，被光照到的區域較容易被顯影液移除。若光罩讓某處受到較強曝光，顯影後該處最可能如何？",
+      options: [
+        "較容易被移除，露出下方材料",
+        "一定變成超導體",
+        "一定產生較大的重力",
+        "光阻厚度完全不變，無法形成圖形"
+      ],
+      answer: "A",
+      explanation: "正光阻的受光區溶解度增加，顯影時較容易被移除。這讓光罩上的明暗分布轉為材料表面的保護區與開口區。"
+    },
+    {
+      id: "semi-8",
+      difficulty: "基礎",
+      concept: "P 型半導體",
+      intent: "確認學生能由價電子數判斷多數載子。",
+      prompt: "矽為四價元素。若在矽晶格中摻入少量三價硼原子，最合理的結果為何？",
+      options: [
+        "形成 N 型半導體，電子為多數載子",
+        "形成 P 型半導體，電洞為多數載子",
+        "矽原子核全部裂變",
+        "材料一定成為絕對絕緣體"
+      ],
+      answer: "B",
+      explanation: "三價硼比四價矽少一個價電子，容易形成電洞，因此產生 P 型半導體；多數載子為電洞。"
+    },
+    {
+      id: "semi-9",
+      difficulty: "基礎",
+      concept: "PN 接面與二極體",
+      intent: "確認學生理解順向偏壓可降低接面障壁。",
+      prompt: "PN 接面二極體在順向偏壓時較容易導通。以高中電場觀點理解，主要原因為何？",
+      options: [
+        "外加電場完全消除所有電荷",
+        "外加電壓降低接面位能障壁，使載子較容易跨越接面",
+        "二極體質量減少，所以電流變大",
+        "半導體中的光速變成無限大"
+      ],
+      answer: "B",
+      explanation: "順向偏壓會降低 PN 接面的位能障壁，使電子與電洞較容易穿越接面而形成電流；反向偏壓則使障壁加大。"
+    },
+    {
+      id: "semi-10",
+      difficulty: "中等",
+      concept: "單狹縫繞射角度",
+      intent: "用 \\(a\\sin\\theta=m\\lambda\\) 估算短波長的繞射角。",
+      prompt: "若把線寬近似為狹縫寬 \\(a=100\\,\\mathrm{nm}\\)，EUV 波長 \\(\\lambda=13.5\\,\\mathrm{nm}\\)。第一暗紋近似滿足 \\(a\\sin\\theta=\\lambda\\)，則 \\(\\sin\\theta\\) 約為多少？",
+      options: [
+        "0.0135",
+        "0.135",
+        "1.35",
+        "13.5"
+      ],
+      answer: "B",
+      explanation: "第一暗紋取 \\(m=1\\)，所以 \\(\\sin\\theta=\\lambda/a=13.5/100=0.135\\)。若波長變短，\\(\\sin\\theta\\) 變小，繞射擴散較不明顯。"
+    },
+    {
+      id: "semi-11",
+      difficulty: "中等",
+      concept: "干涉式微影週期",
+      intent: "用干涉週期公式建立微影條紋尺度。",
+      prompt: "兩束相干光夾角為 \\(2\\theta\\)，在光阻上形成明暗條紋，週期可估為 \\(p=\\lambda/(2\\sin\\theta)\\)。若 \\(\\lambda=400\\,\\mathrm{nm}\\)、\\(\\theta=30^\\circ\\)，則 \\(p\\) 約為多少？",
+      options: [
+        "\\(200\\,\\mathrm{nm}\\)",
+        "\\(400\\,\\mathrm{nm}\\)",
+        "\\(800\\,\\mathrm{nm}\\)",
+        "\\(1600\\,\\mathrm{nm}\\)"
+      ],
+      answer: "B",
+      explanation: "代入 \\(p=\\lambda/(2\\sin\\theta)=400/(2\\times0.5)=400\\,\\mathrm{nm}\\)。夾角越大，\\(\\sin\\theta\\) 越大，條紋週期越小。"
+    },
+    {
+      id: "semi-12",
+      difficulty: "中等",
+      concept: "EUV 光子能量估算",
+      intent: "訓練學生用 \\(hc\\approx1240\\,\\mathrm{eV\\cdot nm}\\) 快速估算。",
+      prompt: "取 \\(hc\\approx1240\\,\\mathrm{eV\\cdot nm}\\)。波長 \\(13.5\\,\\mathrm{nm}\\) 的 EUV 光子能量最接近多少？",
+      options: [
+        "\\(9.2\\,\\mathrm{eV}\\)",
+        "\\(46\\,\\mathrm{eV}\\)",
+        "\\(92\\,\\mathrm{eV}\\)",
+        "\\(920\\,\\mathrm{eV}\\)"
+      ],
+      answer: "C",
+      explanation: "\\(E=hc/\\lambda\\approx1240/13.5\\approx92\\,\\mathrm{eV}\\)。短波長不只提高解析度，也使單一光子能量提高。"
+    },
+    {
+      id: "semi-13",
+      difficulty: "中等",
+      concept: "摻雜濃度與載子數",
+      intent: "用濃度乘體積估算摻雜原子數。",
+      prompt: "某區域摻雜濃度為 \\(1.0\\times10^{15}\\,\\mathrm{cm^{-3}}\\)，體積為 \\(2.0\\times10^{-8}\\,\\mathrm{cm^3}\\)。若每個雜質約提供一個載子，載子數約為多少？",
+      options: [
+        "\\(2.0\\times10^{7}\\)",
+        "\\(2.0\\times10^{15}\\)",
+        "\\(5.0\\times10^{22}\\)",
+        "\\(2.0\\times10^{-23}\\)"
+      ],
+      answer: "A",
+      explanation: "載子數 \\(N=nV=(1.0\\times10^{15})(2.0\\times10^{-8})=2.0\\times10^{7}\\)。濃度乘體積即可估算總數。"
+    },
+    {
+      id: "semi-14",
+      difficulty: "中等",
+      concept: "CMOS 像素曝光",
+      intent: "把光強、曝光時間與累積電荷量連起來。",
+      prompt: "某 CMOS 像素未飽和時，累積電荷量與入射光強及曝光時間成正比。若光強變為原來 \\(3\\) 倍、曝光時間變為原來 \\(1/2\\)，累積電荷量變為原來多少？",
+      options: [
+        "\\(1/6\\)",
+        "\\(1/2\\)",
+        "\\(3/2\\)",
+        "\\(6\\)"
+      ],
+      answer: "C",
+      explanation: "電荷量比例為 \\(3\\times(1/2)=3/2\\)。未飽和區可用線性模型；若已飽和，比例關係就不再成立。"
+    },
+    {
+      id: "semi-15",
+      difficulty: "進階",
+      concept: "解析度比例估算",
+      intent: "用 \\(d\\propto\\lambda\\) 比較兩種曝光波長。",
+      prompt: "若先忽略數值孔徑差異，光刻最小可分辨尺度可粗略視為與波長成正比。\\(193\\,\\mathrm{nm}\\) 深紫外光改成 \\(13.5\\,\\mathrm{nm}\\) EUV，理想上尺度約可縮小為原來多少？",
+      options: [
+        "\\(13.5/193\\)，約 \\(0.070\\)",
+        "\\(193/13.5\\)，約 \\(14.3\\)",
+        "\\(193+13.5\\)",
+        "不會改變"
+      ],
+      answer: "A",
+      explanation: "若 \\(d\\propto\\lambda\\)，比例為 \\(d_{\\mathrm{EUV}}/d_{193}=13.5/193\\approx0.070\\)。短波長可降低繞射限制，但實際製程還需考慮光學系統與光阻材料。"
+    },
+    {
+      id: "semi-16",
+      difficulty: "進階",
+      concept: "電荷通過電位差的能量",
+      intent: "用 \\(\\Delta E=q\\Delta V\\) 連結 PN 接面位能障壁。",
+      prompt: "一個電子通過 \\(0.60\\,\\mathrm{V}\\) 的電位差時，電能改變量大小為多少？",
+      options: [
+        "\\(0.60\\,\\mathrm{eV}\\)",
+        "\\(1.2\\,\\mathrm{eV}\\)",
+        "\\(6.0\\,\\mathrm{J}\\)",
+        "\\(0\\)"
+      ],
+      answer: "A",
+      explanation: "以電子伏特為單位時，帶一個基本電荷的粒子通過 \\(1\\,\\mathrm{V}\\) 對應 \\(1\\,\\mathrm{eV}\\)。所以 \\(|\\Delta E|=0.60\\,\\mathrm{eV}\\)。"
+    },
+    {
+      id: "semi-17",
+      difficulty: "進階",
+      concept: "LED 能隙與波長",
+      intent: "用 \\(E=hc/\\lambda\\) 估算 LED 發光波長。",
+      prompt: "某 LED 半導體能隙約 \\(2.0\\,\\mathrm{eV}\\)。若光子能量近似等於能隙，發光波長最接近多少？取 \\(hc=1240\\,\\mathrm{eV\\cdot nm}\\)。",
+      options: [
+        "\\(310\\,\\mathrm{nm}\\)",
+        "\\(620\\,\\mathrm{nm}\\)",
+        "\\(1240\\,\\mathrm{nm}\\)",
+        "\\(2480\\,\\mathrm{nm}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(\\lambda=hc/E=1240/2.0=620\\,\\mathrm{nm}\\)。能隙越大，發出光子的波長越短。"
+    },
+    {
+      id: "semi-18",
+      difficulty: "進階",
+      concept: "光電流估算",
+      intent: "用光子數、量子效率與電荷量估算電流。",
+      prompt: "一個光電二極體每秒吸收 \\(5.0\\times10^{15}\\) 個光子，量子效率為 \\(80\\%\\)。若每個有效光子產生一個電子，光電流約為多少？取 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)。",
+      options: [
+        "\\(0.64\\,\\mathrm{mA}\\)",
+        "\\(6.4\\,\\mathrm{mA}\\)",
+        "\\(64\\,\\mathrm{mA}\\)",
+        "\\(0.64\\,\\mathrm{A}\\)"
+      ],
+      answer: "A",
+      explanation: "每秒電子數 \\(N=0.80(5.0\\times10^{15})=4.0\\times10^{15}\\)。電流 \\(I=Ne=(4.0\\times10^{15})(1.6\\times10^{-19})=6.4\\times10^{-4}\\,\\mathrm{A}=0.64\\,\\mathrm{mA}\\)。"
+    },
+    {
+      id: "semi-19",
+      difficulty: "進階",
+      concept: "像素電容與電子數",
+      intent: "用 \\(Q=CV\\) 與 \\(N=Q/e\\) 估算感測器訊號。",
+      prompt: "某 CMOS 像素電容 \\(C=2.0\\,\\mathrm{fF}\\)，累積電壓 \\(V=0.80\\,\\mathrm{V}\\)。若 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)，累積電子數約為多少？",
+      options: [
+        "\\(1.0\\times10^{4}\\)",
+        "\\(1.0\\times10^{7}\\)",
+        "\\(1.0\\times10^{12}\\)",
+        "\\(1.0\\times10^{19}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(Q=CV=(2.0\\times10^{-15})(0.80)=1.6\\times10^{-15}\\,\\mathrm{C}\\)。電子數 \\(N=Q/e=(1.6\\times10^{-15})/(1.6\\times10^{-19})=1.0\\times10^{4}\\)。"
+    },
+    {
+      id: "semi-20",
+      difficulty: "進階",
+      concept: "EUV 干涉微影尺度",
+      intent: "整合短波長與干涉條紋週期。",
+      prompt: "若以 \\(13.5\\,\\mathrm{nm}\\) 的 EUV 做干涉式微影，且 \\(\\theta=30^\\circ\\)，由 \\(p=\\lambda/(2\\sin\\theta)\\) 得條紋週期約為多少？",
+      options: [
+        "\\(6.75\\,\\mathrm{nm}\\)",
+        "\\(13.5\\,\\mathrm{nm}\\)",
+        "\\(27\\,\\mathrm{nm}\\)",
+        "\\(54\\,\\mathrm{nm}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(p=13.5/(2\\times0.5)=13.5\\,\\mathrm{nm}\\)。這顯示短波長搭配大夾角可形成很細的週期條紋。"
+    }
+  ],
+  drone: [
+    {
+      id: "drone-6",
+      difficulty: "基礎",
+      concept: "懸停時單槳升力",
+      intent: "用力平衡估算每個螺旋槳所需升力。",
+      prompt: "質量 \\(1.2\\,\\mathrm{kg}\\) 的四旋翼無人機懸停，取 \\(g=10\\,\\mathrm{m/s^2}\\)。若四個螺旋槳平均分擔升力，每個螺旋槳升力約多少？",
+      options: [
+        "\\(1.2\\,\\mathrm{N}\\)",
+        "\\(3.0\\,\\mathrm{N}\\)",
+        "\\(12\\,\\mathrm{N}\\)",
+        "\\(48\\,\\mathrm{N}\\)"
+      ],
+      answer: "B",
+      explanation: "懸停時總升力 \\(F=mg=1.2\\times10=12\\,\\mathrm{N}\\)。四個螺旋槳平均分擔，單槳升力為 \\(12/4=3.0\\,\\mathrm{N}\\)。"
+    },
+    {
+      id: "drone-7",
+      difficulty: "基礎",
+      concept: "升力與鉛直加速度",
+      intent: "確認學生能用合力方向判斷升降。",
+      prompt: "若無人機總升力大於重力，且機身未傾斜，忽略空氣阻力時它會如何運動？",
+      options: [
+        "向上加速",
+        "向下加速",
+        "水平向前加速",
+        "必定原地偏航"
+      ],
+      answer: "A",
+      explanation: "鉛直合力 \\(\\sum F_y=F_{\\mathrm{lift}}-mg\\)。若 \\(F_{\\mathrm{lift}}>mg\\)，合力向上，無人機向上加速。"
+    },
+    {
+      id: "drone-8",
+      difficulty: "基礎",
+      concept: "yaw、pitch、roll 定義",
+      intent: "釐清三種姿態轉動軸。",
+      prompt: "無人機繞鉛直軸轉向，使機頭朝向改變，這種姿態控制稱為什麼？",
+      options: [
+        "yaw 偏航",
+        "pitch 俯仰",
+        "roll 滾轉",
+        "自由落體"
+      ],
+      answer: "A",
+      explanation: "yaw 是繞鉛直軸的轉動；pitch 是機頭上仰或下俯；roll 是左右側抬高或降低。"
+    },
+    {
+      id: "drone-9",
+      difficulty: "基礎",
+      concept: "反向旋轉與力矩抵消",
+      intent: "理解相反轉向螺旋槳的設計目的。",
+      prompt: "四旋翼常讓兩個螺旋槳順時針、兩個逆時針旋轉。最主要是為了什麼？",
+      options: [
+        "讓反作用力矩互相抵消，減少機身自轉",
+        "讓重力消失",
+        "讓所有螺旋槳都不需要電池",
+        "讓空氣密度變成零"
+      ],
+      answer: "A",
+      explanation: "螺旋槳轉動時，機身受到反作用力矩。相反轉向設計可讓總力矩近似抵消，使懸停更穩定。"
+    },
+    {
+      id: "drone-10",
+      difficulty: "中等",
+      concept: "傾斜推力分解",
+      intent: "用 \\(F_x=F\\sin\\theta\\) 估算水平加速度。",
+      prompt: "質量 \\(2.0\\,\\mathrm{kg}\\) 的無人機總推力為 \\(10\\,\\mathrm{N}\\)，推力相對鉛直方向傾斜 \\(30^\\circ\\)。其水平分量造成的加速度約為多少？",
+      options: [
+        "\\(1.25\\,\\mathrm{m/s^2}\\)",
+        "\\(2.5\\,\\mathrm{m/s^2}\\)",
+        "\\(5.0\\,\\mathrm{m/s^2}\\)",
+        "\\(10\\,\\mathrm{m/s^2}\\)"
+      ],
+      answer: "B",
+      explanation: "水平推力 \\(F_x=F\\sin30^\\circ=10(0.5)=5\\,\\mathrm{N}\\)。水平加速度 \\(a_x=F_x/m=5/2.0=2.5\\,\\mathrm{m/s^2}\\)。"
+    },
+    {
+      id: "drone-11",
+      difficulty: "中等",
+      concept: "傾斜飛行維持高度",
+      intent: "用 \\(F\\cos\\theta=mg\\) 求總推力。",
+      prompt: "無人機質量 \\(1.0\\,\\mathrm{kg}\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。若機身傾斜 \\(20^\\circ\\) 但仍要維持高度，總推力量值約需滿足何式？",
+      options: [
+        "\\(F\\cos20^\\circ=10\\,\\mathrm{N}\\)",
+        "\\(F\\sin20^\\circ=10\\,\\mathrm{N}\\)",
+        "\\(F=0\\)",
+        "\\(F\\tan20^\\circ=0\\)"
+      ],
+      answer: "A",
+      explanation: "維持高度表示鉛直加速度為 0，所以總推力的鉛直分量等於重力：\\(F\\cos20^\\circ=mg=10\\,\\mathrm{N}\\)。"
+    },
+    {
+      id: "drone-12",
+      difficulty: "中等",
+      concept: "力矩估算",
+      intent: "用 \\(\\tau=rF\\) 計算左右升力差造成的力矩。",
+      prompt: "無人機左側升力比右側大 \\(1.0\\,\\mathrm{N}\\)，兩側螺旋槳到中心距離約 \\(0.25\\,\\mathrm{m}\\)。造成的滾轉力矩量級約為多少？",
+      options: [
+        "\\(0.025\\,\\mathrm{N\\cdot m}\\)",
+        "\\(0.25\\,\\mathrm{N\\cdot m}\\)",
+        "\\(2.5\\,\\mathrm{N\\cdot m}\\)",
+        "\\(25\\,\\mathrm{N\\cdot m}\\)"
+      ],
+      answer: "B",
+      explanation: "簡化估算 \\(\\tau=r\\Delta F=(0.25)(1.0)=0.25\\,\\mathrm{N\\cdot m}\\)。力矩使機身產生角加速度。"
+    },
+    {
+      id: "drone-13",
+      difficulty: "中等",
+      concept: "角加速度",
+      intent: "用 \\(\\sum\\tau=I\\alpha\\) 連接力矩與轉動。",
+      prompt: "若機身對某轉軸的轉動慣量 \\(I=0.050\\,\\mathrm{kg\\cdot m^2}\\)，淨力矩 \\(\\tau=0.20\\,\\mathrm{N\\cdot m}\\)，角加速度約為多少？",
+      options: [
+        "\\(0.010\\,\\mathrm{rad/s^2}\\)",
+        "\\(0.25\\,\\mathrm{rad/s^2}\\)",
+        "\\(4.0\\,\\mathrm{rad/s^2}\\)",
+        "\\(10\\,\\mathrm{rad/s^2}\\)"
+      ],
+      answer: "C",
+      explanation: "\\(\\alpha=\\tau/I=0.20/0.050=4.0\\,\\mathrm{rad/s^2}\\)。力矩越大或轉動慣量越小，姿態改變越快。"
+    },
+    {
+      id: "drone-14",
+      difficulty: "中等",
+      concept: "偏航控制",
+      intent: "用兩組反向旋轉螺旋槳的反作用力矩差解釋 yaw。",
+      prompt: "四旋翼要在高度大致不變下偏航，可讓一組順時針螺旋槳升速、另一組逆時針螺旋槳降速，同時調整總升力。主要目的為何？",
+      options: [
+        "製造繞鉛直軸的淨反作用力矩",
+        "讓質量改變",
+        "讓重力變成水平",
+        "讓所有力矩都為零"
+      ],
+      answer: "A",
+      explanation: "偏航需要繞鉛直軸的淨力矩。改變兩組反向旋轉螺旋槳轉速差，可改變反作用力矩平衡；若總升力仍調整到接近 \\(mg\\)，高度可大致維持。"
+    },
+    {
+      id: "drone-15",
+      difficulty: "進階",
+      concept: "承載重量與升力餘裕",
+      intent: "用力平衡判斷載重增加後的轉速需求。",
+      prompt: "無人機加掛酬載後總質量由 \\(1.0\\,\\mathrm{kg}\\) 變為 \\(1.5\\,\\mathrm{kg}\\)。若要繼續懸停，總升力需變為原來多少倍？",
+      options: [
+        "\\(0.50\\) 倍",
+        "\\(1.0\\) 倍",
+        "\\(1.5\\) 倍",
+        "\\(2.25\\) 倍"
+      ],
+      answer: "C",
+      explanation: "懸停所需總升力等於 \\(mg\\)。質量由 \\(1.0\\) 變 \\(1.5\\) 倍，所需總升力也變為 \\(1.5\\) 倍。"
+    },
+    {
+      id: "drone-16",
+      difficulty: "進階",
+      concept: "鉛直加速度計算",
+      intent: "用 \\(F_{\\mathrm{lift}}-mg=ma\\) 求升降加速度。",
+      prompt: "質量 \\(1.0\\,\\mathrm{kg}\\) 的無人機總升力 \\(13\\,\\mathrm{N}\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。若機身未傾斜，鉛直加速度為何？",
+      options: [
+        "向上 \\(3\\,\\mathrm{m/s^2}\\)",
+        "向上 \\(13\\,\\mathrm{m/s^2}\\)",
+        "向下 \\(3\\,\\mathrm{m/s^2}\\)",
+        "0"
+      ],
+      answer: "A",
+      explanation: "淨力 \\(F_{\\mathrm{net}}=13-10=3\\,\\mathrm{N}\\)，所以 \\(a=F_{\\mathrm{net}}/m=3/1.0=3\\,\\mathrm{m/s^2}\\)，方向向上。"
+    },
+    {
+      id: "drone-17",
+      difficulty: "進階",
+      concept: "維持高度時的水平加速度",
+      intent: "整合 \\(F\\cos\\theta=mg\\) 與 \\(F\\sin\\theta=ma_x\\)。",
+      prompt: "無人機傾斜 \\(15^\\circ\\) 前進，且調整推力使高度不變。忽略阻力，水平加速度可寫成哪一式？",
+      options: [
+        "\\(a_x=g\\tan15^\\circ\\)",
+        "\\(a_x=g\\cos15^\\circ\\)",
+        "\\(a_x=g/\\sin15^\\circ\\)",
+        "\\(a_x=0\\)"
+      ],
+      answer: "A",
+      explanation: "維持高度有 \\(F\\cos\\theta=mg\\)，水平分量 \\(F\\sin\\theta=ma_x\\)。兩式相除得 \\(a_x=g\\tan\\theta\\)，代入 \\(\\theta=15^\\circ\\)。"
+    },
+    {
+      id: "drone-18",
+      difficulty: "進階",
+      concept: "角動量守恆與反作用",
+      intent: "從系統角動量觀點理解機身反轉。",
+      prompt: "若單一螺旋槳由靜止快速加速成順時針旋轉，而外界對整個機身與螺旋槳系統的力矩很小，機身最可能受到什麼效果？",
+      options: [
+        "受到反向力矩而有逆時針轉動趨勢",
+        "完全不受任何反作用",
+        "重力方向改變",
+        "電池電壓變為零"
+      ],
+      answer: "A",
+      explanation: "螺旋槳角動量增加時，若外力矩很小，系統總角動量需近似守恆；機身會受到反向力矩，產生反向轉動趨勢。"
+    },
+    {
+      id: "drone-19",
+      difficulty: "進階",
+      concept: "升高所需功率",
+      intent: "用 \\(P=mgh/t\\) 估算爬升的最低平均功率。",
+      prompt: "質量 \\(2.0\\,\\mathrm{kg}\\) 的無人機在 \\(5.0\\,\\mathrm{s}\\) 內升高 \\(10\\,\\mathrm{m}\\)，取 \\(g=10\\,\\mathrm{m/s^2}\\)。忽略損失，增加重力位能所需平均功率至少多少？",
+      options: [
+        "\\(20\\,\\mathrm{W}\\)",
+        "\\(40\\,\\mathrm{W}\\)",
+        "\\(200\\,\\mathrm{W}\\)",
+        "\\(400\\,\\mathrm{W}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(\\Delta U=mgh=(2.0)(10)(10)=200\\,\\mathrm{J}\\)。平均功率 \\(P=\\Delta U/t=200/5.0=40\\,\\mathrm{W}\\)。實際馬達功率會因效率與空氣阻力而更大。"
+    },
+    {
+      id: "drone-20",
+      difficulty: "進階",
+      concept: "螺旋槳轉速與升力比例",
+      intent: "用比例模型處理工程情境。",
+      prompt: "簡化模型中，螺旋槳升力近似與轉速平方成正比。若某螺旋槳轉速變為原來 \\(1.10\\) 倍，升力約變為原來多少？",
+      options: [
+        "\\(1.10\\) 倍",
+        "\\(1.21\\) 倍",
+        "\\(2.20\\) 倍",
+        "\\(0.91\\) 倍"
+      ],
+      answer: "B",
+      explanation: "若 \\(F\\propto \\omega^2\\)，轉速變為 \\(1.10\\) 倍時，升力比例為 \\((1.10)^2=1.21\\)。"
+    }
+  ],
+  optic: [
+    {
+      id: "optic-6",
+      difficulty: "基礎",
+      concept: "相長與相消干涉",
+      intent: "確認學生能由路徑差判斷亮暗紋。",
+      prompt: "雙狹縫干涉中，兩束光到某點的路徑差為 \\(2\\lambda\\)。該點最可能出現什麼？",
+      options: [
+        "亮紋",
+        "暗紋",
+        "完全無法判斷，因為頻率必為零",
+        "折射率一定為零"
+      ],
+      answer: "A",
+      explanation: "路徑差為整數倍波長 \\(m\\lambda\\) 時相長干涉，形成亮紋。\\(2\\lambda\\) 對應 \\(m=2\\)。"
+    },
+    {
+      id: "optic-7",
+      difficulty: "基礎",
+      concept: "條紋間距趨勢",
+      intent: "用 \\(\\Delta y=\\lambda L/d\\) 判斷變因。",
+      prompt: "雙狹縫實驗中，若只把入射光波長變長，其他條件不變，亮紋間距會如何？",
+      options: [
+        "變大",
+        "變小",
+        "不變",
+        "必定變成零"
+      ],
+      answer: "A",
+      explanation: "\\(\\Delta y=\\lambda L/d\\)。當 \\(L\\) 與 \\(d\\) 固定時，\\(\\lambda\\) 越大，條紋間距 \\(\\Delta y\\) 越大。"
+    },
+    {
+      id: "optic-8",
+      difficulty: "基礎",
+      concept: "光電效應中的頻率",
+      intent: "區分頻率與光強對光電子能量的影響。",
+      prompt: "光電效應中，若入射光頻率高於閾頻，增加光強但頻率不變，最直接增加的是什麼？",
+      options: [
+        "光電子數量或光電流",
+        "單一光子能量",
+        "普朗克常數",
+        "金屬逸出功"
+      ],
+      answer: "A",
+      explanation: "光強增加代表每秒入射光子數增加，因此光電子數量與光電流可增加；單一光子能量仍為 \\(E=hf\\)，不因光強而改變。"
+    },
+    {
+      id: "optic-9",
+      difficulty: "基礎",
+      concept: "CMOS 感測器",
+      intent: "理解感測器把光訊號轉成電訊號。",
+      prompt: "CMOS/CCD 感測器中的像素主要偵測哪一種量，並轉成影像亮度？",
+      options: [
+        "吸收光子後產生並累積的電荷量",
+        "空氣中的聲壓",
+        "鏡頭質量",
+        "地球磁場方向"
+      ],
+      answer: "A",
+      explanation: "每個像素可吸收光子並產生電子與電洞。累積電荷量越多，讀出的訊號通常越大，影像亮度也越高。"
+    },
+    {
+      id: "optic-10",
+      difficulty: "中等",
+      concept: "由條紋間距求波長",
+      intent: "用 \\(\\lambda=\\Delta y d/L\\) 完成反推。",
+      prompt: "雙狹縫間距 \\(d=0.50\\,\\mathrm{mm}\\)，螢幕距離 \\(L=2.0\\,\\mathrm{m}\\)，亮紋間距 \\(\\Delta y=2.5\\,\\mathrm{mm}\\)。光波長約為多少？",
+      options: [
+        "\\(125\\,\\mathrm{nm}\\)",
+        "\\(250\\,\\mathrm{nm}\\)",
+        "\\(625\\,\\mathrm{nm}\\)",
+        "\\(2500\\,\\mathrm{nm}\\)"
+      ],
+      answer: "C",
+      explanation: "\\(\\lambda=\\Delta y d/L=(2.5\\times10^{-3})(0.50\\times10^{-3})/2.0=6.25\\times10^{-7}\\,\\mathrm{m}=625\\,\\mathrm{nm}\\)。"
+    },
+    {
+      id: "optic-11",
+      difficulty: "中等",
+      concept: "抗反射膜厚",
+      intent: "用四分之一波長膜厚估算。",
+      prompt: "某抗反射鍍膜折射率 \\(n=1.38\\)，欲讓真空波長 \\(552\\,\\mathrm{nm}\\) 的光近似相消反射，四分之一波長膜厚約多少？",
+      options: [
+        "\\(50\\,\\mathrm{nm}\\)",
+        "\\(100\\,\\mathrm{nm}\\)",
+        "\\(200\\,\\mathrm{nm}\\)",
+        "\\(552\\,\\mathrm{nm}\\)"
+      ],
+      answer: "B",
+      explanation: "四分之一波長膜厚 \\(t=\\lambda/(4n)=552/(4\\times1.38)=100\\,\\mathrm{nm}\\)。此厚度讓兩道反射光可近似相消。"
+    },
+    {
+      id: "optic-12",
+      difficulty: "中等",
+      concept: "光電效應最大動能",
+      intent: "用 \\(K_{\\max}=hf-\\phi\\) 計算。",
+      prompt: "某光子能量為 \\(2.5\\,\\mathrm{eV}\\)，金屬逸出功為 \\(1.8\\,\\mathrm{eV}\\)。光電子最大動能為多少？",
+      options: [
+        "\\(0.7\\,\\mathrm{eV}\\)",
+        "\\(1.8\\,\\mathrm{eV}\\)",
+        "\\(2.5\\,\\mathrm{eV}\\)",
+        "\\(4.3\\,\\mathrm{eV}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(K_{\\max}=hf-\\phi=2.5-1.8=0.7\\,\\mathrm{eV}\\)。逸出功是光電子離開金屬表面需克服的最低能量。"
+    },
+    {
+      id: "optic-13",
+      difficulty: "中等",
+      concept: "感測器光電流",
+      intent: "用光子數與電子電量估算電流。",
+      prompt: "某感測器每秒吸收 \\(1.0\\times10^{12}\\) 個光子，量子效率為 \\(50\\%\\)。若每個有效光子產生一個電子，電流約多少？取 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)。",
+      options: [
+        "\\(8.0\\times10^{-8}\\,\\mathrm{A}\\)",
+        "\\(1.6\\times10^{-7}\\,\\mathrm{A}\\)",
+        "\\(8.0\\times10^{-4}\\,\\mathrm{A}\\)",
+        "\\(1.6\\,\\mathrm{A}\\)"
+      ],
+      answer: "A",
+      explanation: "每秒有效電子數 \\(N=0.50(1.0\\times10^{12})=5.0\\times10^{11}\\)。電流 \\(I=Ne=(5.0\\times10^{11})(1.6\\times10^{-19})=8.0\\times10^{-8}\\,\\mathrm{A}\\)。"
+    },
+    {
+      id: "optic-14",
+      difficulty: "中等",
+      concept: "薄膜相消條件",
+      intent: "用光程差判斷相消反射。",
+      prompt: "薄膜內折射率為 \\(n\\)，正入射光在膜內往返一次的光程差近似為多少？",
+      options: [
+        "\\(2nt\\)",
+        "\\(nt/2\\)",
+        "\\(t/n\\)",
+        "\\(0\\)"
+      ],
+      answer: "A",
+      explanation: "光在薄膜中下行再上行，幾何距離為 \\(2t\\)，乘上折射率得光程差約 \\(2nt\\)。再配合反射時的相位變化，可判斷相消或相長。"
+    },
+    {
+      id: "optic-15",
+      difficulty: "進階",
+      concept: "繞射角解析度",
+      intent: "用 \\(\\theta\\approx1.22\\lambda/D\\) 估算光學解析度。",
+      prompt: "相機鏡頭孔徑 \\(D=2.0\\,\\mathrm{mm}\\)，光波長 \\(\\lambda=500\\,\\mathrm{nm}\\)。繞射造成的最小角度量級 \\(\\theta\\approx1.22\\lambda/D\\) 約為多少？",
+      options: [
+        "\\(3.1\\times10^{-4}\\,\\mathrm{rad}\\)",
+        "\\(3.1\\times10^{-2}\\,\\mathrm{rad}\\)",
+        "\\(0.31\\,\\mathrm{rad}\\)",
+        "\\(3.1\\,\\mathrm{rad}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(\\theta\\approx1.22(500\\times10^{-9})/(2.0\\times10^{-3})=3.05\\times10^{-4}\\,\\mathrm{rad}\\)。孔徑越大或波長越短，繞射限制角度越小。"
+    },
+    {
+      id: "optic-16",
+      difficulty: "進階",
+      concept: "像素飽和電子數",
+      intent: "用 \\(Q=CV\\) 與基本電荷估算滿井容量。",
+      prompt: "某像素電容 \\(C=2.0\\,\\mathrm{fF}\\)，飽和電壓約 \\(1.0\\,\\mathrm{V}\\)。可累積電子數約多少？取 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)。",
+      options: [
+        "\\(1.25\\times10^{4}\\)",
+        "\\(1.25\\times10^{7}\\)",
+        "\\(2.0\\times10^{15}\\)",
+        "\\(3.2\\times10^{-34}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(Q=CV=(2.0\\times10^{-15})(1.0)=2.0\\times10^{-15}\\,\\mathrm{C}\\)。電子數 \\(N=Q/e\\approx(2.0\\times10^{-15})/(1.6\\times10^{-19})=1.25\\times10^4\\)。"
+    },
+    {
+      id: "optic-17",
+      difficulty: "進階",
+      concept: "曝光時間與訊號",
+      intent: "用線性累積模型判斷影像亮度。",
+      prompt: "同一像素未飽和時，若入射光強固定，曝光時間由 \\(1/100\\,\\mathrm{s}\\) 改為 \\(1/25\\,\\mathrm{s}\\)，累積訊號約變為原來幾倍？",
+      options: [
+        "\\(1/4\\)",
+        "\\(2\\)",
+        "\\(4\\)",
+        "\\(25\\)"
+      ],
+      answer: "C",
+      explanation: "曝光時間比例為 \\((1/25)/(1/100)=4\\)。未飽和時累積電荷量與曝光時間成正比，所以訊號約變為 4 倍。"
+    },
+    {
+      id: "optic-18",
+      difficulty: "進階",
+      concept: "干涉式微影週期",
+      intent: "把雙狹縫觀念延伸到光阻週期圖形。",
+      prompt: "兩束 \\(400\\,\\mathrm{nm}\\) 相干光在光阻表面交會，\\(\\theta=45^\\circ\\)。用 \\(p=\\lambda/(2\\sin\\theta)\\) 估算條紋週期，最接近多少？",
+      options: [
+        "\\(141\\,\\mathrm{nm}\\)",
+        "\\(283\\,\\mathrm{nm}\\)",
+        "\\(400\\,\\mathrm{nm}\\)",
+        "\\(566\\,\\mathrm{nm}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(p=400/(2\\sin45^\\circ)=400/(2\\times0.707)\\approx283\\,\\mathrm{nm}\\)。這類明暗週期可轉成光阻圖形。"
+    },
+    {
+      id: "optic-19",
+      difficulty: "進階",
+      concept: "光電效應截止波長",
+      intent: "用 \\(K=hc(1/\\lambda-1/\\lambda_0)\\) 計算光電子動能。",
+      prompt: "某金屬截止波長 \\(\\lambda_0=500\\,\\mathrm{nm}\\)。以 \\(400\\,\\mathrm{nm}\\) 光照射，取 \\(hc=1240\\,\\mathrm{eV\\cdot nm}\\)，最大動能約多少？",
+      options: [
+        "\\(0.62\\,\\mathrm{eV}\\)",
+        "\\(1.24\\,\\mathrm{eV}\\)",
+        "\\(2.48\\,\\mathrm{eV}\\)",
+        "\\(3.10\\,\\mathrm{eV}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(K_{\\max}=hc\\left(1/\\lambda-1/\\lambda_0\\right)=1240(1/400-1/500)=0.62\\,\\mathrm{eV}\\)。"
+    },
+    {
+      id: "optic-20",
+      difficulty: "進階",
+      concept: "薄膜干涉與感測器效率",
+      intent: "整合反射相消與光電轉換效率。",
+      prompt: "感測器表面加抗反射膜後，進入半導體的光子數由 \\(8.0\\times10^{11}\\,\\mathrm{s^{-1}}\\) 增為 \\(1.2\\times10^{12}\\,\\mathrm{s^{-1}}\\)。若量子效率不變，光電流變為原來多少倍？",
+      options: [
+        "\\(0.67\\) 倍",
+        "\\(1.0\\) 倍",
+        "\\(1.5\\) 倍",
+        "\\(2.0\\) 倍"
+      ],
+      answer: "C",
+      explanation: "量子效率不變時，光電流與進入半導體的光子數成正比。比例為 \\((1.2\\times10^{12})/(8.0\\times10^{11})=1.5\\)。"
+    }
+  ],
+  cooling: [
+    {
+      id: "cooling-6",
+      difficulty: "基礎",
+      concept: "電能轉熱能",
+      intent: "確認學生能用能量守恆理解伺服器散熱。",
+      prompt: "AI 伺服器耗電後，若忽略少量訊號能與聲音，電能最後大多轉成什麼？",
+      options: [
+        "熱能",
+        "重力位能",
+        "核能",
+        "真空能"
+      ],
+      answer: "A",
+      explanation: "電子元件有電阻與開關損耗，消耗的電能最後大多以熱能形式釋放，因此高功率運算必須散熱。"
+    },
+    {
+      id: "cooling-7",
+      difficulty: "基礎",
+      concept: "三種熱傳方式",
+      intent: "辨認熱傳導、熱對流與熱輻射。",
+      prompt: "散熱片把晶片熱量傳到金屬鰭片內部，主要屬於哪一種熱傳方式？",
+      options: [
+        "熱傳導",
+        "熱對流",
+        "核融合",
+        "光電效應"
+      ],
+      answer: "A",
+      explanation: "固體內部由高溫處往低溫處傳熱，主要是熱傳導；鰭片表面再把熱交給流動空氣或冷卻液，則屬於熱對流。"
+    },
+    {
+      id: "cooling-8",
+      difficulty: "基礎",
+      concept: "水的高比熱",
+      intent: "用 \\(Q=mc\\Delta T\\) 判斷液冷優勢。",
+      prompt: "水冷系統常用水作冷卻液。以下哪個敘述最能用高三熱學解釋其優勢？",
+      options: [
+        "水的比熱大，同樣溫升可帶走較多熱量",
+        "水會讓能量消失",
+        "水不具有質量",
+        "水能把重力變成電流"
+      ],
+      answer: "A",
+      explanation: "\\(Q=mc\\Delta T\\)。在質量流率與溫升相近時，比熱 \\(c\\) 越大，每秒可帶走的熱量越多。"
+    },
+    {
+      id: "cooling-9",
+      difficulty: "基礎",
+      concept: "PUE 定義",
+      intent: "確認學生理解 PUE 的物理意義。",
+      prompt: "PUE 定義為資料中心總用電功率除以 IT 設備用電功率。若 PUE 越接近 \\(1\\)，代表什麼？",
+      options: [
+        "非 IT 額外耗能較少，能源效率較好",
+        "伺服器完全不耗電",
+        "冷卻功率無限大",
+        "資料中心違反能量守恆"
+      ],
+      answer: "A",
+      explanation: "\\(PUE=P_{\\mathrm{total}}/P_{\\mathrm{IT}}\\)。理想情況接近 \\(1\\)，表示總用電幾乎都用在 IT 設備，冷卻與供電損耗較少。"
+    },
+    {
+      id: "cooling-10",
+      difficulty: "中等",
+      concept: "功率與耗能",
+      intent: "用 \\(E=Pt\\) 估算伺服器耗電。",
+      prompt: "一台 AI 伺服器功率 \\(2.0\\,\\mathrm{kW}\\)，連續運轉 \\(1.0\\,\\mathrm{h}\\)。耗能為多少？",
+      options: [
+        "\\(0.5\\,\\mathrm{kWh}\\)",
+        "\\(2.0\\,\\mathrm{kWh}\\)",
+        "\\(20\\,\\mathrm{kWh}\\)",
+        "\\(200\\,\\mathrm{kWh}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(E=Pt=(2.0\\,\\mathrm{kW})(1.0\\,\\mathrm{h})=2.0\\,\\mathrm{kWh}\\)。若換成焦耳，\\(2.0\\,\\mathrm{kWh}=7.2\\times10^6\\,\\mathrm{J}\\)。"
+    },
+    {
+      id: "cooling-11",
+      difficulty: "中等",
+      concept: "水吸熱量",
+      intent: "用 \\(Q=mc\\Delta T\\) 求水量。",
+      prompt: "水吸收 \\(84\\,\\mathrm{kJ}\\) 熱量後升溫 \\(10^\\circ\\mathrm{C}\\)。取 \\(c=4200\\,\\mathrm{J/(kg\\cdot ^\\circ C)}\\)，水質量約多少？",
+      options: [
+        "\\(0.20\\,\\mathrm{kg}\\)",
+        "\\(2.0\\,\\mathrm{kg}\\)",
+        "\\(20\\,\\mathrm{kg}\\)",
+        "\\(200\\,\\mathrm{kg}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(m=Q/(c\\Delta T)=84000/(4200\\times10)=2.0\\,\\mathrm{kg}\\)。"
+    },
+    {
+      id: "cooling-12",
+      difficulty: "中等",
+      concept: "液冷質量流率",
+      intent: "用 \\(P=\\dot{m}c\\Delta T\\) 求流率。",
+      prompt: "液冷系統需移除 \\(30\\,\\mathrm{kW}\\) 熱量，冷卻水溫升 \\(10^\\circ\\mathrm{C}\\)。取 \\(c=4200\\,\\mathrm{J/(kg\\cdot ^\\circ C)}\\)，水的質量流率約多少？",
+      options: [
+        "\\(0.071\\,\\mathrm{kg/s}\\)",
+        "\\(0.71\\,\\mathrm{kg/s}\\)",
+        "\\(7.1\\,\\mathrm{kg/s}\\)",
+        "\\(71\\,\\mathrm{kg/s}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(\\dot{m}=P/(c\\Delta T)=30000/(4200\\times10)\\approx0.71\\,\\mathrm{kg/s}\\)。"
+    },
+    {
+      id: "cooling-13",
+      difficulty: "中等",
+      concept: "PUE 與額外用電",
+      intent: "由 PUE 反推非 IT 用電。",
+      prompt: "某資料中心 IT 設備功率 \\(8.0\\,\\mathrm{MW}\\)，PUE 為 \\(1.25\\)。整體總功率與非 IT 額外功率分別為何？",
+      options: [
+        "\\(10\\,\\mathrm{MW}\\)、\\(2\\,\\mathrm{MW}\\)",
+        "\\(8\\,\\mathrm{MW}\\)、\\(1.25\\,\\mathrm{MW}\\)",
+        "\\(6.4\\,\\mathrm{MW}\\)、\\(0\\)",
+        "\\(1.25\\,\\mathrm{MW}\\)、\\(8\\,\\mathrm{MW}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(P_{\\mathrm{total}}=PUE\\times P_{\\mathrm{IT}}=1.25\\times8.0=10\\,\\mathrm{MW}\\)。非 IT 額外功率為 \\(10-8=2\\,\\mathrm{MW}\\)。"
+    },
+    {
+      id: "cooling-14",
+      difficulty: "中等",
+      concept: "PUE 改善效益",
+      intent: "用 PUE 計算節能量。",
+      prompt: "IT 功率固定為 \\(10\\,\\mathrm{MW}\\)。若 PUE 從 \\(1.40\\) 降至 \\(1.20\\)，總功率減少多少？",
+      options: [
+        "\\(0.2\\,\\mathrm{MW}\\)",
+        "\\(2.0\\,\\mathrm{MW}\\)",
+        "\\(10\\,\\mathrm{MW}\\)",
+        "\\(20\\,\\mathrm{MW}\\)"
+      ],
+      answer: "B",
+      explanation: "原總功率 \\(1.40\\times10=14\\,\\mathrm{MW}\\)，新總功率 \\(1.20\\times10=12\\,\\mathrm{MW}\\)，減少 \\(2.0\\,\\mathrm{MW}\\)。"
+    },
+    {
+      id: "cooling-15",
+      difficulty: "進階",
+      concept: "熱阻模型",
+      intent: "用 \\(\\Delta T=PR_{\\theta}\\) 估算晶片溫升。",
+      prompt: "某 GPU 功率 \\(300\\,\\mathrm{W}\\)，晶片到冷卻液的等效熱阻 \\(R_{\\theta}=0.20^\\circ\\mathrm{C/W}\\)。溫升約為多少？",
+      options: [
+        "\\(1.5^\\circ\\mathrm{C}\\)",
+        "\\(15^\\circ\\mathrm{C}\\)",
+        "\\(60^\\circ\\mathrm{C}\\)",
+        "\\(1500^\\circ\\mathrm{C}\\)"
+      ],
+      answer: "C",
+      explanation: "熱阻模型 \\(\\Delta T=PR_{\\theta}\\)。代入 \\(\\Delta T=300\\times0.20=60^\\circ\\mathrm{C}\\)。"
+    },
+    {
+      id: "cooling-16",
+      difficulty: "進階",
+      concept: "對流散熱估算",
+      intent: "用 \\(P=hA\\Delta T\\) 做量級估算。",
+      prompt: "某散熱器有效面積 \\(A=0.50\\,\\mathrm{m^2}\\)，對流係數 \\(h=80\\,\\mathrm{W/(m^2\\cdot ^\\circ C)}\\)，溫差 \\(\\Delta T=20^\\circ\\mathrm{C}\\)。可帶走功率約多少？",
+      options: [
+        "\\(80\\,\\mathrm{W}\\)",
+        "\\(400\\,\\mathrm{W}\\)",
+        "\\(800\\,\\mathrm{W}\\)",
+        "\\(8000\\,\\mathrm{W}\\)"
+      ],
+      answer: "C",
+      explanation: "\\(P=hA\\Delta T=80\\times0.50\\times20=800\\,\\mathrm{W}\\)。增大面積、流速或溫差可提高對流散熱。"
+    },
+    {
+      id: "cooling-17",
+      difficulty: "進階",
+      concept: "風冷與液冷比較",
+      intent: "用比熱與密度比較單位體積帶熱能力。",
+      prompt: "若同樣體積流量下，水比空氣更能帶走熱量，最主要可由哪些物理量理解？",
+      options: [
+        "水的密度與比熱都較大",
+        "水沒有溫度",
+        "空氣不遵守熱學定律",
+        "液冷不需要能量守恆"
+      ],
+      answer: "A",
+      explanation: "每秒帶走熱量可估為 \\(P=\\dot{m}c\\Delta T\\)，而 \\(\\dot{m}=\\rho\\dot{V}\\)。同體積流量 \\(\\dot{V}\\) 下，密度 \\(\\rho\\) 與比熱 \\(c\\) 較大者能帶走較多熱。"
+    },
+    {
+      id: "cooling-18",
+      difficulty: "進階",
+      concept: "GPU 叢集液冷流率",
+      intent: "整合總功率與水冷流率估算。",
+      prompt: "資料中心一排伺服器含 \\(100\\) 顆 GPU，每顆耗電 \\(700\\,\\mathrm{W}\\)。若全部熱量由水帶走，水溫升 \\(7.0^\\circ\\mathrm{C}\\)，取 \\(c=4200\\,\\mathrm{J/(kg\\cdot ^\\circ C)}\\)，需質量流率約多少？",
+      options: [
+        "\\(0.24\\,\\mathrm{kg/s}\\)",
+        "\\(2.4\\,\\mathrm{kg/s}\\)",
+        "\\(24\\,\\mathrm{kg/s}\\)",
+        "\\(240\\,\\mathrm{kg/s}\\)"
+      ],
+      answer: "B",
+      explanation: "總功率 \\(P=100\\times700=70000\\,\\mathrm{W}\\)。\\(\\dot{m}=P/(c\\Delta T)=70000/(4200\\times7.0)\\approx2.4\\,\\mathrm{kg/s}\\)。"
+    },
+    {
+      id: "cooling-19",
+      difficulty: "進階",
+      concept: "廢熱再利用",
+      intent: "用能量守恆估算廢熱可加熱水量。",
+      prompt: "某系統回收 \\(4.2\\times10^6\\,\\mathrm{J}\\) 廢熱用來加熱水，使水升溫 \\(20^\\circ\\mathrm{C}\\)。取 \\(c=4200\\,\\mathrm{J/(kg\\cdot ^\\circ C)}\\)，可加熱水質量約多少？",
+      options: [
+        "\\(5\\,\\mathrm{kg}\\)",
+        "\\(50\\,\\mathrm{kg}\\)",
+        "\\(500\\,\\mathrm{kg}\\)",
+        "\\(5000\\,\\mathrm{kg}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(m=Q/(c\\Delta T)=(4.2\\times10^6)/(4200\\times20)=50\\,\\mathrm{kg}\\)。廢熱不是消失，而是可轉移到其他物體。"
+    },
+    {
+      id: "cooling-20",
+      difficulty: "進階",
+      concept: "能源效率與耗電成本",
+      intent: "用功率、時間與 PUE 估算整體耗能。",
+      prompt: "IT 設備功率 \\(5.0\\,\\mathrm{MW}\\)，PUE 為 \\(1.30\\)。連續運轉 \\(2.0\\,\\mathrm{h}\\)，整座資料中心耗能約多少？",
+      options: [
+        "\\(10\\,\\mathrm{MWh}\\)",
+        "\\(13\\,\\mathrm{MWh}\\)",
+        "\\(6.5\\,\\mathrm{MWh}\\)",
+        "\\(1.3\\,\\mathrm{MWh}\\)"
+      ],
+      answer: "B",
+      explanation: "總功率 \\(P_{\\mathrm{total}}=1.30\\times5.0=6.5\\,\\mathrm{MW}\\)。耗能 \\(E=Pt=6.5\\times2.0=13\\,\\mathrm{MWh}\\)。"
+    }
+  ]
+};
+
+const pretestDifficultyRank = { "基礎": 0, "中等": 1, "進階": 2 };
+for (const group of pretestData.groups) {
+  group.questions.push(...(pretestExtraQuestions[group.id] || []));
+  group.questions.sort((a, b) => {
+    const rankDelta = (pretestDifficultyRank[a.difficulty] ?? 99) - (pretestDifficultyRank[b.difficulty] ?? 99);
+    if (rankDelta) return rankDelta;
+    return Number(a.id.split("-")[1]) - Number(b.id.split("-")[1]);
+  });
+}
+const pretestQuestionTotal = pretestData.groups.reduce((sum, group) => sum + group.questions.length, 0);
 
 fs.writeFileSync(
   dataPath,
@@ -923,6 +1845,87 @@ const site = String.raw`<!doctype html>
       line-height: 1.65;
       overflow-wrap: break-word;
     }
+    .concept-diagram {
+      margin: 14px 0;
+      padding: 12px;
+      border: 1px solid #c7d2e5;
+      border-radius: 8px;
+      background: #f8fbff;
+    }
+    .concept-diagram > svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .concept-diagram mjx-container svg {
+      display: inline;
+      width: auto;
+      max-width: none;
+      height: auto;
+    }
+    .concept-diagram p {
+      margin: 10px 0 0;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .concept-diagram .label {
+      font: 700 16px "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      fill: #0f172a;
+      paint-order: stroke;
+      stroke: #fff;
+      stroke-width: 5px;
+      stroke-linejoin: round;
+    }
+    .concept-diagram .small-label {
+      font-size: 13px;
+      fill: #475569;
+    }
+    .pretest-topic-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .topic-tab {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      min-height: 64px;
+      padding: 10px 12px;
+      border: 1px solid #c7d2e5;
+      border-radius: 8px;
+      background: #fff;
+      color: #0f2d52;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .topic-tab:hover {
+      border-color: #2563eb;
+      background: #f4f8ff;
+    }
+    .topic-tab.active {
+      border-color: #2563eb;
+      background: #eaf3ff;
+      box-shadow: inset 0 0 0 1px #2563eb;
+    }
+    .topic-tab svg {
+      width: 36px;
+      height: 36px;
+      color: #2563eb;
+    }
+    .topic-tab strong,
+    .topic-tab span {
+      display: block;
+      overflow-wrap: break-word;
+    }
+    .topic-tab span {
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.35;
+    }
     .formula-box,
     .ask-box,
     .definition-box,
@@ -1097,6 +2100,9 @@ const site = String.raw`<!doctype html>
       .question-list { max-height: none; }
       .bar-row { grid-template-columns: 82px 1fr 44px; }
       .pretest-grid, .trend-list, .theme-layout { grid-template-columns: 1fr; }
+      .pretest-topic-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .topic-tab { grid-template-columns: 34px minmax(0, 1fr); padding: 9px; }
+      .topic-tab svg { width: 30px; height: 30px; }
       .pretest-nav { position: static; }
       .pretest-quiz-shell { max-height: none; overflow: visible; padding-right: 0; }
     }
@@ -1190,6 +2196,49 @@ const site = String.raw`<!doctype html>
             <div class="theme-layout">
               <div>
                 <p>半導體製程可用「材料導電性可被控制」和「光把圖形轉到晶圓」兩條主線理解。矽晶圓先被塗上光阻，光刻 Photolithography 讓光罩圖形曝光在光阻上；顯影後保留下來的光阻可當作保護層，未被保護處再經蝕刻或離子佈植，形成電路結構。若用兩束相干光在光阻上形成明暗條紋，也可利用干涉強度分布製作週期性微結構，這就是干涉式微影的基本想法。</p>
+                <div class="concept-diagram">
+                  <svg viewBox="0 0 760 430" role="img" aria-label="干涉式微影示意圖">
+                    <defs>
+                      <marker id="beamArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"></path>
+                      </marker>
+                      <marker id="periodArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"></path>
+                      </marker>
+                    </defs>
+                    <rect x="70" y="286" width="620" height="48" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"></rect>
+                    <rect x="70" y="334" width="620" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"></rect>
+                    <line x1="380" y1="74" x2="380" y2="286" stroke="#64748b" stroke-dasharray="8 8" stroke-width="2"></line>
+                    <line x1="250" y1="76" x2="352" y2="272" stroke="#2563eb" stroke-width="8" stroke-linecap="round" marker-end="url(#beamArrow)"></line>
+                    <line x1="510" y1="76" x2="408" y2="272" stroke="#7c3aed" stroke-width="8" stroke-linecap="round" marker-end="url(#beamArrow)"></line>
+                    <path d="M 338 134 A 58 58 0 0 1 422 134" fill="none" stroke="#64748b" stroke-width="2"></path>
+                    <path d="M 356 118 A 30 30 0 0 1 380 108" fill="none" stroke="#64748b" stroke-width="2"></path>
+                    <path d="M 380 108 A 30 30 0 0 1 404 118" fill="none" stroke="#64748b" stroke-width="2"></path>
+                    <path d="M 112 236 C 142 214 172 214 202 236 S 262 258 292 236 S 352 214 382 236 S 442 258 472 236 S 532 214 562 236 S 622 258 652 236" fill="none" stroke="#0f172a" stroke-width="3"></path>
+                    <line x1="110" y1="286" x2="650" y2="286" stroke="#64748b" stroke-width="1.5"></line>
+                    <rect x="112" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
+                    <rect x="202" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
+                    <rect x="292" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
+                    <rect x="382" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
+                    <rect x="472" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
+                    <rect x="562" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
+                    <line x1="129" y1="272" x2="219" y2="272" stroke="#334155" stroke-width="2" marker-start="url(#periodArrow)" marker-end="url(#periodArrow)"></line>
+                    <line x1="129" y1="260" x2="129" y2="282" stroke="#334155" stroke-width="2"></line>
+                    <line x1="219" y1="260" x2="219" y2="282" stroke="#334155" stroke-width="2"></line>
+                    <text x="232" y="278" class="label small-label">週期 p</text>
+                    <text x="206" y="52" class="label">相干光 1</text>
+                    <text x="466" y="52" class="label">相干光 2</text>
+                    <text x="430" y="122" class="label small-label">兩束光夾角 2θ</text>
+                    <text x="321" y="120" class="label small-label">半角 θ</text>
+                    <text x="112" y="224" class="label small-label">光阻表面光強 I(x)</text>
+                    <text x="116" y="318" class="label small-label">亮紋曝光較強</text>
+                    <text x="450" y="318" class="label small-label">暗紋曝光較弱</text>
+                    <text x="336" y="317" class="label">光阻層</text>
+                    <text x="332" y="372" class="label">矽晶圓</text>
+                    <text x="92" y="420" class="label small-label">顯影後得到週期性光阻圖形，再用蝕刻把圖形轉移到晶圓；保留或移除取決於正光阻或負光阻。</text>
+                  </svg>
+                  <p>兩束相干平面波對稱入射，單束光與法線夾角為 \(\theta\)，兩束光夾角為 \(2\theta\)。在光阻表面距中心 \(x\) 的位置，兩束光路徑差可寫成 \(\Delta=2x\sin\theta\)；亮紋條件為 \(\Delta=m\lambda\)，暗紋條件為 \(\Delta=\left(m+\frac{1}{2}\right)\lambda\)。相鄰亮紋間距為 \(p=\lambda/(2\sin\theta)\)。顯影後先得到週期性光阻圖形，再以蝕刻把圖形轉移到矽晶圓。</p>
+                </div>
                 <p>EUV 使用約 \(13.5\,\mathrm{nm}\) 的極紫外光。從高三波動觀點看，曝光圖形的最小可分辨尺度受繞射限制影響，波長越短，繞射造成的模糊越小，因此更有利於做出細線寬。摻雜則是把少量雜質原子放入矽晶格，改變自由電子或電洞的數量；P 型、N 型半導體接在一起形成 PN 接面，內建電場能分離電子與電洞，連結到 LED、太陽能電池、CMOS 感測器等元件。</p>
                 <ul>
                   <li>矽晶圓、光刻、EUV、繞射限制</li>
@@ -1283,8 +2332,8 @@ const site = String.raw`<!doctype html>
                 </ul>
               </div>
               <div>
-                <div class="definition-box"><strong>名詞定義：</strong>PUE 是 Power Usage Effectiveness，定義為資料中心總用電除以 IT 設備用電：\(PUE=P_{\rm total}/P_{\rm IT}\)。理想值接近 1，表示大多數電能都用在伺服器本身，額外冷卻與供電損耗較少。</div>
-                <div class="formula-box">高三必懂公式：\(Q=mc\Delta T\)、\(P=E/t\)、\(PUE=P_{\rm total}/P_{\rm IT}\)。</div>
+                <div class="definition-box"><strong>名詞定義：</strong>PUE 是 Power Usage Effectiveness，定義為資料中心總用電除以 IT 設備用電：\(PUE=P_{\mathrm{total}}/P_{\mathrm{IT}}\)。理想值接近 1，表示大多數電能都用在伺服器本身，額外冷卻與供電損耗較少。</div>
+                <div class="formula-box">高三必懂公式：\(Q=mc\Delta T\)、\(P=E/t\)、\(PUE=P_{\mathrm{total}}/P_{\mathrm{IT}}\)。</div>
                 <div class="ask-box">可能分科測驗問法：冷卻水流量如何估算？PUE 怎麼判讀？為什麼液冷比風冷適合高功率設備？</div>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
@@ -1304,7 +2353,7 @@ const site = String.raw`<!doctype html>
           <h3>互動式預試題</h3>
           <div class="pretest-toolbar">
             <div>
-              <div class="pretest-score" id="pretestScore">目前答對 0 / 20 題，總分 0 分</div>
+              <div class="pretest-score" id="pretestScore">目前答對 0 / ${pretestQuestionTotal} 題，已作答 0 題，總分 0 分</div>
               <div class="small">學生模式作答後顯示解析；教師模式直接顯示答案、解析與命題意圖。</div>
             </div>
             <div class="pretest-mode" aria-label="預試題模式">
@@ -1313,6 +2362,7 @@ const site = String.raw`<!doctype html>
               <button type="button" class="pretest-reset" id="pretestReset">重新作答</button>
             </div>
           </div>
+          <div class="pretest-topic-tabs" id="pretestTopicTabs" aria-label="預試題主題切換"></div>
           <div class="pretest-quiz-shell" id="pretestQuestions"></div>
         </article>
       </div>
@@ -1322,7 +2372,7 @@ const site = String.raw`<!doctype html>
     const DATA = ${JSON.stringify(payload)};
     const PRETEST_DATA = ${JSON.stringify(pretestData)};
     const state = { year: DATA.exams[0]?.year };
-    const pretestState = { mode: "student", answers: {} };
+    const pretestState = { mode: "student", answers: {}, activeTopic: PRETEST_DATA.groups[0]?.id || "" };
     const $ = (id) => document.getElementById(id);
     const assetVersion = encodeURIComponent(DATA.generatedAt || "");
     const linkLabels = {
@@ -1650,15 +2700,12 @@ const site = String.raw`<!doctype html>
       return PRETEST_DATA.groups.flatMap((group) => group.questions);
     }
 
-    function pretestQuestionNumber(id) {
-      return allPretestQuestions().findIndex((question) => question.id === id) + 1;
-    }
-
     function updatePretestScore() {
       const questions = allPretestQuestions();
       const correct = questions.filter((question) => pretestState.answers[question.id] === question.answer).length;
       const answered = questions.filter((question) => pretestState.answers[question.id]).length;
-      $("pretestScore").textContent = "目前答對 " + correct + " / " + questions.length + " 題，已作答 " + answered + " 題，總分 " + (correct * 5) + " 分";
+      const score = questions.length ? Math.round((correct / questions.length) * 100) : 0;
+      $("pretestScore").textContent = "目前答對 " + correct + " / " + questions.length + " 題，已作答 " + answered + " 題，總分 " + score + " 分";
     }
 
     function pretestOptionClass(question, letter) {
@@ -1670,7 +2717,35 @@ const site = String.raw`<!doctype html>
       return "";
     }
 
-    function renderPretestQuestion(question) {
+    function pretestTopicLabel(id) {
+      return {
+        semi: "半導體製程",
+        drone: "無人機操控",
+        optic: "干涉與感測",
+        cooling: "資料中心散熱"
+      }[id] || id;
+    }
+
+    function pretestTopicIcon(id) {
+      const icons = {
+        semi: '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="13" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 16h5M8 24h5M8 32h5M35 16h5M35 24h5M35 32h5M16 8v5M24 8v5M32 8v5M16 35v5M24 35v5M32 35v5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M19 24h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
+        drone: '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="4" fill="currentColor"/><path d="M24 24 12 12M24 24l12-12M24 24 12 36M24 24l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="10" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="38" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="10" cy="38" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="38" cy="38" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+        optic: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 28c5-11 11-11 16 0s11 11 16 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M8 14h32M12 36h28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M18 14v22M30 14v22" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/></svg>',
+        cooling: '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="4" fill="currentColor"/><path d="M24 8c6 0 8 5 4 10l-4 6M40 24c0 6-5 8-10 4l-6-4M24 40c-6 0-8-5-4-10l4-6M8 24c0-6 5-8 10-4l6 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/></svg>'
+      };
+      return icons[id] || "";
+    }
+
+    function renderPretestTopicTabs() {
+      $("pretestTopicTabs").innerHTML = PRETEST_DATA.groups.map((group) =>
+        '<button type="button" class="topic-tab' + (group.id === pretestState.activeTopic ? ' active' : '') + '" data-pretest-topic="' + esc(group.id) + '">' +
+          pretestTopicIcon(group.id) +
+          '<span><strong>' + esc(pretestTopicLabel(group.id)) + '</strong><span>' + group.questions.length + ' 題</span></span>' +
+        '</button>'
+      ).join("");
+    }
+
+    function renderPretestQuestion(question, index) {
       const selected = pretestState.answers[question.id];
       const reveal = pretestState.mode === "teacher" || Boolean(selected);
       const isCorrect = selected === question.answer;
@@ -1690,7 +2765,7 @@ const site = String.raw`<!doctype html>
           '</div>'
         : "";
       return '<article class="quiz-card" id="' + esc(question.id) + '" data-question-id="' + esc(question.id) + '">' +
-        '<h3>第 ' + pretestQuestionNumber(question.id) + ' 題</h3>' +
+        '<h3>第 ' + (index + 1) + ' 題</h3>' +
         '<div class="quiz-meta"><span class="difficulty">' + esc(question.difficulty) + '</span><span>' + renderScientificText(question.concept) + '</span></div>' +
         '<p>' + renderScientificText(question.prompt) + '</p>' +
         '<div class="option-list">' +
@@ -1706,15 +2781,18 @@ const site = String.raw`<!doctype html>
     }
 
     function renderPretest() {
-      $("pretestQuestions").innerHTML = PRETEST_DATA.groups.map((group) =>
-        '<section class="quiz-group" id="quiz-' + esc(group.id) + '">' +
+      const activeGroup = PRETEST_DATA.groups.find((group) => group.id === pretestState.activeTopic) || PRETEST_DATA.groups[0];
+      if (activeGroup) pretestState.activeTopic = activeGroup.id;
+      renderPretestTopicTabs();
+      $("pretestQuestions").innerHTML = activeGroup ?
+        '<section class="quiz-group" id="quiz-' + esc(activeGroup.id) + '">' +
           '<div class="focus-card">' +
-            '<h3>' + esc(group.title) + '</h3>' +
-            '<p><strong>命題重點：</strong>' + renderScientificText(group.focus) + '</p>' +
+            '<h3>' + esc(activeGroup.title) + '</h3>' +
+            '<p><strong>命題重點：</strong>' + renderScientificText(activeGroup.focus) + '</p>' +
           '</div>' +
-          group.questions.map(renderPretestQuestion).join("") +
+          activeGroup.questions.map(renderPretestQuestion).join("") +
         '</section>'
-      ).join("");
+      : "";
       document.querySelectorAll("[data-pretest-mode]").forEach((button) => {
         button.classList.toggle("active", button.dataset.pretestMode === pretestState.mode);
       });
@@ -1857,6 +2935,12 @@ const site = String.raw`<!doctype html>
       renderPretest();
       const card = document.getElementById(button.dataset.questionId);
       if (card) card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+    $("pretestTopicTabs").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-pretest-topic]");
+      if (!button) return;
+      pretestState.activeTopic = button.dataset.pretestTopic;
+      renderPretest();
     });
     document.querySelectorAll("[data-pretest-mode]").forEach((button) => {
       button.addEventListener("click", () => {

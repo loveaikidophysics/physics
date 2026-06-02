@@ -116,7 +116,7 @@ def main():
     required_math = [
         (114, 20, r"\mu_\beta"),
         (114, 26, r"\frac{I}{I_0}"),
-        (108, 26, r"\Delta\vec P_{\rm light}"),
+        (108, 26, r"\Delta\vec P_{\mathrm{light}}"),
         (101, 25, r"\ell_b"),
         (101, 20, r"{}^{14}\mathrm{C}"),
         (100, 11, r"n_1\sin\theta_1"),
