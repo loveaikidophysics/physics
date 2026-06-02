@@ -1204,9 +1204,9 @@ const site = String.raw`<!doctype html>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
                   <ul>
-                    <li><a href="https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers" target="_blank" rel="noopener">ASML：Light & lasers in lithography</a></li>
-                    <li><a href="https://www.nist.gov/semiconductors" target="_blank" rel="noopener">NIST：Semiconductors</a></li>
-                    <li><a href="https://www.youtube.com/results?search_query=ASML+EUV+lithography+explained" target="_blank" rel="noopener">YouTube：ASML EUV lithography explained</a></li>
+                    <li><a href="https://www.asml.com/zh-tw/technology?icmp=tw-learn-more-about-asml-technology" target="_blank" rel="noopener">ASML：全方位微影技術介紹</a></li>
+                    <li><a href="https://zh.wikipedia.org/zh-tw/%E5%8D%8A%E5%B0%8E%E9%AB%94" target="_blank" rel="noopener">半導體基本概念</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=EUV+%E6%A5%B5%E7%B4%AB%E5%A4%96%E5%85%89+%E5%BE%AE%E5%BD%B1+%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">YouTube：EUV 極紫外光微影原理</a></li>
                   </ul>
                 </div>
               </div>
@@ -1232,9 +1232,9 @@ const site = String.raw`<!doctype html>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
                   <ul>
-                    <li><a href="https://www.nasa.gov/stem-content/the-science-behind-quadcopters/" target="_blank" rel="noopener">NASA：The Science Behind Quadcopters</a></li>
+                    <li><a href="https://hom-wang.gitbooks.io/quadcopter/content/02_Principles.html" target="_blank" rel="noopener">四軸無人機：飛行原理</a></li>
                     <li><a href="https://learn.parallax.com/courses/understanding-the-physics-of-multirotor-flight/lessons/rotation-torque-and-angular-momentum/" target="_blank" rel="noopener">Parallax：Rotation, Torque and Angular Momentum</a></li>
-                    <li><a href="https://www.youtube.com/results?search_query=quadcopter+yaw+pitch+roll+torque+angular+momentum" target="_blank" rel="noopener">YouTube：quadcopter yaw pitch roll</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=rNo2Gb_9ag4" target="_blank" rel="noopener">YouTube：四軸無人機原理影片</a></li>
                   </ul>
                 </div>
               </div>
@@ -1262,8 +1262,8 @@ const site = String.raw`<!doctype html>
                   <ul>
                     <li><a href="https://phet.colorado.edu/en/simulation/wave-interference" target="_blank" rel="noopener">PhET：Wave Interference 模擬</a></li>
                     <li><a href="https://mtlsites.mit.edu/annual_reports/2010/scanning-beam-interference-lithography/" target="_blank" rel="noopener">MIT：Scanning-beam Interference Lithography</a></li>
-                    <li><a href="https://www.tel.com/museum/exhibition/principle/cmos.html" target="_blank" rel="noopener">Tokyo Electron：What Is a CMOS Image Sensor?</a></li>
-                    <li><a href="https://www.youtube.com/results?search_query=double+slit+interference+CMOS+image+sensor" target="_blank" rel="noopener">YouTube：double slit interference / CMOS sensor</a></li>
+                    <li><a href="https://www.ansys.com/zh-tw/simulation-topics/what-is-cmos-image-sensor" target="_blank" rel="noopener">Ansys：什麼是 CMOS 影像感測器</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=%E9%9B%99%E7%8B%B9%E7%B8%AB%E5%B9%B2%E6%B6%89+CMOS+%E5%BD%B1%E5%83%8F%E6%84%9F%E6%B8%AC%E5%99%A8+%E7%89%A9%E7%90%86" target="_blank" rel="noopener">YouTube：雙狹縫干涉與 CMOS 感測器</a></li>
                   </ul>
                 </div>
               </div>
@@ -1289,10 +1289,10 @@ const site = String.raw`<!doctype html>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
                   <ul>
-                    <li><a href="https://www.trane.com/commercial/north-america/us/en/about-us/newsroom/glossary/power-usage-effectiveness.html" target="_blank" rel="noopener">Trane：Power Usage Effectiveness (PUE)</a></li>
-                    <li><a href="https://www.energystar.gov/products/select_sustainable_colocation_facility" target="_blank" rel="noopener">ENERGY STAR：Data center PUE</a></li>
-                    <li><a href="https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf" target="_blank" rel="noopener">U.S. DOE：Energy-efficient Data Center Design</a></li>
-                    <li><a href="https://www.youtube.com/results?search_query=data+center+cooling+PUE+liquid+cooling+explained" target="_blank" rel="noopener">YouTube：data center cooling / PUE explained</a></li>
+                    <li><a href="https://www.supermicro.com/zh_tw/glossary/pue-for-data-center" target="_blank" rel="noopener">Supermicro：資料中心的 PUE 是什麼？</a></li>
+                    <li><a href="https://www.gigabyte.com/Glossary/pue?lan=zh-tw" target="_blank" rel="noopener">GIGABYTE：PUE 電力使用效率</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83+%E7%AF%80%E8%83%BD+%E6%95%A3%E7%86%B1+PUE" target="_blank" rel="noopener">YouTube：資料中心節能與散熱</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83+PUE+%E6%B6%B2%E5%86%B7+%E6%95%A3%E7%86%B1" target="_blank" rel="noopener">YouTube：資料中心 PUE 與液冷散熱</a></li>
                   </ul>
                 </div>
               </div>
@@ -1342,20 +1342,20 @@ const site = String.raw`<!doctype html>
         { title: "強震即時警報與 P 波、S 波", source: "中央氣象署", url: "https://pweb.cwa.gov.tw/PopularScience/ec/ec_10.html" }
       ],
       "電磁科技與電路應用": [
-        { title: "電磁波譜影音與教材", source: "NASA", url: "https://science.nasa.gov/ems/" },
+        { title: "電磁波譜與生活應用", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2%E8%AD%9C+%E7%94%9F%E6%B4%BB%E6%87%89%E7%94%A8+%E7%89%A9%E7%90%86" },
         { title: "電路組裝套件：直流電", source: "PhET", url: "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc-virtual-lab/latest/circuit-construction-kit-dc-virtual-lab_zh_TW.html" },
-        { title: "RFID 與 EPC 標準", source: "GS1", url: "https://support.gs1.org/support/solutions/articles/43000734267-what-are-the-foundational-gs1-rfid-related-standards-" }
+        { title: "RFID 與悠遊卡電磁感應", source: "YouTube", url: "https://www.youtube.com/results?search_query=RFID+%E6%82%A0%E9%81%8A%E5%8D%A1+%E9%9B%BB%E7%A3%81%E6%84%9F%E6%87%89+%E7%89%A9%E7%90%86" }
       ],
       "資料判讀與實驗量測": [
-        { title: "Measurement Uncertainty", source: "NIST", url: "https://www.nist.gov/statistical-engineering-division/measurement-uncertainty" },
-        { title: "Basic Uncertainty Concepts", source: "NIST", url: "https://www.nist.gov/pml/owm/basic-uncertainty-concepts" }
+        { title: "測量不確定度與誤差分析", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E6%B8%AC%E9%87%8F%E4%B8%8D%E7%A2%BA%E5%AE%9A%E5%BA%A6+%E8%AA%A4%E5%B7%AE%E5%88%86%E6%9E%90+%E7%89%A9%E7%90%86" },
+        { title: "實驗誤差與有效數字", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%AF%A6%E9%A9%97%E8%AA%A4%E5%B7%AE+%E6%9C%89%E6%95%88%E6%95%B8%E5%AD%97+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" }
       ],
       "熱力學與能源轉換": [
         { title: "氣體特性互動模擬", source: "PhET", url: "https://phet.colorado.edu/sims/html/gas-properties/1.1.4/gas-properties_zh_TW.html" }
       ],
       "原子結構與核物理": [
-        { title: "Radiation Basics", source: "IAEA", url: "https://www.iaea.org/topics/radiation-basics" },
-        { title: "Radiation Basics", source: "U.S. NRC", url: "https://www.nrc.gov/about-nrc/radiation/health-effects/radiation-basics.html" }
+        { title: "游離輻射防護與生活", source: "行政院原子能委員會", url: "https://www.aec.gov.tw/" },
+        { title: "核能與輻射安全", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E8%BC%BB%E5%B0%84+%E6%A0%B8%E8%83%BD+%E5%AE%89%E5%85%A8+%E7%89%A9%E7%90%86" }
       ],
       "交通、運動與工程情境": [
         { title: "適當拉大車距，反應才有距離", source: "交通部高速公路局", url: "https://www.freeway.gov.tw/Print.aspx?cnid=193&p=42842" },
@@ -1363,8 +1363,8 @@ const site = String.raw`<!doctype html>
       ]
     };
     const defaultResourceLinks = [
-      { title: "電磁波譜影音與教材", source: "NASA", url: "https://science.nasa.gov/ems/" },
-      { title: "Measurement Uncertainty", source: "NIST", url: "https://www.nist.gov/statistical-engineering-division/measurement-uncertainty" },
+      { title: "電磁波譜與生活應用", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2%E8%AD%9C+%E7%94%9F%E6%B4%BB%E6%87%89%E7%94%A8+%E7%89%A9%E7%90%86" },
+      { title: "測量不確定度與實驗誤差", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E6%B8%AC%E9%87%8F%E4%B8%8D%E7%A2%BA%E5%AE%9A%E5%BA%A6+%E5%AF%A6%E9%A9%97%E8%AA%A4%E5%B7%AE+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" },
       { title: "電路組裝套件：直流電", source: "PhET", url: "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc-virtual-lab/latest/circuit-construction-kit-dc-virtual-lab_zh_TW.html" },
       { title: "天搖地動感受地震波", source: "中央氣象署", url: "https://pweb.cwa.gov.tw/PopularScience/ec/ec_19.html" }
     ];
@@ -1372,89 +1372,89 @@ const site = String.raw`<!doctype html>
       114: [
         { title: "第1題：2025 國際量子科學與科技年", source: "UNESCO", url: "https://www.unesco.org/zh/years/quantum-science-technology" },
         { title: "第11題：光電效應與光子能量", source: "PhET", url: "https://phet.colorado.edu/sims/cheerpj/photoelectric/latest/photoelectric.html?simulation=photoelectric" },
-        { title: "第5題：太陽系行星與衛星資料", source: "NASA", url: "https://science.nasa.gov/solar-system/planets/" },
+        { title: "第5題：太陽系行星與衛星資料", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%A4%AA%E9%99%BD%E7%B3%BB+%E8%A1%8C%E6%98%9F+%E8%A1%9B%E6%98%9F+%E7%89%A9%E7%90%86" },
         { title: "第23題：等電位線與電場線實驗", source: "PhET", url: "https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_zh_TW.html" }
       ],
       113: [
         { title: "第9題：2024 花蓮地震與地震波", source: "中央氣象署", url: "https://pweb.cwa.gov.tw/PopularScience/ec/ec_19.html" },
-        { title: "第9題：台北101 調諧質量阻尼器", source: "Guinness World Records", url: "https://www.guinnessworldrecords.com/world-records/774616-largest-tuned-mass-damper" },
-        { title: "第20題：風力發電與碳排情境", source: "國際能源署 IEA", url: "https://www.iea.org/energy-system/renewables/wind" },
-        { title: "第22題：電磁波是橫波的偏振驗證", source: "NASA", url: "https://science.nasa.gov/ems/" }
+        { title: "第9題：台北101 調諧質量阻尼器", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%8F%B0%E5%8C%97101+%E8%AA%BF%E8%AB%A7%E8%B3%AA%E9%87%8F%E9%98%BB%E5%B0%BC%E5%99%A8+%E7%89%A9%E7%90%86" },
+        { title: "第20題：風力發電與能源轉換", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%A2%A8%E5%8A%9B%E7%99%BC%E9%9B%BB+%E8%83%BD%E6%BA%90%E8%BD%89%E6%8F%9B+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" },
+        { title: "第22題：電磁波是橫波與偏振", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2+%E6%A9%AB%E6%B3%A2+%E5%81%8F%E6%8C%AF+%E7%89%A9%E7%90%86" }
       ],
       112: [
-        { title: "第12題：太陽光譜與氦元素發現", source: "NASA", url: "https://science.nasa.gov/sun/" },
-        { title: "第2題：電磁波譜與光的傳播", source: "NASA", url: "https://science.nasa.gov/ems/" },
+        { title: "第12題：太陽光譜與氦元素發現", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%A4%AA%E9%99%BD%E5%85%89%E8%AD%9C+%E6%B0%A6%E5%85%83%E7%B4%A0+%E7%89%A9%E7%90%86" },
+        { title: "第2題：電磁波譜與光的傳播", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2%E8%AD%9C+%E5%85%89%E7%9A%84%E5%82%B3%E6%92%AD+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" },
         { title: "第7題：光電效應概念模擬", source: "PhET", url: "https://phet.colorado.edu/sims/cheerpj/photoelectric/latest/photoelectric.html?simulation=photoelectric" },
-        { title: "第15題：太陽系行星資料", source: "NASA", url: "https://science.nasa.gov/solar-system/planets/" }
+        { title: "第15題：太陽系行星資料", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%A4%AA%E9%99%BD%E7%B3%BB+%E8%A1%8C%E6%98%9F+%E9%87%8D%E5%8A%9B+%E7%89%A9%E7%90%86" }
       ],
       111: [
-        { title: "第21題：拉格朗日點與太空任務", source: "NASA", url: "https://science.nasa.gov/resource/what-is-a-lagrange-point/" },
-        { title: "第23-24題：密立根光電效應數據", source: "NIST", url: "https://www.nist.gov/si-redefinition/ampere-present" },
+        { title: "第21題：拉格朗日點與太空任務", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E9%BB%9E+%E8%A9%B9%E5%A7%86%E6%96%AF%E9%9F%8B%E4%BC%AF+%E7%89%A9%E7%90%86" },
+        { title: "第23-24題：密立根光電效應數據", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%AF%86%E7%AB%8B%E6%A0%B9+%E5%85%89%E9%9B%BB%E6%95%88%E6%87%89+%E6%88%AA%E6%AD%A2%E9%9B%BB%E5%A3%93" },
         { title: "第18題：氣體熱力學互動模擬", source: "PhET", url: "https://phet.colorado.edu/sims/html/gas-properties/1.1.4/gas-properties_zh_TW.html" },
-        { title: "第9題：光的波粒二象性", source: "NIST", url: "https://www.nist.gov/quantum-information-science/seeing-bits-light" }
+        { title: "第9題：光的波粒二象性", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%85%89%E7%9A%84%E6%B3%A2%E7%B2%92%E4%BA%8C%E8%B1%A1%E6%80%A7+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" }
       ],
       110: [
         { title: "第18題：熱氣球與理想氣體", source: "PhET", url: "https://phet.colorado.edu/sims/html/gas-properties/1.1.4/gas-properties_zh_TW.html" },
-        { title: "第19題：銫-137與輻射基礎", source: "U.S. NRC", url: "https://www.nrc.gov/about-nrc/radiation/health-effects/radiation-basics.html" },
-        { title: "第20題：悠遊卡、RFID與電磁感應", source: "GS1", url: "https://support.gs1.org/support/solutions/articles/43000734267-what-are-the-foundational-gs1-rfid-related-standards-" },
+        { title: "第19題：銫-137與輻射基礎", source: "行政院原子能委員會", url: "https://www.aec.gov.tw/" },
+        { title: "第20題：悠遊卡、RFID與電磁感應", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E6%82%A0%E9%81%8A%E5%8D%A1+RFID+%E9%9B%BB%E7%A3%81%E6%84%9F%E6%87%89+%E7%89%A9%E7%90%86" },
         { title: "第23題：雙狹縫干涉與單狹縫繞射", source: "PhET", url: "https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_zh_TW.html" }
       ],
       109: [
-        { title: "第3題：X射線、醫學影像與輻射", source: "FDA", url: "https://www.fda.gov/radiation-emitting-products/radiation-emitting-products-and-procedures/medical-imaging" },
-        { title: "第6題：經顱磁刺激與醫療電磁相容", source: "FDA", url: "https://www.fda.gov/radiation-emitting-products/radiation-safety/electromagnetic-compatibility-emc" },
-        { title: "第12題：輕軌電車供電與電磁場", source: "NIST", url: "https://www.nist.gov/pml/weights-and-measures/si-units-ampere" },
-        { title: "第22題：聲納與聲波反射", source: "NOAA", url: "https://oceanservice.noaa.gov/facts/sonar.html" }
+        { title: "第3題：X射線、醫學影像與輻射", source: "YouTube", url: "https://www.youtube.com/results?search_query=X%E5%B0%84%E7%B7%9A+%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F+%E8%BC%BB%E5%B0%84+%E7%89%A9%E7%90%86" },
+        { title: "第6題：經顱磁刺激與電磁場", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E7%B6%93%E9%A1%B1%E7%A3%81%E5%88%BA%E6%BF%80+%E9%9B%BB%E7%A3%81%E5%A0%B4+%E7%89%A9%E7%90%86" },
+        { title: "第12題：輕軌電車供電與電磁場", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E8%BC%95%E8%BB%8C+%E4%BE%9B%E9%9B%BB+%E9%9B%BB%E7%A3%81%E5%A0%B4+%E7%89%A9%E7%90%86" },
+        { title: "第22題：聲納與聲波反射", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E8%81%B2%E7%B4%8D+%E8%81%B2%E6%B3%A2%E5%8F%8D%E5%B0%84+%E7%89%A9%E7%90%86" }
       ],
       108: [
-        { title: "第2-3題：2018 諾貝爾物理與光學鑷子", source: "NobelPrize.org", url: "https://www.nobelprize.org/prizes/physics/2018/summary/" },
-        { title: "第10-11題：GPS衛星與無線電訊號", source: "GPS.gov", url: "https://www.gps.gov/systems/gps/space/" },
-        { title: "第12題：無線充電與電磁感應", source: "FDA", url: "https://www.fda.gov/radiation-emitting-products/radiation-safety/electromagnetic-compatibility-emc" },
-        { title: "第13-14題：太陽帆與光壓推進", source: "NASA", url: "https://science.nasa.gov/learn/heat/resource/solar-sails-and-other-spacecraft-propulsion/" }
+        { title: "第2-3題：2018 諾貝爾物理與光學鑷子", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%85%89%E5%AD%B8%E9%91%B7%E5%AD%90+2018+%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86" },
+        { title: "第10-11題：GPS衛星與無線電訊號", source: "YouTube", url: "https://www.youtube.com/results?search_query=GPS+%E8%A1%9B%E6%98%9F+%E7%84%A1%E7%B7%9A%E9%9B%BB%E8%A8%8A%E8%99%9F+%E7%89%A9%E7%90%86" },
+        { title: "第12題：無線充電與電磁感應", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E7%84%A1%E7%B7%9A%E5%85%85%E9%9B%BB+%E9%9B%BB%E7%A3%81%E6%84%9F%E6%87%89+%E7%89%A9%E7%90%86" },
+        { title: "第13-14題：太陽帆與光壓推進", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%A4%AA%E9%99%BD%E5%B8%86+%E5%85%89%E5%A3%93+%E5%85%89%E5%AD%90%E5%8B%95%E9%87%8F" }
       ],
       107: [
-        { title: "第12題：電磁流量計與醫療裝置", source: "FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/wireless-medical-devices" },
-        { title: "第24題：耳溫槍、黑體輻射與紅外線", source: "NASA", url: "https://science.nasa.gov/ems/" },
+        { title: "第12題：電磁流量計與醫療裝置", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B5%81%E9%87%8F%E8%A8%88+%E9%86%AB%E7%99%82+%E7%89%A9%E7%90%86" },
+        { title: "第24題：耳溫槍、黑體輻射與紅外線", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E8%80%B3%E6%BA%AB%E6%A7%8D+%E9%BB%91%E9%AB%94%E8%BC%BB%E5%B0%84+%E7%B4%85%E5%A4%96%E7%B7%9A" },
         { title: "第2題：光電子與磁場量測", source: "PhET", url: "https://phet.colorado.edu/sims/cheerpj/photoelectric/latest/photoelectric.html?simulation=photoelectric" },
-        { title: "第24題：輻射與日常生活", source: "IAEA", url: "https://www.iaea.org/Publications/Factsheets/English/radlife" }
+        { title: "第24題：輻射與日常生活", source: "行政院原子能委員會", url: "https://www.aec.gov.tw/" }
       ],
       106: [
-        { title: "第6題：黑盒子、聲納與水下聲波", source: "NOAA", url: "https://oceanservice.noaa.gov/facts/sonar.html" },
-        { title: "第12題：光電倍增管與弱光偵測", source: "NIST", url: "https://www.nist.gov/quantum-information-science/seeing-bits-light" },
+        { title: "第6題：黑盒子、聲納與水下聲波", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%BB%91%E7%9B%92%E5%AD%90+%E8%81%B2%E7%B4%8D+%E6%B0%B4%E4%B8%8B%E8%81%B2%E6%B3%A2+%E7%89%A9%E7%90%86" },
+        { title: "第12題：光電倍增管與弱光偵測", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%85%89%E9%9B%BB%E5%80%8D%E5%A2%9E%E7%AE%A1+%E5%BC%B1%E5%85%89%E5%81%B5%E6%B8%AC+%E7%89%A9%E7%90%86" },
         { title: "第18-19題：光電效應與物質波", source: "PhET", url: "https://phet.colorado.edu/sims/cheerpj/photoelectric/latest/photoelectric.html?simulation=photoelectric" },
         { title: "第17題：電磁感應與磁通量", source: "PhET", url: "https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_zh_TW.html" }
       ],
       105: [
         { title: "第18題：狹縫干涉與繞射實驗", source: "PhET", url: "https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_zh_TW.html" },
-        { title: "第20題：雷射光壓與光子動量", source: "NASA", url: "https://science.nasa.gov/learn/heat/resource/solar-sails-and-other-spacecraft-propulsion/" },
-        { title: "第21題：鋰離子能階與原子光譜", source: "NIST", url: "https://physics.nist.gov/PhysRefData/ASD/levels_form.html" },
+        { title: "第20題：雷射光壓與光子動量", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%B7%E5%B0%84+%E5%85%89%E5%A3%93+%E5%85%89%E5%AD%90%E5%8B%95%E9%87%8F" },
+        { title: "第21題：鋰離子能階與原子光譜", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%8E%9F%E5%AD%90%E5%85%89%E8%AD%9C+%E8%83%BD%E9%9A%8E+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" },
         { title: "第13題：載流導線間的磁力", source: "PhET", url: "https://phet.colorado.edu/sims/html/magnets-and-electromagnets/latest/magnets-and-electromagnets_zh_TW.html" }
       ],
       104: [
-        { title: "第6題：光纖與全反射通訊", source: "NASA", url: "https://science.nasa.gov/ems/" },
+        { title: "第6題：光纖與全反射通訊", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%85%89%E7%BA%96+%E5%85%A8%E5%8F%8D%E5%B0%84+%E9%80%9A%E8%A8%8A+%E7%89%A9%E7%90%86" },
         { title: "第8題：煞車距離與安全車距", source: "交通部高速公路局", url: "https://www.freeway.gov.tw/Print.aspx?cnid=193&p=42842" },
         { title: "第12題：電荷運動與電磁場", source: "PhET", url: "https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_zh_TW.html" },
-        { title: "第18題：量子化與微小線圈", source: "NIST", url: "https://www.nist.gov/quantum-information-science" }
+        { title: "第18題：量子化與微小線圈", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%87%8F%E5%AD%90%E5%8C%96+%E5%BE%AE%E5%B0%8F%E7%B7%9A%E5%9C%88+%E7%89%A9%E7%90%86" }
       ],
       103: [
-        { title: "第7題：水滴折射與彩虹色散", source: "NOAA SciJinks", url: "https://scijinks.gov/rainbow/" },
-        { title: "第10題：核電餘熱與反應爐安全", source: "IAEA", url: "https://www.iaea.org/topics/nuclear-power-reactors" },
+        { title: "第7題：水滴折射與彩虹色散", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%BD%A9%E8%99%B9+%E6%B0%B4%E6%BB%B4+%E6%8A%98%E5%B0%84+%E8%89%B2%E6%95%A3+%E7%89%A9%E7%90%86" },
+        { title: "第10題：核電餘熱與反應爐安全", source: "行政院原子能委員會", url: "https://www.aec.gov.tw/" },
         { title: "第18題：雷射干涉與繞射量測", source: "PhET", url: "https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_zh_TW.html" },
-        { title: "第22題：X射線最短波長與電子加速", source: "NIST", url: "https://physics.nist.gov/PhysRefData/XrayMassCoef/cover.html" }
+        { title: "第22題：X射線最短波長與電子加速", source: "YouTube", url: "https://www.youtube.com/results?search_query=X%E5%B0%84%E7%B7%9A+%E6%9C%80%E7%9F%AD%E6%B3%A2%E9%95%B7+%E9%9B%BB%E5%AD%90%E5%8A%A0%E9%80%9F" }
       ],
       102: [
-        { title: "第18題：電磁波源、雷射與無線電", source: "NASA", url: "https://science.nasa.gov/ems/" },
-        { title: "第20題：太陽能、核融合與質能轉換", source: "NASA", url: "https://science.nasa.gov/sun/" },
-        { title: "第19題：德布羅意物質波與氫原子", source: "NIST", url: "https://www.nist.gov/quantum-information-science" },
+        { title: "第18題：電磁波源、雷射與無線電", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2+%E9%9B%B7%E5%B0%84+%E7%84%A1%E7%B7%9A%E9%9B%BB+%E7%89%A9%E7%90%86" },
+        { title: "第20題：太陽能、核融合與質能轉換", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%A4%AA%E9%99%BD%E8%83%BD+%E6%A0%B8%E8%9E%8D%E5%90%88+%E8%B3%AA%E8%83%BD%E8%BD%89%E6%8F%9B" },
+        { title: "第19題：德布羅意物質波與氫原子", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%BE%B7%E5%B8%83%E7%BE%85%E6%84%8F+%E7%89%A9%E8%B3%AA%E6%B3%A2+%E6%B0%AB%E5%8E%9F%E5%AD%90" },
         { title: "第6題：薄膜折射與干涉", source: "PhET", url: "https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_zh_TW.html" }
       ],
       101: [
         { title: "速度選擇器：電場與磁場交互作用", source: "PhET", url: "https://phet.colorado.edu/sims/html/charges-and-fields/latest/charges-and-fields_zh_TW.html" },
         { title: "電路與歐姆定律實驗", source: "PhET", url: "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc-virtual-lab/latest/circuit-construction-kit-dc-virtual-lab_zh_TW.html" },
         { title: "熱學與氣體性質互動模擬", source: "PhET", url: "https://phet.colorado.edu/sims/html/gas-properties/1.1.4/gas-properties_zh_TW.html" },
-        { title: "電磁波譜與生活應用", source: "NASA", url: "https://science.nasa.gov/ems/" }
+        { title: "電磁波譜與生活應用", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2%E8%AD%9C+%E7%94%9F%E6%B4%BB%E6%87%89%E7%94%A8+%E7%89%A9%E7%90%86" }
       ],
       100: [
-        { title: "第16題：福島核事故與核能安全", source: "IAEA", url: "https://www.iaea.org/publications/10962/the-fukushima-daiichi-accident" },
+        { title: "第16題：福島核事故與核能安全", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E7%A6%8F%E5%B3%B6%E6%A0%B8%E4%BA%8B%E6%95%85+%E6%A0%B8%E8%83%BD%E5%AE%89%E5%85%A8+%E7%89%A9%E7%90%86" },
         { title: "第24題：光電效應與截止電壓", source: "PhET", url: "https://phet.colorado.edu/sims/cheerpj/photoelectric/latest/photoelectric.html?simulation=photoelectric" },
         { title: "第22題：波以耳定律與氣體實驗", source: "PhET", url: "https://phet.colorado.edu/sims/html/gas-properties/1.1.4/gas-properties_zh_TW.html" },
         { title: "第4題：彈簧振盪與高空彈跳模型", source: "PhET", url: "https://phet.colorado.edu/sims/html/masses-and-springs/latest/masses-and-springs_zh_TW.html" }
@@ -1474,7 +1474,7 @@ const site = String.raw`<!doctype html>
         { title: "YouTube：電磁波譜與光電效應", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B3%A2%E8%AD%9C+%E5%85%89%E9%9B%BB%E6%95%88%E6%87%89" }
       ],
       111: [
-        { title: "YouTube：拉格朗日點", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E9%BB%9E+Lagrange+point" },
+        { title: "YouTube：拉格朗日點", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E9%BB%9E+%E8%A9%B9%E5%A7%86%E6%96%AF%E9%9F%8B%E4%BC%AF+%E7%89%A9%E7%90%86" },
         { title: "YouTube：密立根光電效應", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%AF%86%E7%AB%8B%E6%A0%B9+%E5%85%89%E9%9B%BB%E6%95%88%E6%87%89" }
       ],
       110: [
@@ -1486,8 +1486,8 @@ const site = String.raw`<!doctype html>
         { title: "YouTube：聲納與聲波反射", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E8%81%B2%E7%B4%8D+%E8%81%B2%E6%B3%A2%E5%8F%8D%E5%B0%84+%E7%89%A9%E7%90%86" }
       ],
       108: [
-        { title: "YouTube：光學鑷子 2018 諾貝爾物理", source: "YouTube", url: "https://www.youtube.com/results?search_query=optical+tweezers+2018+Nobel+Prize+Physics" },
-        { title: "YouTube：GPS 衛星與無線充電", source: "YouTube", url: "https://www.youtube.com/results?search_query=GPS+satellites+wireless+charging+physics" }
+        { title: "YouTube：光學鑷子 2018 諾貝爾物理", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%85%89%E5%AD%B8%E9%91%B7%E5%AD%90+2018+%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86" },
+        { title: "YouTube：GPS 衛星與無線充電", source: "YouTube", url: "https://www.youtube.com/results?search_query=GPS+%E8%A1%9B%E6%98%9F+%E7%84%A1%E7%B7%9A%E5%85%85%E9%9B%BB+%E7%89%A9%E7%90%86" }
       ],
       107: [
         { title: "YouTube：電磁流量計", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%9B%BB%E7%A3%81%E6%B5%81%E9%87%8F%E8%A8%88+%E8%A1%80%E6%B5%81+%E7%89%A9%E7%90%86" },
@@ -1495,7 +1495,7 @@ const site = String.raw`<!doctype html>
       ],
       106: [
         { title: "YouTube：黑盒子與水下聲納", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E9%BB%91%E7%9B%92%E5%AD%90+%E6%B0%B4%E4%B8%8B%E8%81%B2%E7%B4%8D+%E8%B6%85%E8%81%B2%E6%B3%A2" },
-        { title: "YouTube：光電倍增管", source: "YouTube", url: "https://www.youtube.com/results?search_query=photomultiplier+tube+physics" }
+        { title: "YouTube：光電倍增管", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E5%85%89%E9%9B%BB%E5%80%8D%E5%A2%9E%E7%AE%A1+%E7%89%A9%E7%90%86" }
       ],
       105: [
         { title: "YouTube：狹縫干涉與繞射", source: "YouTube", url: "https://www.youtube.com/results?search_query=%E7%8B%B9%E7%B8%AB%E5%B9%B2%E6%B6%89+%E7%B9%9E%E5%B0%84+%E7%89%A9%E7%90%86" },
