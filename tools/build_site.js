@@ -155,7 +155,7 @@ const pretestData = {
             "短波長會使矽晶圓質量變小，因此線寬自動縮小"
           ],
           answer: "B",
-          explanation: "光刻解析度受繞射限制影響，可用類似 \\(d\\propto \\lambda/NA\\) 的想法理解；波長 \\(\\lambda\\) 越短，繞射造成的最小可分辨尺度越小，因此較能做出細線寬。"
+          explanation: "光刻解析度受繞射限制影響，可用類似 \\(d\\propto \\lambda/\\mathrm{NA}\\) 的想法理解；波長 \\(\\lambda\\) 越短，繞射造成的最小可分辨尺度越小，因此較能做出細線寬。"
         },
         {
           id: "semi-2",
@@ -356,7 +356,7 @@ const pretestData = {
           difficulty: "中等",
           concept: "滾轉 roll 與力矩",
           intent: "讓學生用力矩方向判斷姿態改變。",
-          prompt: "若無人機要向右滾轉 roll，簡化來看可讓左側螺旋槳升力大於右側。下列敘述何者正確？",
+          prompt: "若無人機左右兩側螺旋槳升力不同，例如左側升力大於右側。下列敘述何者正確？",
           options: [
             "左右升力不同只會改變溫度，不會造成轉動",
             "左側升力較大會使機身產生繞前後軸的力矩",
@@ -364,7 +364,7 @@ const pretestData = {
             "只要總升力等於重力，姿態一定不會改變"
           ],
           answer: "B",
-          explanation: "左右兩側升力作用線不同，形成繞機身前後軸的淨力矩，使機身滾轉。總力決定平動，淨力矩決定轉動，兩者需分開判斷。"
+          explanation: "左右兩側升力作用線相對質心有不同力臂，會形成繞機身前後軸的淨力矩，使機身滾轉。總力決定平動，淨力矩決定轉動，兩者需分開判斷。"
         },
         {
           id: "drone-5",
@@ -1071,7 +1071,7 @@ const pretestExtraQuestions = {
       difficulty: "中等",
       concept: "傾斜推力分解",
       intent: "用 \\(F_x=F\\sin\\theta\\) 估算水平加速度。",
-      prompt: "質量 \\(2.0\\,\\mathrm{kg}\\) 的無人機總推力為 \\(10\\,\\mathrm{N}\\)，推力相對鉛直方向傾斜 \\(30^\\circ\\)。其水平分量造成的加速度約為多少？",
+      prompt: "質量 \\(2.0\\,\\mathrm{kg}\\) 的無人機在某瞬間總推力為 \\(10\\,\\mathrm{N}\\)，推力相對鉛直方向傾斜 \\(30^\\circ\\)。若只估算此推力水平分量造成的水平加速度，約為多少？",
       options: [
         "\\(1.25\\,\\mathrm{m/s^2}\\)",
         "\\(2.5\\,\\mathrm{m/s^2}\\)",
@@ -1079,7 +1079,7 @@ const pretestExtraQuestions = {
         "\\(10\\,\\mathrm{m/s^2}\\)"
       ],
       answer: "B",
-      explanation: "水平推力 \\(F_x=F\\sin30^\\circ=10(0.5)=5\\,\\mathrm{N}\\)。水平加速度 \\(a_x=F_x/m=5/2.0=2.5\\,\\mathrm{m/s^2}\\)。"
+      explanation: "水平推力 \\(F_x=F\\sin30^\\circ=10(0.5)=5\\,\\mathrm{N}\\)。水平加速度 \\(a_x=F_x/m=5/2.0=2.5\\,\\mathrm{m/s^2}\\)。此題只問水平分量；若要同時維持高度，還需檢查鉛直分量是否能平衡重力。"
     },
     {
       id: "drone-11",
@@ -2204,6 +2204,7 @@ const site = String.raw`<!doctype html>
       grid-template-columns: 1fr;
       gap: 14px;
       align-items: center;
+      justify-items: center;
       padding: 16px;
       border: 1px solid #c7d2e5;
       border-radius: 8px;
@@ -2211,12 +2212,15 @@ const site = String.raw`<!doctype html>
     }
     .force-step img {
       display: block;
-      width: 100%;
-      max-width: 980px;
+      width: min(100%, 760px);
+      max-width: 760px;
       height: auto;
       margin: 0 auto;
       border-radius: 6px;
       background: #fff;
+    }
+    .force-step > div {
+      width: min(100%, 920px);
     }
     .force-step h4 {
       margin: 0 0 8px;
@@ -2772,7 +2776,7 @@ const site = String.raw`<!doctype html>
               </div>
               <div>
                 <div class="definition-box"><strong>名詞定義：</strong>相干光是頻率相同且相位關係穩定的光；光阻是受光後化學性質改變的薄膜；CMOS/CCD 感測器是把像素中的光生電荷轉成電子訊號的影像元件。</div>
-                <div class="formula-box">高三必懂公式：\(\Delta y=\lambda L/d\)、\(2nt=(m+\frac12)\lambda\) 類型的相消條件、\(K_{\max}=hf-\phi\)。</div>
+                <div class="formula-box">高三必懂公式：\(\Delta y=\lambda L/d\)、薄膜光程差約為 \(2nt\)，相消或相長需再判斷反射相位；常見抗反射膜厚可用 \(t=\lambda/(4n)\) 估算，光電效應用 \(K_{\max}=hf-\phi\)。</div>
                 <div class="ask-box">可能分科測驗問法：改變狹縫距離條紋如何變？抗反射膜厚如何估？光強與頻率對光電效應有何差異？</div>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
