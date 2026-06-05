@@ -140,7 +140,7 @@ const pretestData = {
     {
       id: "semi",
       title: "題組一：半導體製程與 EUV 曝光",
-      focus: "從晶圓、光刻、繞射限制到摻雜與 PN 接面，訓練學生把科技名詞轉回波動、電磁與近代物理模型。",
+      focus: "從晶圓、光刻、光阻、繞射限制到 EUV 與多圖案微影，訓練學生把製程情境轉回波動與光學模型。",
       questions: [
         {
           id: "semi-1",
@@ -152,7 +152,7 @@ const pretestData = {
             "短波長光一定具有較小的頻率，所以能量較低",
             "短波長可降低繞射造成的擴散，使圖樣解析度提高",
             "短波長會讓光速變大，因此曝光時間縮短",
-            "短波長會使矽晶圓變成導體，因此不需摻雜"
+            "短波長會使矽晶圓質量變小，因此線寬自動縮小"
           ],
           answer: "B",
           explanation: "光刻解析度受繞射限制影響，可用類似 \\(d\\propto \\lambda/NA\\) 的想法理解；波長 \\(\\lambda\\) 越短，繞射造成的最小可分辨尺度越小，因此較能做出細線寬。"
@@ -164,7 +164,7 @@ const pretestData = {
           intent: "判斷學生是否能把製程步驟對應到光化學與遮罩成像。",
           prompt: "在光刻 Photolithography 中，光罩上的圖形經曝光轉移到塗有光阻的晶圓表面。光阻在此製程中的主要功能為何？",
           options: [
-            "提供電子作為 N 型摻雜來源",
+            "直接把晶圓切成電路導線",
             "增加晶圓的比熱，使晶圓較不易升溫",
             "受光後化學性質改變，讓後續顯影留下特定圖形",
             "讓所有入射光完全反射，避免晶圓吸收能量"
@@ -174,6 +174,58 @@ const pretestData = {
         },
         {
           id: "semi-3",
+          difficulty: "基礎",
+          concept: "微影圖形轉移流程",
+          intent: "確認學生能辨認微影、顯影與蝕刻的先後關係。",
+          prompt: "在典型微影製程中，光罩圖形要轉移到晶圓材料上。下列流程何者最合理？",
+          options: [
+            "塗佈光阻、曝光、顯影、蝕刻",
+            "先蝕刻晶圓、再塗光阻、最後曝光",
+            "先摻雜、再讓光罩吸收全部光線",
+            "只要用光照射晶圓，不需光阻或蝕刻"
+          ],
+          answer: "A",
+          explanation: "光刻不是光直接把晶圓刻掉，而是先讓光阻性質改變。顯影後形成保護區與開口區，再用蝕刻把圖形轉移到下方材料。"
+        },
+        {
+          id: "semi-4",
+          difficulty: "中等",
+          concept: "193 nm 與 32 nm 線寬",
+          intent: "用繞射限制解釋短波長需求。",
+          prompt: "若微影使用波長約 \\(193\\,\\mathrm{nm}\\) 的紫外光，要製作小於 \\(32\\,\\mathrm{nm}\\) 的密集線寬，主要會遇到哪個物理限制？",
+          options: [
+            "光穿過窄縫後繞射，曝光區域向外擴散",
+            "重力使光線向下彎曲，無法曝光",
+            "光速在真空中會隨線寬變小而變慢",
+            "矽晶圓會自動變成磁鐵"
+          ],
+          answer: "A",
+          explanation: "開口尺度接近或小於光波長時，繞射會使光強分布擴散。線條很密時，相鄰曝光區可能重疊，造成圖形模糊或線條黏連。"
+        },
+        {
+          id: "semi-5",
+          difficulty: "進階",
+          concept: "多圖案微影",
+          intent: "理解多圖案微影如何降低密集圖形的曝光困難。",
+          prompt: "多圖案微影常把同一層密集線條拆成兩次或多次曝光。以高中波動觀點看，這麼做的主要好處是什麼？",
+          options: [
+            "把相鄰線條分到不同光罩，使單次曝光時的間距變大",
+            "讓光的頻率變成零，避免繞射",
+            "完全不需要對準光罩",
+            "讓晶圓質量變小，因此圖案更細"
+          ],
+          answer: "A",
+          explanation: "若所有細線一次曝光，相鄰圖形距離太小會加重繞射與重疊。多圖案微影把密集圖形拆開，使每次曝光的有效間距較大，但代價是步驟變多、對準要求提高。"
+        }
+      ]
+    },
+    {
+      id: "semisolar",
+      title: "題組二：半導體與太陽能電池",
+      focus: "從摻雜、P 型與 N 型半導體、PN 接面到太陽能電池與 LED，訓練學生用電場、能量與光電轉換模型解題。",
+      questions: [
+        {
+          id: "semisolar-1",
           difficulty: "基礎",
           concept: "摻雜與 N 型半導體",
           intent: "確認學生能從價電子數判斷多數載子。",
@@ -188,7 +240,52 @@ const pretestData = {
           explanation: "矽為四價，五價雜質多出一個較容易成為自由載子的電子，因此形成 N 型半導體，電子為多數載子。"
         },
         {
-          id: "semi-4",
+          id: "semisolar-2",
+          difficulty: "基礎",
+          concept: "P 型半導體",
+          intent: "確認學生能由價電子數判斷電洞為多數載子。",
+          prompt: "矽為四價元素。若在矽晶格中摻入少量三價硼原子，最合理的結果為何？",
+          options: [
+            "形成 N 型半導體，電子為多數載子",
+            "形成 P 型半導體，電洞為多數載子",
+            "矽原子核全部裂變",
+            "材料一定成為絕對絕緣體"
+          ],
+          answer: "B",
+          explanation: "三價硼比四價矽少一個價電子，容易形成電洞，因此產生 P 型半導體；多數載子為電洞。"
+        },
+        {
+          id: "semisolar-3",
+          difficulty: "基礎",
+          concept: "PN 接面與二極體",
+          intent: "確認學生理解順向偏壓可降低接面障壁。",
+          prompt: "PN 接面二極體在順向偏壓時較容易導通。以高中電場觀點理解，主要原因為何？",
+          options: [
+            "外加電場完全消除所有電荷",
+            "外加電壓降低接面位能障壁，使載子較容易跨越接面",
+            "二極體質量減少，所以電流變大",
+            "半導體中的光速變成無限大"
+          ],
+          answer: "B",
+          explanation: "順向偏壓會降低 PN 接面的位能障壁，使電子與電洞較容易穿越接面而形成電流；反向偏壓則使障壁加大。"
+        },
+        {
+          id: "semisolar-4",
+          difficulty: "基礎",
+          concept: "太陽能電池的能量轉換",
+          intent: "辨認太陽能電池的主要能量轉換。",
+          prompt: "矽太陽能電池受光照時，主要把哪一種能量轉換成可輸出的電能？",
+          options: [
+            "光能",
+            "聲能",
+            "重力位能",
+            "核能"
+          ],
+          answer: "A",
+          explanation: "太陽能電池吸收光子後，在半導體中產生電子與電洞，再由 PN 接面內建電場分離電荷，形成可輸出的電能。"
+        },
+        {
+          id: "semisolar-5",
           difficulty: "中等",
           concept: "PN 接面與內建電場",
           intent: "把半導體接面連回電場力與載子分離。",
@@ -201,27 +298,12 @@ const pretestData = {
           ],
           answer: "A",
           explanation: "光吸收可產生電子-電洞對，PN 接面的內建電場會對正、負載子施加相反方向的電力，使電荷分離並形成光電流。"
-        },
-        {
-          id: "semi-5",
-          difficulty: "進階",
-          concept: "CMOS 感測器與光電轉換",
-          intent: "整合光子能量、電子電洞對與訊號讀出。",
-          prompt: "手機相機的 CMOS 感測器中，每個像素可近似為小型光電二極體。它把影像光訊號轉成電訊號的基本機制為何？",
-          options: [
-            "鏡頭把光子直接轉換成聲波，再由麥克風讀出",
-            "像素吸光後只改變溫度，完全不涉及電荷",
-            "光子使矽原子核分裂，釋放大量能量",
-            "光子在半導體中產生電子與電洞，累積電荷後讀出電壓或電流"
-          ],
-          answer: "D",
-          explanation: "CMOS/CCD 感測器都可用光電轉換理解：光子能量若足以被半導體吸收，會產生電子-電洞對；累積的電荷量與入射光強、曝光時間有關，再被電路轉成訊號。"
         }
       ]
     },
     {
       id: "drone",
-      title: "題組二：無人機飛行操控",
+      title: "題組三：無人機飛行操控",
       focus: "用牛頓運動定律與轉動觀念解釋四旋翼的懸停、平移與姿態控制。",
       questions: [
         {
@@ -303,7 +385,7 @@ const pretestData = {
     },
     {
       id: "optic",
-      title: "題組三：干涉與光電感測器",
+      title: "題組四：干涉與光電感測器",
       focus: "把雙狹縫、薄膜干涉、光電效應與 CMOS/CCD 感測器連成同一條光電轉換線索。",
       questions: [
         {
@@ -385,7 +467,7 @@ const pretestData = {
     },
     {
       id: "cooling",
-      title: "題組四：AI 資料中心散熱",
+      title: "題組五：AI 資料中心散熱",
       focus: "用熱學與能量守恆分析 GPU 耗電、散熱方式、液冷與資料中心能源效率。",
       questions: [
         {
@@ -503,32 +585,32 @@ const pretestExtraQuestions = {
     {
       id: "semi-8",
       difficulty: "基礎",
-      concept: "P 型半導體",
-      intent: "確認學生能由價電子數判斷多數載子。",
-      prompt: "矽為四價元素。若在矽晶格中摻入少量三價硼原子，最合理的結果為何？",
+      concept: "正光阻與負光阻",
+      intent: "確認學生能用顯影後的保留區判斷光阻類型。",
+      prompt: "某微影製程使用正光阻。若某區域被光照到後溶解度增加，顯影後該區域最可能如何？",
       options: [
-        "形成 N 型半導體，電子為多數載子",
-        "形成 P 型半導體，電洞為多數載子",
-        "矽原子核全部裂變",
-        "材料一定成為絕對絕緣體"
+        "光阻更容易被移除，形成開口",
+        "光阻一定變成金屬導線",
+        "晶圓立即改變重力",
+        "所有未曝光區一定消失"
       ],
-      answer: "B",
-      explanation: "三價硼比四價矽少一個價電子，容易形成電洞，因此產生 P 型半導體；多數載子為電洞。"
+      answer: "A",
+      explanation: "正光阻的受光區較容易溶於顯影液，因此顯影後被移除，露出下方材料。負光阻則常是受光區較不易被移除。"
     },
     {
       id: "semi-9",
       difficulty: "基礎",
-      concept: "PN 接面與二極體",
-      intent: "確認學生理解順向偏壓可降低接面障壁。",
-      prompt: "PN 接面二極體在順向偏壓時較容易導通。以高中電場觀點理解，主要原因為何？",
+      concept: "光罩與曝光圖形",
+      intent: "判斷學生是否能把光罩透明區與曝光區連結。",
+      prompt: "在光罩微影中，若光罩某區域透明，且使用正光阻，顯影後晶圓表面該位置最可能出現什麼結果？",
       options: [
-        "外加電場完全消除所有電荷",
-        "外加電壓降低接面位能障壁，使載子較容易跨越接面",
-        "二極體質量減少，所以電流變大",
-        "半導體中的光速變成無限大"
+        "光阻被移除，成為後續蝕刻或佈植的開口",
+        "光被透明區完全反射，所以無法曝光",
+        "晶圓質量變為零",
+        "光罩透明區一定形成暗紋"
       ],
-      answer: "B",
-      explanation: "順向偏壓會降低 PN 接面的位能障壁，使電子與電洞較容易穿越接面而形成電流；反向偏壓則使障壁加大。"
+      answer: "A",
+      explanation: "透明區讓光通過並照到正光阻，受光區顯影後較易被移除，形成開口。接下來才能把圖形轉移到下方材料。"
     },
     {
       id: "semi-10",
@@ -578,32 +660,32 @@ const pretestExtraQuestions = {
     {
       id: "semi-13",
       difficulty: "中等",
-      concept: "摻雜濃度與載子數",
-      intent: "用濃度乘體積估算摻雜原子數。",
-      prompt: "某區域摻雜濃度為 \\(1.0\\times10^{15}\\,\\mathrm{cm^{-3}}\\)，體積為 \\(2.0\\times10^{-8}\\,\\mathrm{cm^3}\\)。若每個雜質約提供一個載子，載子數約為多少？",
+      concept: "曝光劑量",
+      intent: "用 \\(D=It\\) 建立光強與曝光時間的比例關係。",
+      prompt: "光阻所需曝光劑量可粗略寫成 \\(D=It\\)，其中 \\(I\\) 為光強、\\(t\\) 為曝光時間。若光強變為原來 \\(2\\) 倍，要維持相同劑量，曝光時間應變為原來多少？",
       options: [
-        "\\(2.0\\times10^{7}\\)",
-        "\\(2.0\\times10^{15}\\)",
-        "\\(5.0\\times10^{22}\\)",
-        "\\(2.0\\times10^{-23}\\)"
+        "\\(1/2\\)",
+        "\\(1\\)",
+        "\\(2\\)",
+        "\\(4\\)"
       ],
       answer: "A",
-      explanation: "載子數 \\(N=nV=(1.0\\times10^{15})(2.0\\times10^{-8})=2.0\\times10^{7}\\)。濃度乘體積即可估算總數。"
+      explanation: "維持 \\(D=It\\) 不變。若 \\(I\\) 變為 \\(2I\\)，則 \\(t\\) 要變為 \\(t/2\\)，因為 \\((2I)(t/2)=It\\)。"
     },
     {
       id: "semi-14",
       difficulty: "中等",
-      concept: "CMOS 像素曝光",
-      intent: "把光強、曝光時間與累積電荷量連起來。",
-      prompt: "某 CMOS 像素未飽和時，累積電荷量與入射光強及曝光時間成正比。若光強變為原來 \\(3\\) 倍、曝光時間變為原來 \\(1/2\\)，累積電荷量變為原來多少？",
+      concept: "多圖案微影對準誤差",
+      intent: "理解多次曝光會增加光罩對準要求。",
+      prompt: "多圖案微影把密集線條拆成兩次曝光。若第二次曝光相對第一次偏移，最直接的風險是什麼？",
       options: [
-        "\\(1/6\\)",
-        "\\(1/2\\)",
-        "\\(3/2\\)",
-        "\\(6\\)"
+        "兩次圖形位置錯開，造成線寬或間距偏差",
+        "光的頻率一定變成零",
+        "光罩會自動修正所有誤差",
+        "晶圓不再受到任何繞射影響"
       ],
-      answer: "C",
-      explanation: "電荷量比例為 \\(3\\times(1/2)=3/2\\)。未飽和區可用線性模型；若已飽和，比例關係就不再成立。"
+      answer: "A",
+      explanation: "多圖案微影可放大單次曝光的有效間距，但需要精準對準。若兩次光罩有相對位移，圖形位置會錯開，造成線寬或間距誤差。"
     },
     {
       id: "semi-15",
@@ -623,62 +705,62 @@ const pretestExtraQuestions = {
     {
       id: "semi-16",
       difficulty: "進階",
-      concept: "電荷通過電位差的能量",
-      intent: "用 \\(\\Delta E=q\\Delta V\\) 連結 PN 接面位能障壁。",
-      prompt: "一個電子通過 \\(0.60\\,\\mathrm{V}\\) 的電位差時，電能改變量大小為多少？",
+      concept: "光子能量比例",
+      intent: "用 \\(E\\propto 1/\\lambda\\) 比較 DUV 與 EUV 光子能量。",
+      prompt: "比較 \\(193\\,\\mathrm{nm}\\) 深紫外光與 \\(13.5\\,\\mathrm{nm}\\) EUV。單一 EUV 光子能量約為 \\(193\\,\\mathrm{nm}\\) 光子的幾倍？",
       options: [
-        "\\(0.60\\,\\mathrm{eV}\\)",
-        "\\(1.2\\,\\mathrm{eV}\\)",
-        "\\(6.0\\,\\mathrm{J}\\)",
-        "\\(0\\)"
+        "\\(193/13.5\\approx14.3\\)",
+        "\\(13.5/193\\approx0.070\\)",
+        "\\(193+13.5\\)",
+        "兩者完全相同"
       ],
       answer: "A",
-      explanation: "以電子伏特為單位時，帶一個基本電荷的粒子通過 \\(1\\,\\mathrm{V}\\) 對應 \\(1\\,\\mathrm{eV}\\)。所以 \\(|\\Delta E|=0.60\\,\\mathrm{eV}\\)。"
+      explanation: "光子能量 \\(E=hc/\\lambda\\)，所以 \\(E_{\\mathrm{EUV}}/E_{193}=193/13.5\\approx14.3\\)。波長越短，單一光子能量越高。"
     },
     {
       id: "semi-17",
       difficulty: "進階",
-      concept: "LED 能隙與波長",
-      intent: "用 \\(E=hc/\\lambda\\) 估算 LED 發光波長。",
-      prompt: "某 LED 半導體能隙約 \\(2.0\\,\\mathrm{eV}\\)。若光子能量近似等於能隙，發光波長最接近多少？取 \\(hc=1240\\,\\mathrm{eV\\cdot nm}\\)。",
+      concept: "線寬容許誤差",
+      intent: "用百分比範圍估算製程規格。",
+      prompt: "某製程目標線寬為 \\(32\\,\\mathrm{nm}\\)，容許誤差為 \\(\\pm 10\\%\\)。線寬可接受範圍最接近下列何者？",
       options: [
-        "\\(310\\,\\mathrm{nm}\\)",
-        "\\(620\\,\\mathrm{nm}\\)",
-        "\\(1240\\,\\mathrm{nm}\\)",
-        "\\(2480\\,\\mathrm{nm}\\)"
+        "\\(28.8\\sim35.2\\,\\mathrm{nm}\\)",
+        "\\(22\\sim42\\,\\mathrm{nm}\\)",
+        "\\(31.9\\sim32.1\\,\\mathrm{nm}\\)",
+        "\\(3.2\\sim320\\,\\mathrm{nm}\\)"
       ],
-      answer: "B",
-      explanation: "\\(\\lambda=hc/E=1240/2.0=620\\,\\mathrm{nm}\\)。能隙越大，發出光子的波長越短。"
+      answer: "A",
+      explanation: "\\(10\\%\\) 的 \\(32\\,\\mathrm{nm}\\) 為 \\(3.2\\,\\mathrm{nm}\\)，所以範圍是 \\(32\\pm3.2\\)，也就是 \\(28.8\\sim35.2\\,\\mathrm{nm}\\)。"
     },
     {
       id: "semi-18",
       difficulty: "進階",
-      concept: "光電流估算",
-      intent: "用光子數、量子效率與電荷量估算電流。",
-      prompt: "一個光電二極體每秒吸收 \\(5.0\\times10^{15}\\) 個光子，量子效率為 \\(80\\%\\)。若每個有效光子產生一個電子，光電流約為多少？取 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)。",
+      concept: "曝光功率與能量",
+      intent: "用 \\(E=Pt\\) 計算曝光能量。",
+      prompt: "某曝光系統照到光阻的有效功率為 \\(2.0\\,\\mathrm{mW}\\)，曝光時間 \\(0.50\\,\\mathrm{s}\\)。傳到光阻的能量約為多少？",
       options: [
-        "\\(0.64\\,\\mathrm{mA}\\)",
-        "\\(6.4\\,\\mathrm{mA}\\)",
-        "\\(64\\,\\mathrm{mA}\\)",
-        "\\(0.64\\,\\mathrm{A}\\)"
+        "\\(1.0\\times10^{-3}\\,\\mathrm{J}\\)",
+        "\\(1.0\\,\\mathrm{J}\\)",
+        "\\(4.0\\,\\mathrm{J}\\)",
+        "\\(0.25\\,\\mathrm{J}\\)"
       ],
       answer: "A",
-      explanation: "每秒電子數 \\(N=0.80(5.0\\times10^{15})=4.0\\times10^{15}\\)。電流 \\(I=Ne=(4.0\\times10^{15})(1.6\\times10^{-19})=6.4\\times10^{-4}\\,\\mathrm{A}=0.64\\,\\mathrm{mA}\\)。"
+      explanation: "\\(E=Pt=(2.0\\times10^{-3})(0.50)=1.0\\times10^{-3}\\,\\mathrm{J}\\)。曝光能量不足會造成顯影不完全，過量則可能使圖形擴大。"
     },
     {
       id: "semi-19",
       difficulty: "進階",
-      concept: "像素電容與電子數",
-      intent: "用 \\(Q=CV\\) 與 \\(N=Q/e\\) 估算感測器訊號。",
-      prompt: "某 CMOS 像素電容 \\(C=2.0\\,\\mathrm{fF}\\)，累積電壓 \\(V=0.80\\,\\mathrm{V}\\)。若 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)，累積電子數約為多少？",
+      concept: "對準誤差向量",
+      intent: "用畢氏定理估算兩方向疊對誤差。",
+      prompt: "兩次曝光的疊對誤差在 \\(x\\) 方向為 \\(3.0\\,\\mathrm{nm}\\)，在 \\(y\\) 方向為 \\(4.0\\,\\mathrm{nm}\\)。合成位置誤差大小約多少？",
       options: [
-        "\\(1.0\\times10^{4}\\)",
-        "\\(1.0\\times10^{7}\\)",
-        "\\(1.0\\times10^{12}\\)",
-        "\\(1.0\\times10^{19}\\)"
+        "\\(1.0\\,\\mathrm{nm}\\)",
+        "\\(5.0\\,\\mathrm{nm}\\)",
+        "\\(7.0\\,\\mathrm{nm}\\)",
+        "\\(25\\,\\mathrm{nm}\\)"
       ],
-      answer: "A",
-      explanation: "\\(Q=CV=(2.0\\times10^{-15})(0.80)=1.6\\times10^{-15}\\,\\mathrm{C}\\)。電子數 \\(N=Q/e=(1.6\\times10^{-15})/(1.6\\times10^{-19})=1.0\\times10^{4}\\)。"
+      answer: "B",
+      explanation: "兩方向誤差互相垂直時，可用 \\(\\Delta r=\\sqrt{(3.0)^2+(4.0)^2}=5.0\\,\\mathrm{nm}\\)。這是多次曝光對準控制的重要原因。"
     },
     {
       id: "semi-20",
@@ -694,6 +776,233 @@ const pretestExtraQuestions = {
       ],
       answer: "B",
       explanation: "\\(p=13.5/(2\\times0.5)=13.5\\,\\mathrm{nm}\\)。這顯示短波長搭配大夾角可形成很細的週期條紋。"
+    }
+  ],
+  semisolar: [
+    {
+      id: "semisolar-6",
+      difficulty: "基礎",
+      concept: "導體、絕緣體與半導體",
+      intent: "辨認半導體導電性可被溫度、光照與摻雜調整。",
+      prompt: "半導體材料與金屬導體、絕緣體相比，最適合用哪一句描述？",
+      options: [
+        "導電性介於導體與絕緣體之間，且可用摻雜或光照調整",
+        "在任何情況下都完全不導電",
+        "一定比金屬導電性更好",
+        "只能靠重力產生電流"
+      ],
+      answer: "A",
+      explanation: "半導體的導電性不是固定不變；摻雜可改變多數載子，光照可產生電子與電洞，因此適合製作二極體、太陽能電池與感測器。"
+    },
+    {
+      id: "semisolar-7",
+      difficulty: "基礎",
+      concept: "電子與電洞在電場中的運動",
+      intent: "檢查正負載子受力方向。",
+      prompt: "在半導體中，電子帶負電、電洞可視為帶正電。若電場向右，電子與電洞受電力方向何者正確？",
+      options: [
+        "電子向右，電洞向右",
+        "電子向左，電洞向右",
+        "電子向右，電洞向左",
+        "兩者都不受電場影響"
+      ],
+      answer: "B",
+      explanation: "電力 \\(\\vec{F}=q\\vec{E}\\)。電洞等效帶正電，受力同電場方向；電子帶負電，受力與電場方向相反。"
+    },
+    {
+      id: "semisolar-8",
+      difficulty: "中等",
+      concept: "摻雜濃度與載子數",
+      intent: "用濃度乘體積估算摻雜原子數。",
+      prompt: "某區域摻雜濃度為 \\(1.0\\times10^{15}\\,\\mathrm{cm^{-3}}\\)，體積為 \\(2.0\\times10^{-8}\\,\\mathrm{cm^3}\\)。若每個雜質約提供一個載子，載子數約為多少？",
+      options: [
+        "\\(2.0\\times10^{7}\\)",
+        "\\(2.0\\times10^{15}\\)",
+        "\\(5.0\\times10^{22}\\)",
+        "\\(2.0\\times10^{-23}\\)"
+      ],
+      answer: "A",
+      explanation: "載子數 \\(N=nV=(1.0\\times10^{15})(2.0\\times10^{-8})=2.0\\times10^{7}\\)。濃度乘體積即可估算總數。"
+    },
+    {
+      id: "semisolar-9",
+      difficulty: "中等",
+      concept: "光子能量與矽能隙",
+      intent: "用 \\(E=hc/\\lambda\\) 判斷光子是否足以產生電子-電洞對。",
+      prompt: "矽的能隙約 \\(1.1\\,\\mathrm{eV}\\)。若某光子能量為 \\(2.0\\,\\mathrm{eV}\\)，照射矽太陽能電池時最合理的判斷是什麼？",
+      options: [
+        "光子能量大於能隙，可能產生電子-電洞對",
+        "光子能量大於能隙，所以一定完全不被吸收",
+        "光子能量與電能無關",
+        "只有聲波能產生電子-電洞對"
+      ],
+      answer: "A",
+      explanation: "光子能量若大於能隙，就有機會把電子由價帶激發到導帶，產生電子-電洞對。太陽能電池再利用內建電場分離載子。"
+    },
+    {
+      id: "semisolar-10",
+      difficulty: "中等",
+      concept: "太陽能電池輸出功率",
+      intent: "用 \\(P=IV\\) 計算電功率。",
+      prompt: "某太陽能電池在工作點輸出電壓 \\(0.50\\,\\mathrm{V}\\)、電流 \\(2.0\\,\\mathrm{A}\\)。輸出功率為多少？",
+      options: [
+        "\\(0.25\\,\\mathrm{W}\\)",
+        "\\(1.0\\,\\mathrm{W}\\)",
+        "\\(2.5\\,\\mathrm{W}\\)",
+        "\\(4.0\\,\\mathrm{W}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(P=IV=(2.0)(0.50)=1.0\\,\\mathrm{W}\\)。太陽能電池的輸出會隨光照、溫度與負載改變。"
+    },
+    {
+      id: "semisolar-11",
+      difficulty: "中等",
+      concept: "太陽能轉換效率",
+      intent: "用 \\(\\eta=P_{\\mathrm{out}}/P_{\\mathrm{in}}\\) 估算效率。",
+      prompt: "太陽光照度為 \\(1000\\,\\mathrm{W/m^2}\\)，太陽能板面積 \\(0.20\\,\\mathrm{m^2}\\)，輸出功率 \\(40\\,\\mathrm{W}\\)。效率約多少？",
+      options: [
+        "\\(10\\%\\)",
+        "\\(20\\%\\)",
+        "\\(40\\%\\)",
+        "\\(80\\%\\)"
+      ],
+      answer: "B",
+      explanation: "入射功率 \\(P_{\\mathrm{in}}=(1000)(0.20)=200\\,\\mathrm{W}\\)。效率 \\(\\eta=40/200=0.20=20\\%\\)。"
+    },
+    {
+      id: "semisolar-12",
+      difficulty: "中等",
+      concept: "太陽能電池串聯與並聯",
+      intent: "用電路基本觀念判斷電壓與電流。",
+      prompt: "兩片相同太陽能電池串聯時，若各自可提供約 \\(0.60\\,\\mathrm{V}\\)，串聯總電壓約為多少？",
+      options: [
+        "\\(0.30\\,\\mathrm{V}\\)",
+        "\\(0.60\\,\\mathrm{V}\\)",
+        "\\(1.20\\,\\mathrm{V}\\)",
+        "\\(3.60\\,\\mathrm{V}\\)"
+      ],
+      answer: "C",
+      explanation: "串聯時電壓相加，所以 \\(V_{\\mathrm{total}}=0.60+0.60=1.20\\,\\mathrm{V}\\)。並聯則主要增加可輸出電流。"
+    },
+    {
+      id: "semisolar-13",
+      difficulty: "中等",
+      concept: "抗反射膜與太陽能電池",
+      intent: "連結薄膜干涉與提高入射光吸收。",
+      prompt: "太陽能電池表面常加抗反射鍍膜。其主要目的為何？",
+      options: [
+        "利用相消干涉降低反射，使更多光進入電池",
+        "讓重力變小",
+        "讓所有光都變成聲波",
+        "使電池完全不吸收光"
+      ],
+      answer: "A",
+      explanation: "抗反射膜利用薄膜上下表面反射光的相位差，使反射光相消，降低反射損失，增加進入半導體的光。"
+    },
+    {
+      id: "semisolar-14",
+      difficulty: "進階",
+      concept: "電荷通過電位差的能量",
+      intent: "用 \\(\\Delta E=q\\Delta V\\) 連結接面位能。",
+      prompt: "一個電子通過 \\(0.60\\,\\mathrm{V}\\) 的電位差時，電能改變量大小為多少？",
+      options: [
+        "\\(0.60\\,\\mathrm{eV}\\)",
+        "\\(1.2\\,\\mathrm{eV}\\)",
+        "\\(6.0\\,\\mathrm{J}\\)",
+        "\\(0\\)"
+      ],
+      answer: "A",
+      explanation: "以電子伏特為單位時，帶一個基本電荷的粒子通過 \\(1\\,\\mathrm{V}\\) 對應 \\(1\\,\\mathrm{eV}\\)。因此 \\(|\\Delta E|=0.60\\,\\mathrm{eV}\\)。"
+    },
+    {
+      id: "semisolar-15",
+      difficulty: "進階",
+      concept: "LED 能隙與波長",
+      intent: "用 \\(E=hc/\\lambda\\) 估算 LED 發光波長。",
+      prompt: "某 LED 半導體能隙約 \\(2.0\\,\\mathrm{eV}\\)。若光子能量近似等於能隙，發光波長最接近多少？取 \\(hc=1240\\,\\mathrm{eV\\cdot nm}\\)。",
+      options: [
+        "\\(310\\,\\mathrm{nm}\\)",
+        "\\(620\\,\\mathrm{nm}\\)",
+        "\\(1240\\,\\mathrm{nm}\\)",
+        "\\(2480\\,\\mathrm{nm}\\)"
+      ],
+      answer: "B",
+      explanation: "\\(\\lambda=hc/E=1240/2.0=620\\,\\mathrm{nm}\\)。能隙越大，發出光子的波長越短。"
+    },
+    {
+      id: "semisolar-16",
+      difficulty: "進階",
+      concept: "光電流估算",
+      intent: "用光子數、量子效率與電荷量估算電流。",
+      prompt: "一個光電二極體每秒吸收 \\(5.0\\times10^{15}\\) 個光子，量子效率為 \\(80\\%\\)。若每個有效光子產生一個電子，光電流約為多少？取 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)。",
+      options: [
+        "\\(0.64\\,\\mathrm{mA}\\)",
+        "\\(6.4\\,\\mathrm{mA}\\)",
+        "\\(64\\,\\mathrm{mA}\\)",
+        "\\(0.64\\,\\mathrm{A}\\)"
+      ],
+      answer: "A",
+      explanation: "每秒電子數 \\(N=0.80(5.0\\times10^{15})=4.0\\times10^{15}\\)。電流 \\(I=Ne=(4.0\\times10^{15})(1.6\\times10^{-19})=6.4\\times10^{-4}\\,\\mathrm{A}=0.64\\,\\mathrm{mA}\\)。"
+    },
+    {
+      id: "semisolar-17",
+      difficulty: "進階",
+      concept: "太陽能電池最大功率",
+      intent: "用填充因子估算最大輸出功率。",
+      prompt: "某太陽能電池的開路電壓 \\(V_{\\mathrm{oc}}=0.60\\,\\mathrm{V}\\)、短路電流 \\(I_{\\mathrm{sc}}=5.0\\,\\mathrm{A}\\)，填充因子 \\(FF=0.80\\)。最大功率約為多少？",
+      options: [
+        "\\(1.2\\,\\mathrm{W}\\)",
+        "\\(2.4\\,\\mathrm{W}\\)",
+        "\\(3.0\\,\\mathrm{W}\\)",
+        "\\(6.0\\,\\mathrm{W}\\)"
+      ],
+      answer: "B",
+      explanation: "最大功率可估為 \\(P_{\\max}=FF\\,V_{\\mathrm{oc}}I_{\\mathrm{sc}}=0.80(0.60)(5.0)=2.4\\,\\mathrm{W}\\)。"
+    },
+    {
+      id: "semisolar-18",
+      difficulty: "進階",
+      concept: "面積、照度與輸出功率",
+      intent: "整合照度、面積與效率計算。",
+      prompt: "照度 \\(800\\,\\mathrm{W/m^2}\\) 照在面積 \\(1.5\\,\\mathrm{m^2}\\) 的太陽能板上，效率 \\(18\\%\\)。輸出功率約多少？",
+      options: [
+        "\\(120\\,\\mathrm{W}\\)",
+        "\\(216\\,\\mathrm{W}\\)",
+        "\\(800\\,\\mathrm{W}\\)",
+        "\\(1200\\,\\mathrm{W}\\)"
+      ],
+      answer: "B",
+      explanation: "入射功率 \\(P_{\\mathrm{in}}=(800)(1.5)=1200\\,\\mathrm{W}\\)。輸出 \\(P_{\\mathrm{out}}=0.18(1200)=216\\,\\mathrm{W}\\)。"
+    },
+    {
+      id: "semisolar-19",
+      difficulty: "進階",
+      concept: "反向偏壓與光電二極體",
+      intent: "理解反向偏壓可加強載子分離與訊號讀出。",
+      prompt: "光電二極體常在反向偏壓下工作。下列哪一項最能說明其用途？",
+      options: [
+        "加強耗盡區電場，使光生電子與電洞較快分離",
+        "使光子能量變成負值",
+        "讓半導體完全不吸收光",
+        "讓電流方向不再受電荷影響"
+      ],
+      answer: "A",
+      explanation: "反向偏壓會加強接面電場並擴大耗盡區，有助於把光生電子與電洞分離，形成可量測的光電流。"
+    },
+    {
+      id: "semisolar-20",
+      difficulty: "進階",
+      concept: "像素電容與電子數",
+      intent: "用 \\(Q=CV\\) 與 \\(N=Q/e\\) 估算感測器訊號。",
+      prompt: "某 CMOS 像素電容 \\(C=2.0\\,\\mathrm{fF}\\)，累積電壓 \\(V=0.80\\,\\mathrm{V}\\)。若 \\(e=1.6\\times10^{-19}\\,\\mathrm{C}\\)，累積電子數約為多少？",
+      options: [
+        "\\(1.0\\times10^{4}\\)",
+        "\\(1.0\\times10^{7}\\)",
+        "\\(1.0\\times10^{12}\\)",
+        "\\(1.0\\times10^{19}\\)"
+      ],
+      answer: "A",
+      explanation: "\\(Q=CV=(2.0\\times10^{-15})(0.80)=1.6\\times10^{-15}\\,\\mathrm{C}\\)。電子數 \\(N=Q/e=(1.6\\times10^{-15})/(1.6\\times10^{-19})=1.0\\times10^{4}\\)。"
     }
   ],
   drone: [
@@ -1857,6 +2166,27 @@ const site = String.raw`<!doctype html>
       width: 100%;
       height: auto;
     }
+    .concept-diagram--source img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .concept-diagram--source figcaption {
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .concept-diagram--source a {
+      color: #1d4ed8;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .concept-diagram--source a:hover {
+      text-decoration: underline;
+    }
     .concept-diagram mjx-container svg {
       display: inline;
       width: auto;
@@ -1883,7 +2213,7 @@ const site = String.raw`<!doctype html>
     }
     .pretest-topic-tabs {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 10px;
       margin: 12px 0;
     }
@@ -1949,6 +2279,31 @@ const site = String.raw`<!doctype html>
     .reference-box {
       background: #f5f3ff;
       border-color: #ddd6fe;
+    }
+    .article-keypoints {
+      margin: 12px 0;
+      padding: 12px;
+      border: 1px solid #c7d2e5;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+    .article-keypoints h4 {
+      margin: 0 0 8px;
+      color: #0f2d52;
+      font-size: 15px;
+    }
+    .article-keypoints p {
+      margin: 0;
+      line-height: 1.7;
+    }
+    .article-keypoints ul {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding-left: 1.25em;
+    }
+    .article-keypoints li {
+      line-height: 1.65;
     }
     .reference-box h4 {
       margin: 0 0 8px;
@@ -2163,13 +2518,14 @@ const site = String.raw`<!doctype html>
       <div class="pretest-hero">
         <span class="pretest-kicker">高三考前複習｜科技情境｜素養題</span>
         <h2>2026 分科測驗物理科技情境與素養題預試題</h2>
-        <p>半導體製程｜無人機｜光電感測｜AI資料中心散熱</p>
+        <p>半導體製程｜半導體與太陽能｜無人機｜光電感測｜AI資料中心散熱</p>
         <p>內容以高中物理可掌握的模型、公式、圖表判讀與實驗探究為主，協助把科技新聞與真實工程情境轉換成可解題的物理語言。</p>
       </div>
       <div class="pretest-body">
         <nav class="pretest-nav" aria-label="預試題快速導覽">
           <a href="#trendOverview">命題趨勢</a>
           <a href="#themeSemiconductor">半導體製程</a>
+          <a href="#themeSemiSolar">半導體與太陽能</a>
           <a href="#themeDrone">無人機操控</a>
           <a href="#themeOptic">干涉與感測</a>
           <a href="#themeCooling">資料中心散熱</a>
@@ -2195,66 +2551,46 @@ const site = String.raw`<!doctype html>
             <h3>主題一：半導體製程中的物理</h3>
             <div class="theme-layout">
               <div>
-                <p>半導體製程可用「材料導電性可被控制」和「光把圖形轉到晶圓」兩條主線理解。矽晶圓先被塗上光阻，光刻 Photolithography 讓光罩圖形曝光在光阻上；顯影後保留下來的光阻可當作保護層，未被保護處再經蝕刻或離子佈植，形成電路結構。若用兩束相干光在光阻上形成明暗條紋，也可利用干涉強度分布製作週期性微結構，這就是干涉式微影的基本想法。</p>
-                <div class="concept-diagram">
-                  <svg viewBox="0 0 760 430" role="img" aria-label="干涉式微影示意圖">
-                    <defs>
-                      <marker id="beamArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"></path>
-                      </marker>
-                      <marker id="periodArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"></path>
-                      </marker>
-                    </defs>
-                    <rect x="70" y="286" width="620" height="48" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"></rect>
-                    <rect x="70" y="334" width="620" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"></rect>
-                    <line x1="380" y1="74" x2="380" y2="286" stroke="#64748b" stroke-dasharray="8 8" stroke-width="2"></line>
-                    <line x1="250" y1="76" x2="352" y2="272" stroke="#2563eb" stroke-width="8" stroke-linecap="round" marker-end="url(#beamArrow)"></line>
-                    <line x1="510" y1="76" x2="408" y2="272" stroke="#7c3aed" stroke-width="8" stroke-linecap="round" marker-end="url(#beamArrow)"></line>
-                    <path d="M 338 134 A 58 58 0 0 1 422 134" fill="none" stroke="#64748b" stroke-width="2"></path>
-                    <path d="M 356 118 A 30 30 0 0 1 380 108" fill="none" stroke="#64748b" stroke-width="2"></path>
-                    <path d="M 380 108 A 30 30 0 0 1 404 118" fill="none" stroke="#64748b" stroke-width="2"></path>
-                    <path d="M 112 236 C 142 214 172 214 202 236 S 262 258 292 236 S 352 214 382 236 S 442 258 472 236 S 532 214 562 236 S 622 258 652 236" fill="none" stroke="#0f172a" stroke-width="3"></path>
-                    <line x1="110" y1="286" x2="650" y2="286" stroke="#64748b" stroke-width="1.5"></line>
-                    <rect x="112" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
-                    <rect x="202" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
-                    <rect x="292" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
-                    <rect x="382" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
-                    <rect x="472" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
-                    <rect x="562" y="290" width="34" height="40" fill="#1d4ed8" opacity=".35"></rect>
-                    <line x1="129" y1="272" x2="219" y2="272" stroke="#334155" stroke-width="2" marker-start="url(#periodArrow)" marker-end="url(#periodArrow)"></line>
-                    <line x1="129" y1="260" x2="129" y2="282" stroke="#334155" stroke-width="2"></line>
-                    <line x1="219" y1="260" x2="219" y2="282" stroke="#334155" stroke-width="2"></line>
-                    <text x="232" y="278" class="label small-label">週期 p</text>
-                    <text x="206" y="52" class="label">相干光 1</text>
-                    <text x="466" y="52" class="label">相干光 2</text>
-                    <text x="430" y="122" class="label small-label">兩束光夾角 2θ</text>
-                    <text x="321" y="120" class="label small-label">半角 θ</text>
-                    <text x="112" y="224" class="label small-label">光阻表面光強 I(x)</text>
-                    <text x="116" y="318" class="label small-label">亮紋曝光較強</text>
-                    <text x="450" y="318" class="label small-label">暗紋曝光較弱</text>
-                    <text x="336" y="317" class="label">光阻層</text>
-                    <text x="332" y="372" class="label">矽晶圓</text>
-                    <text x="92" y="420" class="label small-label">顯影後得到週期性光阻圖形，再用蝕刻把圖形轉移到晶圓；保留或移除取決於正光阻或負光阻。</text>
-                  </svg>
-                  <p>兩束相干平面波對稱入射，單束光與法線夾角為 \(\theta\)，兩束光夾角為 \(2\theta\)。在光阻表面距中心 \(x\) 的位置，兩束光路徑差可寫成 \(\Delta=2x\sin\theta\)；亮紋條件為 \(\Delta=m\lambda\)，暗紋條件為 \(\Delta=\left(m+\frac{1}{2}\right)\lambda\)。相鄰亮紋間距為 \(p=\lambda/(2\sin\theta)\)。顯影後先得到週期性光阻圖形，再以蝕刻把圖形轉移到矽晶圓。</p>
+                <p>半導體製程可用「材料導電性可被控制」和「光把圖形轉到晶圓」兩條主線理解。矽晶圓先塗上光阻，光刻 Photolithography 透過光罩把圖形曝光在光阻上；顯影後留下的光阻可當作保護層，未被保護處再經蝕刻或離子佈植，形成電路結構。這裡的重點不是「光直接蝕刻晶圓」，而是光先改變光阻，蝕刻步驟再把圖形轉移到下方材料。</p>
+                <p>當元件越做越小時，微影也必須配合元件尺寸，製作線寬很細、分布又很密的電路圖案。一般微影製程常使用波長約 \(193\,\mathrm{nm}\) 的紫外光；若要製造小於 \(32\,\mathrm{nm}\) 的線寬，光穿過光罩窄縫後會明顯繞射，使照射範圍向外擴展。因為線條彼此距離很近，擴散後的曝光區域容易互相重疊，使線條黏在一起，圖案就像解析度不足的照片一樣變得模糊不清。</p>
+                <figure class="concept-diagram concept-diagram--source">
+                  <img src="https://scitechvista.nat.gov.tw/FileDownload/Article/20201207102349000000164.jpg" alt="簡易的微影製程示意圖，將電路圖案透過光罩、光阻、顯影與蝕刻轉印到晶圓上" loading="lazy">
+                  <figcaption>圖片來源：科技大觀園〈<a href="https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=ba7d1350-814b-409a-8fde-3e1b20d9cd6d" target="_blank" rel="noopener">微影製程再進化！複雜電路的祕密</a>〉，圖／簡克志、孔瀞慧繪；依原圖引用，未改作。</figcaption>
+                </figure>
+                <div class="article-keypoints">
+                  <h4>科技大觀園文章重點</h4>
+                  <ul>
+                    <li>微影是把光罩上的電路圖案轉印到晶圓的關鍵製程；光先改變光阻的可溶解性，顯影後再用蝕刻把圖形轉移到下方材料。</li>
+                    <li>實際晶片會堆疊多層材料，因此微影、蝕刻與沉積會反覆進行，每一層常需要不同光罩。</li>
+                    <li>線寬縮小時，光穿過光罩開口會發生繞射，使曝光區域變模糊；可用高三波動觀念理解為波長越長，繞射擴散越明顯。</li>
+                    <li>多圖案微影把同一圖案拆到兩個以上光罩，讓相鄰結構距離變大，但代價是曝光次數增加，且光罩對準誤差更需要控制。</li>
+                    <li>EUV 使用約 \(13.5\,\mathrm{nm}\) 的極紫外光，可降低繞射限制；未來製程可能再搭配雙圖案微影或定向自組裝等技術。</li>
+                  </ul>
                 </div>
-                <p>EUV 使用約 \(13.5\,\mathrm{nm}\) 的極紫外光。從高三波動觀點看，曝光圖形的最小可分辨尺度受繞射限制影響，波長越短，繞射造成的模糊越小，因此更有利於做出細線寬。摻雜則是把少量雜質原子放入矽晶格，改變自由電子或電洞的數量；P 型、N 型半導體接在一起形成 PN 接面，內建電場能分離電子與電洞，連結到 LED、太陽能電池、CMOS 感測器等元件。</p>
+                <figure class="concept-diagram concept-diagram--source">
+                  <img src="https://scitechvista.nat.gov.tw/FileDownload/Article/20201207102349000000296.jpg" alt="微影線寬太小時，不同波長與繞射使曝光區域互相覆蓋，造成圖案模糊的示意圖" loading="lazy">
+                  <figcaption>圖片來源：科技大觀園〈<a href="https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=ba7d1350-814b-409a-8fde-3e1b20d9cd6d" target="_blank" rel="noopener">微影製程再進化！複雜電路的祕密</a>〉，圖／方劭云提供、簡克志改作；依原圖引用，未改作。</figcaption>
+                </figure>
+                <div class="article-keypoints">
+                  <h4>不同波長與繞射限制</h4>
+                  <p>從高三波動觀點看，光通過光罩狹縫時會繞射。當線寬遠大於光的波長時，光大致沿直線前進，光阻上可得到清楚邊界；當線寬縮小到接近波長尺度時，繞射角變大，曝光強度會向旁邊擴散，原本應分開的亮區可能重疊，顯影後就會形成模糊或黏連的圖案。因此微影要做更細線寬，常改用較短波長光源，例如 \(193\,\mathrm{nm}\) 深紫外光或 \(13.5\,\mathrm{nm}\) EUV，降低繞射造成的圖形擴散。</p>
+                </div>
+                <p>EUV 使用約 \(13.5\,\mathrm{nm}\) 的極紫外光。從高三波動觀點看，曝光圖形的最小可分辨尺度受繞射限制影響，波長越短，繞射造成的模糊越小，因此更有利於做出細線寬。若同一層圖案太密，也可用多圖案微影把線條拆成多次曝光；這會改善單次曝光的間距問題，但也提高光罩疊對與曝光劑量控制的要求。</p>
                 <ul>
-                  <li>矽晶圓、光刻、EUV、繞射限制</li>
-                  <li>摻雜、P 型與 N 型半導體、PN 接面</li>
-                  <li>LED、太陽能電池、CMOS 感測器</li>
+                  <li>矽晶圓、光刻、光阻、顯影與蝕刻</li>
+                  <li>DUV、EUV、繞射限制與解析度</li>
+                  <li>多圖案微影、疊對誤差與線寬控制</li>
                 </ul>
               </div>
               <div>
-                <div class="definition-box"><strong>名詞定義：</strong>EUV 是 Extreme Ultraviolet，指波長約 \(13.5\,\mathrm{nm}\) 的極紫外光；摻雜是加入微量雜質以改變多數載子；PN 接面是 P 型與 N 型半導體接觸後形成的電荷分離區與內建電場。</div>
-                <div class="formula-box">高三必懂公式：\(E=hf\)、\(c=f\lambda\)、解析度與波長成正相關，可用 \(d\propto \lambda\) 判斷趨勢。</div>
-                <div class="ask-box">可能分科測驗問法：短波長為何提升解析度？摻雜後多數載子為何？PN 接面如何分離光生載子？</div>
+                <div class="definition-box"><strong>名詞定義：</strong>EUV 是 Extreme Ultraviolet，指波長約 \(13.5\,\mathrm{nm}\) 的極紫外光；光阻是受光後溶解度或化學性質改變的材料；光罩是帶有電路圖案的遮罩，用來決定哪些區域曝光。</div>
+                <div class="formula-box">高三必懂公式：\(E=hf\)、\(c=f\lambda\)。繞射限制下，最小可分辨尺度可用 \(d\propto \lambda\) 判斷；解析能力約與 \(d\) 成反比，因此波長越短，解析度越高。</div>
+                <div class="ask-box">可能分科測驗問法：短波長為何提升解析度？線寬接近波長時為何模糊？多圖案微影如何改善密集線條？</div>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
                   <ul>
+                    <li><a href="https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=ba7d1350-814b-409a-8fde-3e1b20d9cd6d" target="_blank" rel="noopener">科技大觀園：微影製程再進化！複雜電路的祕密</a></li>
                     <li><a href="https://www.asml.com/zh-tw/technology?icmp=tw-learn-more-about-asml-technology" target="_blank" rel="noopener">ASML：全方位微影技術介紹</a></li>
-                    <li><a href="https://zh.wikipedia.org/zh-tw/%E5%8D%8A%E5%B0%8E%E9%AB%94" target="_blank" rel="noopener">半導體基本概念</a></li>
                     <li><a href="https://www.youtube.com/results?search_query=EUV+%E6%A5%B5%E7%B4%AB%E5%A4%96%E5%85%89+%E5%BE%AE%E5%BD%B1+%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">YouTube：EUV 極紫外光微影原理</a></li>
                   </ul>
                 </div>
@@ -2262,8 +2598,37 @@ const site = String.raw`<!doctype html>
             </div>
           </article>
 
+          <article class="theme-card" id="themeSemiSolar">
+            <h3>主題二：半導體與太陽能電池</h3>
+            <div class="theme-layout">
+              <div>
+                <p>半導體的導電性介於導體與絕緣體之間，而且可用摻雜、光照與外加電壓控制。矽原子有四個價電子；若摻入五價原子，較容易提供自由電子，形成 N 型半導體；若摻入三價原子，較容易形成電洞，形成 P 型半導體。電子帶負電，電洞可視為帶正電，因此在電場中受力方向相反。</p>
+                <p>P 型與 N 型半導體接在一起會形成 PN 接面。接面附近電子與電洞先互相擴散並復合，留下帶電離子，形成耗盡區與內建電場。太陽能電池就是利用這個接面：光子能量若足夠，可在半導體中產生電子與電洞；內建電場把兩種載子分離，外接電路便可得到光電流與電功率。LED 則可視為反向的能量轉換，電能使電子與電洞復合並放出光。</p>
+                <ul>
+                  <li>摻雜、N 型／P 型半導體與多數載子</li>
+                  <li>PN 接面、耗盡區、內建電場與順逆偏壓</li>
+                  <li>太陽能電池、LED、光電二極體與 CMOS 感測</li>
+                </ul>
+              </div>
+              <div>
+                <div class="definition-box"><strong>名詞定義：</strong>N 型半導體以電子為多數載子；P 型半導體以電洞為多數載子；PN 接面是 P 型與 N 型半導體接觸後形成的電荷分離區；太陽能電池利用光生伏特效應把光能轉換成電能。</div>
+                <div class="formula-box">高三必懂公式：\(E=hf=\frac{hc}{\lambda}\)、\(P=IV\)、\(\eta=\frac{P_{\mathrm{out}}}{P_{\mathrm{in}}}\)。若光子能量大於能隙，才較可能產生可分離的電子-電洞對。</div>
+                <div class="ask-box">可能分科測驗問法：摻入三價或五價原子後多數載子為何？PN 接面內建電場如何分離光生載子？太陽能板的輸出功率與效率如何估算？</div>
+                <div class="reference-box">
+                  <h4>參考網站／影片</h4>
+                  <ul>
+                    <li><a href="https://pansci.asia/archives/358894" target="_blank" rel="noopener">泛科學：將陽光轉變成電能的太陽能電池</a></li>
+                    <li><a href="https://zh.wikipedia.org/wiki/Pn%E7%BB%93" target="_blank" rel="noopener">PN 接面基本概念</a></li>
+                    <li><a href="https://zh.wikipedia.org/zh-tw/%E5%8D%8A%E5%B0%8E%E9%AB%94" target="_blank" rel="noopener">半導體基本概念</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=%E5%A4%AA%E9%99%BD%E8%83%BD%E9%9B%BB%E6%B1%A0+PN+%E6%8E%A5%E9%9D%A2+%E9%AB%98%E4%B8%AD%E7%89%A9%E7%90%86" target="_blank" rel="noopener">YouTube：太陽能電池與 PN 接面</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
           <article class="theme-card" id="themeDrone">
-            <h3>主題二：無人機飛行操控原理</h3>
+            <h3>主題三：無人機飛行操控原理</h3>
             <div class="theme-layout">
               <div>
                 <p>四旋翼無人機的核心是「總力控制平動、總力矩控制轉動」。懸停時，四個螺旋槳的總升力等於重力，鉛直方向合力為零。若要前進，機身會先產生俯仰 pitch，使總推力不再完全鉛直；推力的水平分量提供向前加速度，鉛直分量則仍需接近重力以維持高度。</p>
@@ -2291,7 +2656,7 @@ const site = String.raw`<!doctype html>
           </article>
 
           <article class="theme-card" id="themeOptic">
-            <h3>主題三：雙狹縫／薄膜干涉 × 光電元件 × 半導體感測器</h3>
+            <h3>主題四：雙狹縫／薄膜干涉 × 光電元件 × 半導體感測器</h3>
             <div class="theme-layout">
               <div>
                 <p>干涉題的重點是路徑差造成相位差。雙狹縫中，兩束相干光在螢幕上疊加，亮紋代表相長干涉、暗紋代表相消干涉；條紋間距可用 \(\Delta y=\lambda L/d\) 估算。若把這種明暗分布照在光阻上，亮處與暗處的化學反應不同，顯影後可形成週期性圖案，再透過蝕刻把圖案轉移到材料表面，這就是干涉式微影與奈米圖案製作的基本模型。</p>
@@ -2320,7 +2685,7 @@ const site = String.raw`<!doctype html>
           </article>
 
           <article class="theme-card" id="themeCooling">
-            <h3>主題四：AI資料中心散熱 × 熱學 × 能量效率</h3>
+            <h3>主題五：AI資料中心散熱 × 熱學 × 能量效率</h3>
             <div class="theme-layout">
               <div>
                 <p>AI 資料中心的熱學核心是能量守恆。GPU 與伺服器消耗的電能，除了極少部分轉成訊號或聲音外，最後大多以熱的形式釋放，因此高功率運算一定需要散熱設計。晶片到散熱片主要靠熱傳導，散熱片到空氣或冷卻液主要靠熱對流，任何高溫物體也會以熱輻射放出能量。</p>
@@ -2720,6 +3085,7 @@ const site = String.raw`<!doctype html>
     function pretestTopicLabel(id) {
       return {
         semi: "半導體製程",
+        semisolar: "半導體與太陽能",
         drone: "無人機操控",
         optic: "干涉與感測",
         cooling: "資料中心散熱"
@@ -2729,6 +3095,7 @@ const site = String.raw`<!doctype html>
     function pretestTopicIcon(id) {
       const icons = {
         semi: '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="13" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 16h5M8 24h5M8 32h5M35 16h5M35 24h5M35 32h5M16 8v5M24 8v5M32 8v5M16 35v5M24 35v5M32 35v5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M19 24h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
+        semisolar: '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 26h20l-4 16H17l4-16Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M24 26l-3 16M32 26l-1 16M39 33H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M29 10h10v7h-7v6" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>',
         drone: '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="4" fill="currentColor"/><path d="M24 24 12 12M24 24l12-12M24 24 12 36M24 24l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="10" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="38" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="10" cy="38" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="38" cy="38" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
         optic: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 28c5-11 11-11 16 0s11 11 16 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M8 14h32M12 36h28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M18 14v22M30 14v22" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/></svg>',
         cooling: '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="4" fill="currentColor"/><path d="M24 8c6 0 8 5 4 10l-4 6M40 24c0 6-5 8-10 4l-6-4M24 40c-6 0-8-5-4-10l4-6M8 24c0-6 5-8 10-4l6 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/></svg>'
