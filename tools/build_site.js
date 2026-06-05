@@ -2161,6 +2161,9 @@ const site = String.raw`<!doctype html>
       border-radius: 8px;
       background: #f8fbff;
     }
+    .concept-diagram--source {
+      text-align: center;
+    }
     .concept-diagram > svg {
       display: block;
       width: 100%;
@@ -2168,7 +2171,11 @@ const site = String.raw`<!doctype html>
     }
     .concept-diagram--source img {
       display: block;
-      width: 100%;
+      width: auto;
+      max-width: 100%;
+      max-height: min(640px, 72vh);
+      margin: 0 auto;
+      object-fit: contain;
       height: auto;
       border-radius: 6px;
       background: #fff;
@@ -2186,6 +2193,39 @@ const site = String.raw`<!doctype html>
     }
     .concept-diagram--source a:hover {
       text-decoration: underline;
+    }
+    .force-analysis-steps {
+      display: grid;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .force-step {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid #c7d2e5;
+      border-radius: 8px;
+      background: #f8fbff;
+    }
+    .force-step img {
+      display: block;
+      width: 100%;
+      max-width: 980px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .force-step h4 {
+      margin: 0 0 8px;
+      color: #0f2d52;
+      font-size: 22px;
+    }
+    .force-step p {
+      margin: 0;
+      line-height: 1.75;
     }
     .concept-diagram mjx-container svg {
       display: inline;
@@ -2455,6 +2495,7 @@ const site = String.raw`<!doctype html>
       .question-list { max-height: none; }
       .bar-row { grid-template-columns: 82px 1fr 44px; }
       .pretest-grid, .trend-list, .theme-layout { grid-template-columns: 1fr; }
+      .force-step { grid-template-columns: 1fr; }
       .pretest-topic-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .topic-tab { grid-template-columns: 34px minmax(0, 1fr); padding: 9px; }
       .topic-tab svg { width: 30px; height: 30px; }
@@ -2604,6 +2645,24 @@ const site = String.raw`<!doctype html>
               <div>
                 <p>半導體的導電性介於導體與絕緣體之間，而且可用摻雜、光照與外加電壓控制。矽原子有四個價電子；若摻入五價原子，較容易提供自由電子，形成 N 型半導體；若摻入三價原子，較容易形成電洞，形成 P 型半導體。電子帶負電，電洞可視為帶正電，因此在電場中受力方向相反。</p>
                 <p>P 型與 N 型半導體接在一起會形成 PN 接面。接面附近電子與電洞先互相擴散並復合，留下帶電離子，形成耗盡區與內建電場。太陽能電池就是利用這個接面：光子能量若足夠，可在半導體中產生電子與電洞；內建電場把兩種載子分離，外接電路便可得到光電流與電功率。LED 則可視為反向的能量轉換，電能使電子與電洞復合並放出光。</p>
+                <figure class="concept-diagram concept-diagram--source">
+                  <img src="assets/topic-images/pansci-solar-pn-junction-grid.jpg" alt="泛科學文章中的 PN 接面二極體示意圖，已整理為左上 a、右上 b、左下 c、右下 d，說明 P 型與 N 型半導體接合後形成空乏層與內建電場" loading="lazy">
+                  <figcaption>圖片來源：泛科學〈<a href="https://pansci.asia/archives/358894" target="_blank" rel="noopener">將陽光轉變成電能的太陽能電池</a>〉，圖／台灣東販；依原圖引用，未改作。</figcaption>
+                </figure>
+                <div class="article-keypoints">
+                  <h4>泛科學文章重點</h4>
+                  <ul>
+                    <li>太陽能電池不是用來儲存電能的乾電池，而是把入射光能直接轉成電能的半導體光電元件。</li>
+                    <li>單純照光還不夠，必須有 PN 接面。接面附近電子與電洞擴散後會復合，形成幾乎沒有自由載子的空乏層；留下的固定離子造成內建電場與位能障壁。</li>
+                    <li>陽光進入空乏層時，若光子能量足以跨越能隙，就可產生電子-電洞對。內建電場使電子往 N 型側、電洞往 P 型側分離，外接電路因此出現電動勢與光電流。</li>
+                    <li>可用高三近代物理公式 \(E=\frac{hc}{\lambda}\)，或 \(E[\mathrm{eV}]\approx\frac{1240}{\lambda[\mathrm{nm}]}\) 判斷光子能量。矽能隙約 \(1.12\,\mathrm{eV}\)，約對應 \(1100\,\mathrm{nm}\)，因此矽太陽能電池主要吸收波長比此更短的光。</li>
+                    <li>太陽能電池做成薄片，是因為輸出電流大致與 PN 接面受光面積有關；材料的吸收係數也會影響效率，所以 GaAs 等材料雖成本高，仍常被討論於高效率應用。</li>
+                  </ul>
+                </div>
+                <figure class="concept-diagram concept-diagram--source">
+                  <img src="assets/topic-images/pansci-solar-photovoltaic-grid.jpg" alt="泛科學文章中的用光發電機制示意圖，已整理為左 a、右 b，說明光照空乏層後電子與電洞被內建電場分離並在外部電路形成電流" loading="lazy">
+                  <figcaption>圖片來源：泛科學〈<a href="https://pansci.asia/archives/358894" target="_blank" rel="noopener">將陽光轉變成電能的太陽能電池</a>〉，圖／台灣東販；依原圖引用，未改作。</figcaption>
+                </figure>
                 <ul>
                   <li>摻雜、N 型／P 型半導體與多數載子</li>
                   <li>PN 接面、耗盡區、內建電場與順逆偏壓</li>
@@ -2633,6 +2692,50 @@ const site = String.raw`<!doctype html>
               <div>
                 <p>四旋翼無人機的核心是「總力控制平動、總力矩控制轉動」。懸停時，四個螺旋槳的總升力等於重力，鉛直方向合力為零。若要前進，機身會先產生俯仰 pitch，使總推力不再完全鉛直；推力的水平分量提供向前加速度，鉛直分量則仍需接近重力以維持高度。</p>
                 <p>每個螺旋槳旋轉時都會給機身一個反作用力矩。四軸通常讓相鄰螺旋槳反向旋轉，使角動量與反作用力矩大致抵消。若要偏航 yaw，可讓順時針與逆時針兩組螺旋槳的轉速不再平衡，產生繞鉛直軸的淨力矩；若要滾轉 roll 或俯仰 pitch，則改變左右或前後螺旋槳升力，讓機身先傾斜，再利用推力分量改變行進方向。</p>
+                <figure class="concept-diagram concept-diagram--source">
+                  <img src="assets/topic-images/quadcopter-motion-principles.png" alt="四軸飛行器 X 形配置與前後左右、順逆時針偏航運動的旋翼調整示意圖" loading="lazy">
+                  <figcaption>圖片來源：GitBook〈<a href="https://hom-wang.gitbooks.io/quadcopter/content/02_Principles.html" target="_blank" rel="noopener">從零開始做四軸飛行器：運動原理</a>〉；依原圖引用，未改作。</figcaption>
+                </figure>
+                <div class="article-keypoints">
+                  <h4>四軸飛行原理重點</h4>
+                  <ul>
+                    <li>四軸常採 X 形配置。相鄰旋翼反向旋轉、對角旋翼同向旋轉，可讓兩組反作用力矩大致互相抵銷。</li>
+                    <li>同時增加或減少四個旋翼推力，可控制上升或下降；懸停時總升力需等於重力。</li>
+                    <li>前後左右移動不是靠「水平螺旋槳」推動，而是先讓機身傾斜，使總推力分解出水平分量。</li>
+                    <li>偏航 yaw 來自兩組旋轉方向不同的旋翼反作用力矩不平衡；俯仰 pitch 與滾轉 roll 則來自前後或左右升力差。</li>
+                    <li>複雜飛行可視為上升下降、平移、偏航三類基本運動的組合，適合用 \(\sum F=ma\) 與 \(\sum\tau=I\alpha\) 建模。</li>
+                  </ul>
+                </div>
+                <div class="force-analysis-steps">
+                  <article class="force-step">
+                    <img src="assets/topic-images/quadcopter-force-hover-large.png" alt="四旋翼無人機懸停時，前後旋翼升力向上、重力向下，總升力等於重力">
+                    <div>
+                      <h4>懸停：先看合力，再看合力矩</h4>
+                      <p>高度不變表示鉛直合力為零，因此總升力需滿足 \(T_{\mathrm{total}}=mg\)。同時還要檢查力矩：前後升力若不平衡會俯仰，左右升力若不平衡會滾轉，所以穩定懸停必須同時滿足「合力為零」與「合力矩為零」。</p>
+                    </div>
+                  </article>
+                  <article class="force-step">
+                    <img src="assets/topic-images/quadcopter-force-forward-large.png" alt="四旋翼無人機前進時，機身前傾，總推力分解為鉛直分量與水平分量">
+                    <div>
+                      <h4>前進：不是水平推，是先讓機身傾斜</h4>
+                      <p>無人機沒有水平螺旋槳。它先讓機身前傾，使旋翼總推力 \(T\) 不再鉛直。此時 \(T\cos\theta\) 抵抗重力，若高度近似不變可取 \(T\cos\theta\approx mg\)；\(T\sin\theta\) 則是水平合力，造成前進加速度。</p>
+                    </div>
+                  </article>
+                  <article class="force-step">
+                    <img src="assets/topic-images/quadcopter-force-roll-large.png" alt="四旋翼無人機滾轉時，左右旋翼升力不同，升力差乘上力臂形成滾轉力矩">
+                    <div>
+                      <h4>滾轉與俯仰：升力差乘上力臂</h4>
+                      <p>從後視圖看，左右旋翼相對質心有力臂 \(r\)。若左側升力比右側大，升力差 \(\Delta T\) 會產生繞機身前後軸的滾轉力矩，量級可寫成 \(\tau\approx r\Delta T\)。若改成前後升力不同，則力矩軸改變，造成俯仰。</p>
+                    </div>
+                  </article>
+                  <article class="force-step">
+                    <img src="assets/topic-images/quadcopter-force-yaw-large.png" alt="四旋翼無人機偏航時，順時針與逆時針旋翼的反作用力矩不平衡，使機身繞鉛直軸旋轉">
+                    <div>
+                      <h4>偏航：比較兩組旋翼的反作用力矩</h4>
+                      <p>每個旋翼被馬達帶動旋轉時，機身會受到反方向的反作用力矩。四軸用 CW 與 CCW 兩組旋翼互相抵銷；若提高其中一組轉速、降低另一組轉速，並讓總升力近似不變，就會得到 \(\sum\tau_z\neq0\)，機身繞鉛直軸偏航 yaw。</p>
+                    </div>
+                  </article>
+                </div>
                 <ul>
                   <li>升力與重力、懸停條件</li>
                   <li>前進、後退、左右移動</li>
@@ -2646,7 +2749,7 @@ const site = String.raw`<!doctype html>
                 <div class="reference-box">
                   <h4>參考網站／影片</h4>
                   <ul>
-                    <li><a href="https://hom-wang.gitbooks.io/quadcopter/content/02_Principles.html" target="_blank" rel="noopener">四軸無人機：飛行原理</a></li>
+                    <li><a href="https://hom-wang.gitbooks.io/quadcopter/content/02_Principles.html" target="_blank" rel="noopener">GitBook：從零開始做四軸飛行器－運動原理</a></li>
                     <li><a href="https://learn.parallax.com/courses/understanding-the-physics-of-multirotor-flight/lessons/rotation-torque-and-angular-momentum/" target="_blank" rel="noopener">Parallax：Rotation, Torque and Angular Momentum</a></li>
                     <li><a href="https://www.youtube.com/watch?v=rNo2Gb_9ag4" target="_blank" rel="noopener">YouTube：四軸無人機原理影片</a></li>
                   </ul>
