@@ -2754,7 +2754,7 @@ const site = String.raw`<!doctype html>
                   <td class="history-person-cell">克卜勒、牛頓</td>
                   <td>行星運動、萬有引力、圓周運動、角動量守恆。</td>
                   <td>由 \(T^{2}\propto r^{3}\) 比較週期；由 \(F=Gm_1m_2/r^{2}\) 或 \(v=\sqrt{GM/r}\) 推估軌道量。</td>
-                  <td>第谷長期行星觀測資料支持克卜勒定律；牛頓以萬有引力統一落體與天體運動。<small><a href="https://ptcc.phys.nthu.edu.tw/articles/67bc32b11efd7411b20cc993" target="_blank" rel="noopener">物理雙月刊：萬有引力與克卜勒定律</a>｜<a href="https://case.ntu.edu.tw/%E5%85%8B%E5%8D%9C%E5%8B%92%E8%A1%8C%E6%98%9F%E9%81%8B%E5%8B%95%E5%AE%9A%E5%BE%8B%EF%BC%88keplers-laws-of-planetary-motion%EF%BC%89/index.html" target="_blank" rel="noopener">科學Online：克卜勒行星運動定律</a></small></td>
+                  <td>第谷長期行星觀測資料支持克卜勒定律；牛頓以萬有引力統一落體與天體運動。<small><a href="https://ptcc.phys.nthu.edu.tw/articles/67bc32b11efd7411b20cc993" target="_blank" rel="noopener">物理雙月刊：萬有引力與克卜勒定律</a>｜<a href="https://www.britannica.com/science/Keplers-laws-of-planetary-motion" target="_blank" rel="noopener">Britannica：Kepler's laws</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">力學與天文</td>
@@ -2768,7 +2768,7 @@ const site = String.raw`<!doctype html>
                   <td class="history-person-cell">焦耳</td>
                   <td>熱功當量、能量守恆、熱量與功。</td>
                   <td>判斷摩擦作功、電功率或機械能損失最後轉成熱。</td>
-                  <td>焦耳槳輪實驗：重物下降帶動葉片攪拌水，量水溫上升，建立作功與熱量的等價。<small><a href="https://lis.org.tw/posts/143" target="_blank" rel="noopener">LIS：熱功當量</a>｜<a href="https://case.ntu.edu.tw/highscope/%E8%83%BD%E9%87%8F%E5%96%AE%E4%BD%8Dunits-of-energy/index.html" target="_blank" rel="noopener">科學Online：能量單位</a></small></td>
+                  <td>焦耳槳輪實驗：重物下降帶動葉片攪拌水，量水溫上升，建立作功與熱量的等價。<small><a href="https://lis.org.tw/posts/143" target="_blank" rel="noopener">LIS：熱功當量</a>｜<a href="https://www.britannica.com/science/mechanical-equivalent-of-heat" target="_blank" rel="noopener">Britannica：mechanical equivalent of heat</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">波動與光學</td>
@@ -2782,7 +2782,7 @@ const site = String.raw`<!doctype html>
                   <td class="history-person-cell">夫朗和斐、克希何夫與本生、巴耳末、芮得柏</td>
                   <td>連續光譜、吸收暗線、發射明線、氫原子線系與光子能量。</td>
                   <td>判斷明線或暗線來源；用 \(E=hf=\dfrac{hc}{\lambda}\) 與 \(\dfrac{1}{\lambda}=R_H\left(\dfrac{1}{n_f^2}-\dfrac{1}{n_i^2}\right)\) 求波長或能階差。巴耳末系為 \(n_i\to2\)，最大能量差 \(E_{\infty}-E_2=3.4\,\mathrm{eV}\)，最小可見系列能量差 \(E_3-E_2=1.9\,\mathrm{eV}\)。</td>
-                  <td>1814 年夫朗和斐觀察太陽光譜暗線；1859 年克希何夫與本生建立元素特徵光譜分析；1885 年巴耳末整理氫可見光譜，1888 年芮得柏推廣公式。分光鏡或繞射光柵可把光分成不同波長；氫放電管可觀察巴耳末系明線，太陽光譜暗線可用吸收光譜解釋。<small><a href="https://case.ntu.edu.tw/highscope/%E6%B0%AB%E5%8E%9F%E5%AD%90%E5%85%89%E8%AD%9C%E7%B3%BB/index.html" target="_blank" rel="noopener">科學Online：氫原子光譜系</a>｜<a href="https://www.britannica.com/science/spectroscopy/Basic-properties-of-atoms" target="_blank" rel="noopener">Britannica：spectroscopy history</a></small></td>
+                  <td>1814 年夫朗和斐觀察太陽光譜暗線；1859 年克希何夫與本生建立元素特徵光譜分析；1885 年巴耳末整理氫可見光譜，1888 年芮得柏推廣公式。分光鏡或繞射光柵可把光分成不同波長；氫放電管可觀察巴耳末系明線，太陽光譜暗線可用吸收光譜解釋。<small><a href="https://www.britannica.com/science/spectral-line-series" target="_blank" rel="noopener">Britannica：spectral line series</a>｜<a href="https://www.britannica.com/science/spectroscopy/Basic-properties-of-atoms" target="_blank" rel="noopener">Britannica：spectroscopy history</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">電磁學</td>
@@ -2796,14 +2796,14 @@ const site = String.raw`<!doctype html>
                   <td class="history-person-cell">法拉第、冷次（Lenz）</td>
                   <td>磁通量、感應電流、感應電動勢、冷次定律。</td>
                   <td>用 \(\varepsilon=-N\Delta\Phi/\Delta t\) 判斷感應電動勢方向與大小。</td>
-                  <td>線圈、磁鐵與檢流計：磁鐵進出線圈時檢流計偏轉；冷次定律指出感應電流產生的磁場會反抗磁通量改變。<small><a href="https://ptcc.phys.nthu.edu.tw/articles/67bc37341efd7411b20ce123" target="_blank" rel="noopener">物理雙月刊：冷次定律與磁煞現象</a>｜<a href="https://case.ntu.edu.tw/highscope/%E5%86%B7%E6%AC%A1%E5%AE%9A%E5%BE%8B%EF%BC%88lenz-law%EF%BC%89/index.html" target="_blank" rel="noopener">科學Online：冷次定律</a></small></td>
+                  <td>線圈、磁鐵與檢流計：磁鐵進出線圈時檢流計偏轉；冷次定律指出感應電流產生的磁場會反抗磁通量改變。<small><a href="https://ptcc.phys.nthu.edu.tw/articles/67bc37341efd7411b20ce123" target="_blank" rel="noopener">物理雙月刊：冷次定律與磁煞現象</a>｜<a href="https://www.britannica.com/science/Lenzs-law" target="_blank" rel="noopener">Britannica：Lenz's law</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">電磁學</td>
                   <td class="history-person-cell">克希何夫</td>
                   <td>接點定則、迴路定則、電荷守恆與能量守恆。</td>
                   <td>接點：\(\sum I_{\mathrm{in}}=\sum I_{\mathrm{out}}\)；閉合迴路：\(\sum \Delta V=0\)，用於多電池、多電阻電路。</td>
-                  <td>多迴路電路板、電池、電阻與安培計可驗證接點電流分流；沿任一閉合迴路量測電位升降，總和為零。<small><a href="https://case.ntu.edu.tw/highscope/%E5%85%8B%E5%B8%8C%E4%BD%95%E5%A4%AB%E9%9B%BB%E8%B7%AF%E5%AE%9A%E5%BE%8B-%EF%BC%88kirchhoffs-circuit-laws%EF%BC%89-%E5%9C%8B%E7%AB%8B%E5%BD%B0%E5%8C%96%E5%B8%AB%E7%AF%84%E5%A4%A7%E5%AD%B8%E7%89%A9/index.html" target="_blank" rel="noopener">科學Online：克希何夫電路定律</a>｜<a href="https://www.britannica.com/science/Kirchhoffs-rules" target="_blank" rel="noopener">Britannica：Kirchhoff's rules</a></small></td>
+                  <td>多迴路電路板、電池、電阻與安培計可驗證接點電流分流；沿任一閉合迴路量測電位升降，總和為零。<small><a href="https://www.britannica.com/science/Kirchhoffs-rules" target="_blank" rel="noopener">Britannica：Kirchhoff's rules</a>｜<a href="https://www.britannica.com/science/electricity/Kirchhoffs-laws-of-electric-circuits" target="_blank" rel="noopener">Britannica：Kirchhoff's laws of electric circuits</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">電磁學</td>
@@ -2817,14 +2817,14 @@ const site = String.raw`<!doctype html>
                   <td class="history-person-cell">湯木生、密立坎</td>
                   <td>電子、荷質比、基本電荷、電場力平衡。</td>
                   <td>陰極射線與電子；油滴平衡 \(qE=mg\)；帶電粒子在電場或磁場中運動。</td>
-                  <td>陰極射線管可證明帶負電粒子存在；油滴實驗用平行板電場平衡重力，統計油滴電荷皆為基本電荷整數倍。<small><a href="https://case.ntu.edu.tw/highscope/%E6%B2%B9%E6%BB%B4%E5%AF%A6%E9%A9%97-%EF%BC%88oil-drop-experiment%EF%BC%89/index.html" target="_blank" rel="noopener">科學Online：油滴實驗</a></small></td>
+                  <td>陰極射線管可證明帶負電粒子存在；油滴實驗用平行板電場平衡重力，統計油滴電荷皆為基本電荷整數倍。<small><a href="https://www.nobelprize.org/prizes/physics/1923/millikan/facts/" target="_blank" rel="noopener">Nobel Prize：Millikan oil drop experiment</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">近代物理與原子</td>
                   <td class="history-person-cell">拉塞福、波耳</td>
                   <td>原子核、散射、能階、氫原子光譜。</td>
                   <td>金箔散射說明原子大多為空、正電集中在原子核；能階躍遷對應明線光譜。</td>
-                  <td>金箔散射用 \(\alpha\) 粒子轟擊薄金箔並觀察偏折角；波耳模型以氫原子放電管與分光儀得到的不連續譜線作為證據。<small><a href="https://lis.org.tw/posts/118" target="_blank" rel="noopener">LIS：拉塞福金箔散射</a>｜<a href="https://case.ntu.edu.tw/highscope/%E6%B3%A2%E8%80%B3%E6%A8%A1%E5%9E%8B-%E3%80%88bohr-model%E3%80%89/index.html" target="_blank" rel="noopener">科學Online：波耳模型</a></small></td>
+                  <td>金箔散射用 \(\alpha\) 粒子轟擊薄金箔並觀察偏折角；波耳模型以氫原子放電管與分光儀得到的不連續譜線作為證據。<small><a href="https://lis.org.tw/posts/118" target="_blank" rel="noopener">LIS：拉塞福金箔散射</a>｜<a href="https://www.britannica.com/science/Bohr-model" target="_blank" rel="noopener">Britannica：Bohr model</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">近代物理與原子</td>
@@ -2845,7 +2845,7 @@ const site = String.raw`<!doctype html>
                   <td class="history-person-cell">德布羅意、戴維森與革末</td>
                   <td>物質波、電子繞射、波粒二象性。</td>
                   <td>用 \(\lambda=h/p\) 連接粒子動量與波長，說明電子也能產生繞射。</td>
-                  <td>電子束射向鎳晶體會出現繞射強度極大，證明電子具有波動性；晶格間距相當於電子波的繞射光柵。<small><a href="https://case.ntu.edu.tw/highscope/localhost/%E7%89%A9%E8%B3%AA%E6%B3%A2matter-wave/index.html" target="_blank" rel="noopener">科學Online：物質波</a>｜<a href="https://www.britannica.com/science/electron-diffraction" target="_blank" rel="noopener">Britannica：electron diffraction</a></small></td>
+                  <td>電子束射向鎳晶體會出現繞射強度極大，證明電子具有波動性；晶格間距相當於電子波的繞射光柵。<small><a href="https://www.nobelprize.org/prizes/physics/1929/broglie/facts/" target="_blank" rel="noopener">Nobel Prize：de Broglie matter wave</a>｜<a href="https://www.britannica.com/science/electron-diffraction" target="_blank" rel="noopener">Britannica：electron diffraction</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">量子、相對論與宇宙</td>
