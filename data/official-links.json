@@ -1,5 +1,5 @@
 ﻿{
-  "generatedAt": "2026-06-05T12:43:16.138Z",
+  "generatedAt": "2026-06-08T02:49:37.593Z",
   "source": {
     "name": "大考中心：分科測驗（110 前指考）歷年試題及答題卷／一般試題",
     "url": "https://www.ceec.edu.tw/xmfile?xsmsid=0J052427633128416650"
@@ -498,7 +498,7 @@
           ],
           "answer": "C",
           "questionText": "電子與帶價的離子之質量分別為與,各自在相同均勻磁場中作等速圓周運動,其角頻率分別為與。試問其角頻率之比為下列何者? (A) (B) (C) (D) (E)",
-          "solution": "答案 C。帶電粒子在均勻磁場中作等速圓周運動時,磁力提供向心力\\(:|q|vB = mv^{2}/r\\)。角頻率 \\(\\omega=v/r,\\)因此 \\(\\omega=|q|B/m\\)。電子與帶 z 價離子在同一磁場中,電子電量大小為 e,離子電量大小為 ze。若電子質量為 me、離子質量為 mi,則角頻率比 \\(\\omegae/\\omegai = (eB/me)/(zeB/mi)=mi/(z me)\\)。依題目給定的質量與價數代入,化簡後對應選項 C。",
+          "solution": "答案 C。帶電粒子在均勻磁場中作等速圓周運動時,磁力提供向心力: \\(|q|vB=m_{\\text{粒}}v^{2}/r\\)。角頻率 \\(\\omega=v/r\\),因此 \\(\\omega=|q|B/m_{\\text{粒}}\\)。電子電量大小為 \\(e\\)、質量為 \\(m\\),所以 \\(\\omega_m=eB/m\\);帶 \\(+n\\) 價離子電量大小為 \\(ne\\)、質量為 \\(M\\),所以 \\(\\omega_M=neB/M\\)。因此 \\[\\frac{\\omega_m}{\\omega_M}=\\frac{eB/m}{neB/M}=\\frac{M}{nm}.\\] 選 C。電子帶負電只會使轉向與正離子相反,不影響角頻率大小。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "solutionStatus": "teacher-draft",
@@ -1620,7 +1620,7 @@
           ],
           "answer": "BDE",
           "questionText": "使用感應電流大小以測量手掌張合速度的偵測器:在空心軟橡膠直筒中間置1000圈半徑為2.1 cm的導電圓環迴路,且在直筒兩端各置一磁鐵,產生的均勻磁場垂直通過導電圓環平面。當右手掌心朝上、手指緊握橫放的橡膠筒時,磁場方向朝右,以右手壓縮橡膠筒,如圖7所示(含條紋之箭頭代表施力方向)。若在間使導電圓環半徑收縮為 1.9 cm,則下列敘述哪些正確? (A) 導電圓環未被壓縮時每圈的初始磁通量為 (B) 導電圓環每圈的面積時變率為 (C) 導電圓環每圈的磁通量時變率為 (D) 導電圓環迴路的感應電動勢量值為 (E) 導電圓環迴路的感應電流方向與手抓握橡膠筒的四指彎曲方向相同 第貳部分、混合題或非選擇題(占34分) 19-20題為題組 風能為再生能源,可作為淨零碳排的綠色能源。風力發電機(簡稱:風機)利用風力帶動風機葉片旋轉,將風的動能經發電機組轉換成電能,其功率與單位時間內空氣流向風機的氣流動能成正比。",
-          "solution": "答案 BDE。單圈面積 \\(A=\\pir^{2},\\)半徑由 \\(r_{i}=2.1 cm\\) 變為 \\(r_{f}=1.9 cm,\\)面積時變率為 \\(\\Delta A/\\Delta t=\\pi(r_{f}^{2}-r_{i}^{2})/\\Delta t,\\)量值為 \\(\\pi(r_{i}^{2}-r_{f}^{2})/\\Delta t,B\\) 正確。磁通量 \\(\\Phi=BA,\\)若 B 均勻且方向垂直線圈,則單圈磁通量時變率 \\(\\Delta\\Phi/\\Delta t=B\\Delta A/\\Delta t,\\)代入題目磁場與時間可判斷 C 的數值不符。總感應電動勢量值 \\(\\varepsilon=N|\\Delta\\Phi/\\Delta t|=1000 B \\pi(r_{i}^{2}-r_{f}^{2})/\\Delta t,D\\) 正確。壓縮時向右磁通量減少,依楞次定律感應電流須產生向右磁場;用右手定則判斷,其方向與手抓握橡膠筒的四指彎曲方向相同,E 正確。A 若未乘上題目給定磁場或數值不符則不選。",
+          "solution": "答案 BDE。單圈面積 \\(A=\\pi r^{2}\\),半徑由 \\(r_{i}=2.1\\,\\mathrm{cm}\\) 變為 \\(r_{f}=1.9\\,\\mathrm{cm}\\),面積時變率為 \\(\\Delta A/\\Delta t=\\pi(r_{f}^{2}-r_{i}^{2})/\\Delta t\\),量值為 \\(\\pi(r_{i}^{2}-r_{f}^{2})/\\Delta t\\),B 正確。磁通量 \\(\\Phi=BA\\),若 \\(B\\) 均勻且方向垂直線圈,則單圈磁通量時變率 \\(\\Delta\\Phi/\\Delta t=B\\Delta A/\\Delta t\\),代入題目磁場與時間可判斷 C 的數值不符。總感應電動勢量值 \\(\\varepsilon=N|\\Delta\\Phi/\\Delta t|=1000B\\pi(r_{i}^{2}-r_{f}^{2})/\\Delta t\\),D 正確。壓縮時向右磁通量減少,依楞次定律感應電流須產生向右磁場;用右手定則判斷,其方向與手抓握橡膠筒的四指彎曲方向相同,E 正確。A 若未乘上題目給定磁場或數值不符則不選。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "solutionStatus": "teacher-draft",
@@ -1648,7 +1648,7 @@
           ],
           "answer": "非選擇題",
           "questionText": "空氣以速度垂直流向風機葉片,葉片旋轉所形成的假想圓形平面其面積為,如圖8。 (a) 在時間內,密度為ρ的空氣流向風機的質量為何?(以試題中所定義的 參數符號表示)(2分) (b)風機的功率與風速三次方()成正比,說明其原因為何?(3分)",
-          "solution": "答案 非選擇題。(a)時間 Δt 內,速度為 v 的空氣垂直流過葉片掃掠面積 A,形成長度 vΔt、底面積 A 的空氣柱;體積 \\(\\Delta V=Av\\Delta t,\\)質量 \\(m=\\rho\\Delta V=\\rhoAv\\Delta t\\)。(b)這段空氣的動能 \\(K=(1/2)mv^{2}=(1/2)(\\rhoAv\\Delta t)v^{2}=(1/2)\\rhoAv_{3}\\Delta t\\)。功率是單位時間可供轉換的能量\\(,P∝K/\\Delta t=(1/2)\\rhoAv_{3}\\)。若空氣密度 ρ 與葉片掃掠面積 A 固定,P 就與 v3 成正比。關鍵是:動能本身含 \\(v^{2},\\)而單位時間流入的空氣質量 \\(m/\\Delta t=\\rhoAv\\) 又多一個 v,因此總共是 v3。",
+          "solution": "答案 非選擇題。(a)時間 \\(\\Delta t\\) 內,速度為 \\(v\\) 的空氣垂直流過葉片掃掠面積 \\(A\\),形成長度 \\(v\\Delta t\\)、底面積 \\(A\\) 的空氣柱;體積 \\(\\Delta V=Av\\Delta t\\),質量 \\(m=\\rho\\Delta V=\\rho A v\\Delta t\\)。(b)這段空氣的動能 \\(K=(1/2)mv^{2}=(1/2)(\\rho A v\\Delta t)v^{2}=(1/2)\\rho A v^{3}\\Delta t\\)。功率是單位時間可供轉換的能量,\\(P\\propto K/\\Delta t=(1/2)\\rho A v^{3}\\)。若空氣密度 \\(\\rho\\) 與葉片掃掠面積 \\(A\\) 固定,\\(P\\) 就與 \\(v^{3}\\) 成正比。關鍵是:動能本身含 \\(v^{2}\\),而單位時間流入的空氣質量 \\(m/\\Delta t=\\rho A v\\) 又多一個 \\(v\\),因此總共是 \\(v^{3}\\)。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "solutionStatus": "teacher-reviewed-draft",
@@ -2533,7 +2533,7 @@
           ],
           "answer": "BE",
           "questionText": "若水銀槽上方的氣壓等於1個標準大氣壓,並施以外力使且保持靜止,下列敘述哪些正確?(多選)(4分) (A) (B) (C) (D) 當外力拉高試管使從原本的初始值增加10時,則也會同時增加10 (E) 當外力降低試管使從原本的初始值減少10之後,此時",
-          "solution": "答案 BE。水銀氣壓計在上方近似真空時,內外同水平面壓力平衡給 \\(Patm=\\rhogh\\)。1 個標準大氣壓等於 76 cm-Hg,因此只要試管足夠高且上端仍有真空,水銀柱高度 \\(h=76,\\)故 (B) 正確。題設 \\(H-h=5,\\)表示 \\(H=h+5,\\)不是 \\(H<76\\) 或 \\(H=76,(A)(C)\\) 錯。若把試管再上拉,h 仍由大氣壓決定為 76,不會跟著 H 增加 10,(D) 錯。若把試管降低到 \\(H<76,\\)管內會被水銀充滿,水銀面到閉口端,故 \\(H=h,(E)\\) 正確。",
+          "solution": "答案 BE。水銀氣壓計在上方近似真空時,內外同水平面壓力平衡給 \\(P_{\\mathrm{atm}}=\\rho g h\\)。1 個標準大氣壓等於 \\(76\\,\\mathrm{cmHg}\\),因此只要試管足夠高且上端仍有真空,水銀柱高度 \\(h=76\\,\\mathrm{cm}\\),故 B 正確。題設 \\(H-h=5\\),表示 \\(H=h+5\\),不是 \\(H<76\\) 或 \\(H=76\\),A、C 錯。若把試管再上拉,\\(h\\) 仍由大氣壓決定為 76,不會跟著 \\(H\\) 增加 10,D 錯。若把試管降低到 \\(H<76\\),管內會被水銀充滿,水銀面到閉口端,故 \\(H=h\\),E 正確。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "shotImages": [
@@ -2925,7 +2925,7 @@
           ],
           "answer": "C",
           "questionText": "一容器內的理想氣體,莫耳數為,內能為,密度為,壓力為,絕對溫度為,氣體分子的方均根速率為,理想氣體常數為。依據氣體動力論,在熱平衡狀態下,下列關係何者正確? (A) (B) (C) (D) (E)",
-          "solution": "答案 C。氣體動力論給壓力與方均根速率的關係 \\(P=1/3 \\rhov^{2},\\)其中 ρ 為質量密度、v 為方均根速率,因此 C 正確。單原子理想氣體內能才可寫 \\(U=3nRT/2,\\)題目未限定單原子,故 (A) 不對;(B) 中 Pv 是壓力乘速率,量綱不等於能量;理想氣體方程式應為 \\(PV=nRT,\\)選項 (E) 的 v 是速率不是體積;(D) 少了 1/3 而寫成 1/2,也錯。",
+          "solution": "答案 C。氣體動力論給壓力與方均根速率的關係 \\(P=(1/3)\\rho v^{2}\\),其中 \\(\\rho\\) 為質量密度、\\(v\\) 為方均根速率,因此 C 正確。單原子理想氣體內能才可寫 \\(U=3nRT/2\\),題目未限定單原子,故 A 不對;B 中 \\(Pv\\) 是壓力乘速率,量綱不等於能量;理想氣體方程式應為 \\(PV=nRT\\),選項 E 的 \\(v\\) 是速率不是體積;D 少了 \\(1/3\\) 而寫成 \\(1/2\\),也錯。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "shotImages": [
@@ -4053,7 +4053,7 @@
           ],
           "answer": "C",
           "questionText": "本題題文含圖形、表格或公式,文字抽取未完整保留;請搭配官方試題 PDF/DOCX 查看原題。",
-          "solution": "答案 C。單匝磁通量 \\(\\Phi=BA,\\)矩形線圈面積 \\(A=0.0800\\times 0.0500=0.00400 m_{2}\\)。題目給 \\(\\varepsilon=-QN d\\Phi/dt,\\)且 \\(d\\Phi/dt=A dB/dt\\)。dB/dt 的最大值為 B02πf。代入 \\(Q=40.0\\)、\\(N=4\\)、\\(B_{0}=5.00\\times 10^{-8} T\\)、\\(f=13.56 MHz:\\varepsilon_{\\max}=QN A B_{02}\\pif=40\\times 4\\times 0.00400\\times 5.00\\times 10^{-8}\\times 2\\pi\\times 13.56\\times 10^{6}\\approx 2.73 V,\\)選 C。",
+          "solution": "答案 C。單匝磁通量 \\(\\Phi=BA\\),矩形線圈面積 \\(A=0.0800\\times0.0500=0.00400\\,\\mathrm{m}^{2}\\)。題目給 \\(\\varepsilon=-QN\\,d\\Phi/dt\\),且 \\(d\\Phi/dt=A\\,dB/dt\\)。若磁場隨時間作正弦變化,\\(dB/dt\\) 的最大值為 \\(2\\pi fB_{0}\\)。代入 \\(Q=40.0\\)、\\(N=4\\)、\\(B_{0}=5.00\\times10^{-8}\\,\\mathrm{T}\\)、\\(f=13.56\\,\\mathrm{MHz}\\):\\(\\varepsilon_{\\max}=QNA(2\\pi fB_{0})\\approx40\\times4\\times0.00400\\times2\\pi\\times13.56\\times10^{6}\\times5.00\\times10^{-8}\\approx2.73\\,\\mathrm{V}\\),選 C。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "shotImages": [
@@ -7090,7 +7090,7 @@
           ],
           "answer": "E",
           "questionText": "長直導線磁場 B = μ0I/(2πr)。令 B = 5.0×10⁻⁵ T、I=100 A,得 r = μ0I/(2πB)= (4π×10⁻⁷×10⁰)/(2π×5.0×10⁻⁵)=0.40 m,選 E。",
-          "solution": "答案 E。長直導線磁場 \\(B = \\mu_{0}I/(2\\pir)\\)。令 \\(B = 5.0\\times 10^{-5} T\\)、\\(I=100 A,\\)得 \\(r = \\mu_{0}I/(2\\piB)= (4\\pi\\times 10^{-7}\\times 10^{0})/(2\\pi\\times 5.0\\times 10^{-5})=0.40 m,\\)選 E。",
+          "solution": "答案 E。長直導線磁場 \\(B=\\mu_{0}I/(2\\pi r)\\)。令 \\(B=5.0\\times10^{-5}\\,\\mathrm{T}\\)、\\(I=100\\,\\mathrm{A}\\),得 \\(r=\\mu_{0}I/(2\\pi B)=(4\\pi\\times10^{-7}\\times100)/(2\\pi\\times5.0\\times10^{-5})=0.40\\,\\mathrm{m}\\),選 E。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "auto-draft",
           "shotImages": [
@@ -9473,7 +9473,7 @@
           ],
           "answer": "D",
           "questionText": "有一質量可忽略的理想彈簧一端固定,另一端繫有一質點,在光滑水平面上作一維簡諧運動,則在一個週期內,彈性位能U隨時間t的變化圖最可能為下列何者? (A) (B) (C) (D) (E)",
-          "solution": "答案 D。簡諧運動可寫成 \\(x=Acos\\omegat\\)，彈性位能 \\(U=1/2kx^{2}=1/2kA^{2}\\cos ^{2}\\omegat\\)。位能永遠不為負，且在 \\(x=±A\\) 時最大、通過平衡點時為 0；因為 \\(\\cos ^{2}\\omegat\\) 的週期是原運動週期的一半，所以一個週期內會出現兩次最大值與兩次零值。符合此變化的是 D。",
+          "solution": "答案 D。簡諧運動可寫成 \\(x=A\\cos\\omega t\\),彈性位能 \\(U=(1/2)kx^{2}=(1/2)kA^{2}\\cos^{2}\\omega t\\)。位能永遠不為負,且在 \\(x=\\pm A\\) 時最大、通過平衡點時為 0;因為 \\(\\cos^{2}\\omega t\\) 的週期是原運動週期的一半,所以一個週期內會出現兩次最大值與兩次零值。符合此變化的是 D。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -9601,7 +9601,7 @@
           ],
           "answer": "E",
           "questionText": "一細長磁鐵棒繫於棉線下端形成單擺,並於此擺的正下方放置一環形導線,如圖3所示,箭頭所示方向表示導線上電流的正方向。當時間t = 0時,單擺由圖3的位置自靜止釋放而來回擺動,若此單擺的擺動可視為週期運動,其週期為T,下列何者最可能表示該導線上的電流i與時間t在單擺擺動一週期內的關係圖? (A) (B) (C) (D) (E)",
-          "solution": "答案 E。磁鐵擺動使穿過導線環的磁通量改變，感應電流方向由冷次定律決定：導線環會產生磁場來反抗磁通量的增加或減少。擺錘在兩端瞬間速度為 0，磁通量變化率為 0，故感應電流為 0；通過平衡附近時速度最大，電流量值最大，且往返時方向相反。符合這些零點、極值與反號關係的是 E。",
+          "solution": "答案 E。磁鐵擺動使穿過導線環的磁通量改變，感應電流方向由楞次定律決定：導線環會產生磁場來反抗磁通量的增加或減少。擺錘在兩端瞬間速度為 0，磁通量變化率為 0，故感應電流為 0；通過平衡附近時速度最大，電流量值最大，且往返時方向相反。符合這些零點、極值與反號關係的是 E。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -10611,7 +10611,7 @@
           ],
           "answer": "A",
           "questionText": "有一以O為圓心、L為半徑的OMN扇形電路置於均勻磁場B中如圖7所示,磁場垂直穿入紙面,半徑OM之間有電阻R,電路中其他電阻可忽略不計。OM與MP弧固定不動,而長度為L的ON以O為軸心作順時針往P方向旋轉,角速率為,則電路中電流為下列何者? (A) (B) (C) (D) (E)",
-          "solution": "答案 A。半徑 ON 以角速度 ω 掃過磁場，扇形面積變化率為 \\(dA/dt=1/2L^{2}\\omega\\)。感應電動勢 \\(\\varepsilon=B dA/dt=BL^{2}\\omega/2\\)，電流 \\(I=\\varepsilon/R=BL^{2}\\omega/(2R)\\)。再由冷次定律判斷方向，與選項 A 相符。若用法拉第定律寫成 \\(|\\varepsilon|=|\\Delta\\Phi/\\Delta t|=B\\Delta A/\\Delta t\\)，得到同一式；方向則由感應電流反抗穿入紙面磁通量增加來判斷。電路中唯一電阻為 R，因此所有感應電動勢都落在該電阻上，沒有分壓問題；電流大小直接為 ε/R。",
+          "solution": "答案 A。半徑 ON 以角速度 ω 掃過磁場，扇形面積變化率為 \\(dA/dt=1/2L^{2}\\omega\\)。感應電動勢 \\(\\varepsilon=B dA/dt=BL^{2}\\omega/2\\)，電流 \\(I=\\varepsilon/R=BL^{2}\\omega/(2R)\\)。再由楞次定律判斷方向，與選項 A 相符。若用法拉第定律寫成 \\(|\\varepsilon|=|\\Delta\\Phi/\\Delta t|=B\\Delta A/\\Delta t\\)，得到同一式；方向則由感應電流反抗穿入紙面磁通量增加來判斷。電路中唯一電阻為 R，因此所有感應電動勢都落在該電阻上，沒有分壓問題；電流大小直接為 ε/R。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -10723,7 +10723,7 @@
           ],
           "answer": "C",
           "questionText": "在波耳的氫原子模型中,電子可視為以質子為中心做半徑為r的等速圓周運動。考量物質波模型,當電子處於容許的穩定狀態時,軌道的周長必須符合圓周駐波條件。軌道半徑也隨著主量子數n而愈來愈大。設普朗克常數為h,當電子處於主量子數為n的穩定軌道的情形之下,電子的動量p量值為何? (A) (B) (C) (D) (E)",
-          "solution": "答案 C。電子物質波在穩定軌道上形成圓周駐波，條件為 \\(2\\pir=n\\lambda\\)。又 \\(\\lambda=h/p\\)，因此 \\(p=h/\\lambda=nh/(2\\pir)\\)，選 C。量綱檢查：h 的單位為 kg·\\(m^{2}/s\\)，除以 r 後得到 kg·m/s，正是動量單位。若 n 增大，p 也按比例增大，表示較高主量子數軌道容納更多物質波波長，與題意一致。若將條件改寫成角動量，\\(L = r p = r\\)·\\(nh/(2\\pir)=nh/(2\\pi)\\)，也回到波耳角動量量子化，與物質波模型一致。",
+          "solution": "答案 C。電子物質波在穩定軌道上形成圓周駐波,條件為 \\(2\\pi r=n\\lambda\\)。又 \\(\\lambda=h/p\\),因此 \\(p=h/\\lambda=nh/(2\\pi r)\\),選 C。量綱檢查:\\(h\\) 的單位為 \\(\\mathrm{kg\\cdot m^{2}/s}\\),除以 \\(r\\) 後得到 \\(\\mathrm{kg\\cdot m/s}\\),正是動量單位。若 \\(n\\) 增大,\\(p\\) 也按比例增大,表示較高主量子數軌道容納更多物質波波長。若將條件改寫成角動量,\\(L=rp=r\\cdot nh/(2\\pi r)=nh/(2\\pi)\\),也回到波耳角動量量子化。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -10751,7 +10751,7 @@
           ],
           "answer": "E",
           "questionText": "太陽能為極重要的綠色能源,在太陽進行核融合的過程中,當質量減損時太陽輻射的能量(c為光速)。地球繞太陽公轉的軌道平均半徑約為1.51011 m,鄰近地球表面正對太陽處測得太陽能的強度約為1.4103 W/m_2,已知光速為3.0108 m/s,則太陽因輻射而減損的質量,每秒鐘約為多少公斤?(球的表面積為,其中為球的半徑) (A) 1.510⁻² (B) 1.5103 (C) 3.3105 (D) 1.1 107 (E) 4.4109 二、多選題(占20分) 說明:第21題至第24題,每題有5個選項,其中至少有一個是正確的選項,請將正確選項畫記在答案卡之「選擇題答案區」。各題之選項獨立判定,所有選項均答對者,得5分;答錯1個選項者,得3分;答錯2個選項者,得1分;答錯多於2個選項或所有選項均未作答者,該題以零分計算。",
-          "solution": "答案 E。太陽在地球軌道處的總輻射功率為 \\(P=I\\)·\\(4\\pir^{2}\\approx 1.4\\times 10^{3}\\times 4\\pi(1.5\\times 10^{11})^{2}\\approx 4.0\\times 10^{26} W\\)。由 \\(E=mc^{2}\\)，質量減損率 ṁ\\(=P/c^{2}\\approx 4.0\\times 10^{26}/(3.0\\times 10^{8})^{2}\\approx 4.4\\times 10^{9} kg/s\\)，選 E。其中 \\(4\\pir^{2}\\) 是以太陽為中心、半徑等於日地距離的球面面積；地球附近量到的強度乘上此面積才是太陽總功率。最後一步的單位為 \\(W/(m^{2}/s^{2})=kg/s\\)，正是每秒質量減少量，量綱正確。",
+          "solution": "答案 E。太陽在地球軌道處的總輻射功率為 \\(P=I(4\\pi r^{2})\\approx1.4\\times10^{3}\\times4\\pi(1.5\\times10^{11})^{2}\\approx4.0\\times10^{26}\\,\\mathrm{W}\\)。由 \\(E=mc^{2}\\),質量減損率 \\(\\dot{m}=P/c^{2}\\approx4.0\\times10^{26}/(3.0\\times10^{8})^{2}\\approx4.4\\times10^{9}\\,\\mathrm{kg/s}\\),選 E。其中 \\(4\\pi r^{2}\\) 是以太陽為中心、半徑等於日地距離的球面面積;地球附近量到的強度乘上此面積才是太陽總功率。最後一步的單位為 \\(\\mathrm{W}/(\\mathrm{m}^{2}/\\mathrm{s}^{2})=\\mathrm{kg/s}\\),量綱正確。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -12044,9 +12044,9 @@
           "shotAudit": [
             {
               "page": 3,
-              "topPdfY": 755.4,
-              "bottomPdfY": 290.92,
-              "nextBoundaryPdfY": 290.68,
+              "topPdfY": 755,
+              "bottomPdfY": 623,
+              "nextBoundaryPdfY": 623,
               "nextQuestion": 7
             }
           ],
@@ -12072,9 +12072,9 @@
           "shotAudit": [
             {
               "page": 3,
-              "topPdfY": 292.68,
-              "bottomPdfY": 54.32,
-              "nextBoundaryPdfY": null,
+              "topPdfY": 609,
+              "bottomPdfY": 562,
+              "nextBoundaryPdfY": 562,
               "nextQuestion": 8
             }
           ],
@@ -12145,7 +12145,7 @@
           ],
           "answer": "B",
           "questionText": "X、 Y、 Z 三根上方開口的垂直管子,管內半徑之比為 1: 2: 1,底部由一水平導管連 接成連通管,注入水後以質量可忽略的活塞封蓋著,並將質量為 MX、 MY 和 MZ 的物體 依序置於 X、Y、Z 三管的活塞上, 此時三者的液面等高。 當施一外力 F 於 MX 上時,X、 Y、 Z 三根管子的液面高度分別為 h、 2h 和 2h,如圖 5 所示。若水的密度為 d,重力加 速度為 g,則下列選項何者正確? (A) 外力 F對 X管液面產生的壓力為 1 2 dgh (B) 外力 F對 X管液面產生的壓力為 dgh (C) 外力 F對 X管液面產生的壓力為 2dgh (D) MX: MY: MZ = 1: 2: 1 (E) MX: MY: MZ = 1: 8: 1 甲 乙",
-          "solution": "答案 B。連通管平衡時，同一水平面壓力相同。外力加在 X 活塞後，X 液面比 Y、Z 低 h，故外力造成的額外壓力差需等於水柱壓力差 ρgh，即 \\(F/AX=\\rhogh\\)。題目以 d 表示水密度，所以外力對 X 管液面的壓力為 dgh，選 B。",
+          "solution": "答案 B。連通管平衡時,同一水平面壓力相同。外力加在 X 活塞後,X 液面比 Y、Z 低 \\(h\\),故外力造成的額外壓力差需等於水柱壓力差 \\(\\rho gh\\),即 \\(F/A_X=\\rho gh\\)。題目以 \\(d\\) 表示水密度,所以外力對 X 管液面的壓力為 \\(dgh\\),選 B。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -12425,7 +12425,7 @@
           ],
           "answer": "B",
           "questionText": "如圖 9 所示, xy 平面上有一半徑為 a 的圓形細線圈,其 上的電荷線密度 λ (即每單位長度的電量)均相同。當線 圈以 ω 的等角速度繞通過圓心且垂直 xy 平面的轉軸轉 動時,則線圈上所產生的電流 I 為下列何者? (A) ω λa (B) λωa (C) ω λπa2 (D) a λω (E)",
-          "solution": "答案 B。線圈總電量 \\(Q=\\lambda(2\\pia)\\)，每轉一圈通過截面的電量就是 Q，週期 \\(T=2\\pi/\\omega\\)。因此電流 \\(I=Q/T=\\lambda(2\\pia)/(2\\pi/\\omega)=\\lambda\\omegaa\\)，選 B。",
+          "solution": "答案 B。線圈總電量 \\(Q=\\lambda(2\\pi a)\\),每轉一圈通過截面的電量就是 \\(Q\\),週期 \\(T=2\\pi/\\omega\\)。因此電流 \\(I=Q/T=\\lambda(2\\pi a)/(2\\pi/\\omega)=\\lambda\\omega a\\),選 B。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
@@ -12509,7 +12509,7 @@
           ],
           "answer": "BD",
           "questionText": "一螺線管置於一固定金屬板的正上方一小段 距離處,螺線管通有電流 I,電流方向如圖 11 所示。下列哪些情況,可使金屬板產生逆 時針方向 (如圖)的感應渦電流? (A) 電流 I 及螺線管的位置均不變動 (B) 螺線管不動,但其電流 I 逐漸增大 (C) 螺線管不動,但其電流 I 逐漸減小 (D) 電流 I 不變,但使螺線管垂直向下移動 (E) 電流 I 不變,但使螺線管垂直向上移動",
-          "solution": "答案 BD。由冷次定律，金屬板中的渦電流方向必反抗穿過板面的磁通量改變。螺線管電流增大會使原磁通量增加，板上感應電流需產生反向磁場，為 B；螺線管靠近金屬板也使磁通量增加，方向同樣為 D。電流不變且位置不變沒有感應電流；電流減小或遠離時方向相反；答案 BD。",
+          "solution": "答案 BD。由楞次定律，金屬板中的渦電流方向必反抗穿過板面的磁通量改變。螺線管電流增大會使原磁通量增加，板上感應電流需產生反向磁場，為 B；螺線管靠近金屬板也使磁通量增加，方向同樣為 D。電流不變且位置不變沒有感應電流；電流減小或遠離時方向相反；答案 BD。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
           "quality": "reviewed-draft",
           "shotImages": [
