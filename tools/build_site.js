@@ -3739,5 +3739,32 @@ const site = String.raw`<!doctype html>
 </html>`;
 
 fs.writeFileSync(path.join(root, "index.html"), "\ufeff" + site, "utf8");
+
+const publishDir = path.join(root, "publish");
+fs.mkdirSync(publishDir, { recursive: true });
+fs.writeFileSync(path.join(publishDir, "index.html"), "\ufeff" + site, "utf8");
+
+function copyDirectorySync(sourceDir, targetDir) {
+  fs.mkdirSync(targetDir, { recursive: true });
+  for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
+    const sourcePath = path.join(sourceDir, entry.name);
+    const targetPath = path.join(targetDir, entry.name);
+    if (entry.isDirectory()) {
+      copyDirectorySync(sourcePath, targetPath);
+    } else if (entry.isFile()) {
+      fs.copyFileSync(sourcePath, targetPath);
+    }
+  }
+}
+
+for (const dirName of ["assets", "docs"]) {
+  const sourceDir = path.join(root, dirName);
+  const targetDir = path.join(publishDir, dirName);
+  if (fs.existsSync(sourceDir)) {
+    fs.rmSync(targetDir, { recursive: true, force: true });
+    copyDirectorySync(sourceDir, targetDir);
+  }
+}
+
 console.log(`Generated ${exams.length} exams`);
 
