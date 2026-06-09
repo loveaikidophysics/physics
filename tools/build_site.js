@@ -1800,7 +1800,7 @@ const site = String.raw`<!doctype html>
     .page-panel.active { display: block; }
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       align-items: stretch;
     }
@@ -1809,6 +1809,14 @@ const site = String.raw`<!doctype html>
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 18px;
+    }
+    .grid > section,
+    .paired-panels > section {
+      display: flex;
+      flex-direction: column;
+    }
+    .grid > section:not(.wide) {
+      min-height: 330px;
     }
     .small { color: var(--muted); font-size: 14px; }
     .badge {
@@ -1858,11 +1866,13 @@ const site = String.raw`<!doctype html>
     .bar > span { display: block; height: 100%; background: var(--accent); }
     .resource-list {
       display: grid;
+      flex: 1;
+      align-content: start;
       gap: 10px;
       margin: 0;
       padding: 0 6px 0 0;
       list-style: none;
-      max-height: 224px;
+      max-height: 280px;
       overflow-x: hidden;
       overflow-y: auto;
       scrollbar-width: thin;
@@ -1925,7 +1935,7 @@ const site = String.raw`<!doctype html>
       align-items: stretch;
     }
     .paired-panels > section {
-      min-height: 300px;
+      min-height: 340px;
       height: 100%;
     }
     .question-workspace {
@@ -2095,7 +2105,7 @@ const site = String.raw`<!doctype html>
     }
     .history-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr);
+      grid-template-columns: 1fr;
       gap: 16px;
       align-items: start;
     }
@@ -2115,20 +2125,43 @@ const site = String.raw`<!doctype html>
     }
     .history-focus-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 12px;
     }
     .history-focus {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
       border: 1px solid #d4dfef;
       border-radius: 8px;
       background: #f4f8ff;
       padding: 12px;
+      color: #123d72;
+      text-decoration: none;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
     }
     .history-focus strong {
       display: block;
       color: #123d72;
-      margin-bottom: 4px;
+      margin-bottom: 0;
+    }
+    .history-focus span {
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .history-focus:hover,
+    .history-focus:focus-visible {
+      border-color: #7fb7ff;
+      background: #eaf3ff;
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .history-timeline-card {
+      grid-column: 1 / -1;
     }
     .history-timeline {
       display: grid;
@@ -2176,6 +2209,14 @@ const site = String.raw`<!doctype html>
     .history-table a {
       color: #174f9b;
       font-weight: 800;
+    }
+    .history-table tr[id] {
+      scroll-margin-top: 108px;
+    }
+    .history-table tr:target {
+      outline: 2px solid #2563eb;
+      outline-offset: -2px;
+      background: #eef6ff;
     }
     .history-table small {
       display: block;
@@ -2743,28 +2784,34 @@ const site = String.raw`<!doctype html>
         <div class="history-card">
           <h3>物理史的六條主線</h3>
           <div class="history-focus-grid">
-            <div class="history-focus">
+            <a class="history-focus" href="#history-theme-mechanics">
               <strong>力學與天文</strong>
-            </div>
-            <div class="history-focus">
+              <span>查看對照</span>
+            </a>
+            <a class="history-focus" href="#history-theme-thermal">
               <strong>熱學與能量</strong>
-            </div>
-            <div class="history-focus">
+              <span>查看對照</span>
+            </a>
+            <a class="history-focus" href="#history-theme-waves">
               <strong>波動與光學</strong>
-            </div>
-            <div class="history-focus">
+              <span>查看對照</span>
+            </a>
+            <a class="history-focus" href="#history-theme-electromagnetism">
               <strong>電磁學</strong>
-            </div>
-            <div class="history-focus">
+              <span>查看對照</span>
+            </a>
+            <a class="history-focus" href="#history-theme-modern">
               <strong>近代物理與原子</strong>
-            </div>
-            <div class="history-focus">
+              <span>查看對照</span>
+            </a>
+            <a class="history-focus" href="#history-theme-quantum">
               <strong>量子、相對論與宇宙</strong>
-            </div>
+              <span>查看對照</span>
+            </a>
           </div>
         </div>
 
-        <div class="history-card">
+        <div class="history-card history-timeline-card">
           <h3>時間線速讀</h3>
           <ul class="history-timeline">
             <li><span class="history-year">1609/1618</span><span>克卜勒發表行星運動定律：橢圓軌道、等面積、\(T^{2}\propto a^{3}\)。</span></li>
@@ -2801,7 +2848,7 @@ const site = String.raw`<!doctype html>
             <table class="history-table">
               <thead><tr><th>主題分類</th><th>人物或實驗</th><th>高中物理考點</th><th>常見問法</th><th>驗證方法、裝置或連結</th></tr></thead>
               <tbody>
-                <tr>
+                <tr id="history-theme-mechanics">
                   <td class="history-theme-cell">力學與天文</td>
                   <td class="history-person-cell">克卜勒、牛頓</td>
                   <td>行星運動、萬有引力、圓周運動、角動量守恆。</td>
@@ -2822,14 +2869,14 @@ const site = String.raw`<!doctype html>
                   <td>說明擺動平面近似保持固定，而地面隨地球自轉；判斷擺面相對地面轉動方向與週期。</td>
                   <td>傅科擺：長擺在小角度下作近似單擺運動，擺動平面相對遙遠星空近似不變；地面轉動造成觀察到的擺面旋轉。<small><a href="https://www.britannica.com/science/Foucault-pendulum" target="_blank" rel="noopener">Britannica：Foucault pendulum</a></small></td>
                 </tr>
-                <tr>
+                <tr id="history-theme-thermal">
                   <td class="history-theme-cell">熱學與能量</td>
                   <td class="history-person-cell">焦耳</td>
                   <td>熱功當量、能量守恆、熱量與功。</td>
                   <td>判斷摩擦作功、電功率或機械能損失最後轉成熱。</td>
                   <td>焦耳槳輪實驗：重物下降帶動葉片攪拌水，量水溫上升，建立作功與熱量的等價。<small><a href="https://lis.org.tw/posts/143" target="_blank" rel="noopener">LIS：熱功當量</a>｜<a href="https://www.britannica.com/science/mechanical-equivalent-of-heat" target="_blank" rel="noopener">Britannica：mechanical equivalent of heat</a></small></td>
                 </tr>
-                <tr>
+                <tr id="history-theme-waves">
                   <td class="history-theme-cell">波動與光學</td>
                   <td class="history-person-cell">惠更斯、楊格</td>
                   <td>波前、干涉、繞射、波長、相位差。</td>
@@ -2850,7 +2897,7 @@ const site = String.raw`<!doctype html>
                   <td>判斷明線或暗線來源；用 \(E=hf=\dfrac{hc}{\lambda}\) 與 \(\dfrac{1}{\lambda}=R_H\left(\dfrac{1}{n_f^2}-\dfrac{1}{n_i^2}\right)\) 求波長或能階差。巴耳末系為 \(n_i\to2\)，最大能量差 \(E_{\infty}-E_2=3.4\,\mathrm{eV}\)，最小可見系列能量差 \(E_3-E_2=1.9\,\mathrm{eV}\)。</td>
                   <td>1814 年夫朗和斐觀察太陽光譜暗線；1859 年克希何夫與本生建立元素特徵光譜分析；1885 年巴耳末整理氫可見光譜，1888 年芮得柏推廣公式。分光鏡或繞射光柵可把光分成不同波長；氫放電管可觀察巴耳末系明線，太陽光譜暗線可用吸收光譜解釋。<small><a href="https://www.britannica.com/science/spectral-line-series" target="_blank" rel="noopener">Britannica：spectral line series</a>｜<a href="https://www.britannica.com/science/spectroscopy/Basic-properties-of-atoms" target="_blank" rel="noopener">Britannica：spectroscopy history</a></small></td>
                 </tr>
-                <tr>
+                <tr id="history-theme-electromagnetism">
                   <td class="history-theme-cell">電磁學</td>
                   <td class="history-person-cell">庫倫扭秤實驗</td>
                   <td>庫倫定律、靜電力、平方反比、力矩平衡。</td>
@@ -2892,7 +2939,7 @@ const site = String.raw`<!doctype html>
                   <td>判斷電磁波傳播方向、頻率波長關係 \(c=f\lambda\)，或說明光屬於電磁波。</td>
                   <td>赫茲以火花隙振盪器產生電磁波，接收環出現火花作為偵測；實驗支持馬克士威電磁波預測。<small><a href="https://ptcc.phys.nthu.edu.tw/articles/67bc29611efd7411b20c97e5" target="_blank" rel="noopener">物理雙月刊：電磁英雄傳之十：赫茲</a>｜<a href="https://pansci.asia/archives/135387" target="_blank" rel="noopener">泛科學：電磁波與非破壞檢測</a></small></td>
                 </tr>
-                <tr>
+                <tr id="history-theme-modern">
                   <td class="history-theme-cell">近代物理與原子</td>
                   <td class="history-person-cell">湯木生、密立坎</td>
                   <td>電子、荷質比、基本電荷、電場力平衡。</td>
@@ -2927,7 +2974,7 @@ const site = String.raw`<!doctype html>
                   <td>光子與近自由電子碰撞後散射，散射光波長變長；用 \(p=h/\lambda\) 說明光子帶有動量，並以能量與動量守恆判斷現象。</td>
                   <td>以 X 射線照射石墨等材料，量測不同散射角的波長位移；康普頓效應是光子粒子性的關鍵證據。<small><a href="https://www.nobelprize.org/prizes/physics/1927/compton/facts/" target="_blank" rel="noopener">Nobel Prize：Compton</a>｜<a href="https://www.britannica.com/science/Compton-effect" target="_blank" rel="noopener">Britannica：Compton effect</a></small></td>
                 </tr>
-                <tr>
+                <tr id="history-theme-quantum">
                   <td class="history-theme-cell">量子、相對論與宇宙</td>
                   <td class="history-person-cell">普朗克、愛因斯坦</td>
                   <td>黑體輻射、光子能量、光電效應、波粒二象性。</td>
