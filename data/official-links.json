@@ -1,5 +1,5 @@
 ﻿{
-  "generatedAt": "2026-06-09T03:19:46.060Z",
+  "generatedAt": "2026-06-09T06:27:20.752Z",
   "source": {
     "name": "大考中心：分科測驗（110 前指考）歷年試題及答題卷／一般試題",
     "url": "https://www.ceec.edu.tw/xmfile?xsmsid=0J052427633128416650"
@@ -10196,9 +10196,9 @@
           ],
           "answer": "B",
           "questionText": "判斷定容密閉容器內理想氣體壓力與分子動能的關係。",
-          "solution": "答案 B。理想氣體壓力可由分子撞擊容器壁的動量通量解釋;在固定體積下\\(,pV=NkT,\\)而氣體總平動動能 \\(Ktotal=3NkT/2,\\)因此 p 與所有分子移動動能總和成正比,選 B。溫度升高只代表平均動能增加,不是每一分子都增加。",
+          "solution": "答案 B。解題邏輯：理想氣體壓力來自分子撞擊容器壁時的動量交換。對壁面面積 \\(A\\) 而言，\\[P=\\frac{F}{A}=\\frac{\\Delta p}{A\\Delta t},\\]所以壓力與單位時間、單位面積的動量變化率有關。另一方面，理想氣體滿足 \\(PV=nRT\\)，所有分子的總平均動能為\\[E_{\\mathrm{trans}}=N\\overline{E_k}=\\frac{3}{2}nRT.\\]因此\\[P=\\frac{nRT}{V}=\\frac{2}{3}\\frac{E_{\\mathrm{trans}}}{V}.\\]本題體積固定，故壓力與所有氣體分子的總平均動能成正比，選 B。A 錯在動量有方向性；熱平衡時分子向各方向運動機率相同，平均動量 \\(\\langle \\vec p\\rangle=0\\)，不能說壓力和「分子平均動量」的平方成正比。C 錯在溫度升高只保證平均動能增加，速率服從分布，不代表每一個分子的動能都增加；D 錯在 \\(n,V\\) 固定時 \\(P\\propto T\\)，溫度下降壓力下降；E 錯在理想氣體壓力正是由近似彈性碰撞造成的動量交換來解釋。",
           "sourceStatus": "official-answer; auto-classified; solution-draft",
-          "quality": "auto-draft",
+          "quality": "reviewed-draft",
           "shotImages": [
             "assets/question-shots/102/q04.png"
           ],
