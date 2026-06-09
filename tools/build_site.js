@@ -1751,6 +1751,7 @@ const site = String.raw`<!doctype html>
       grid-template-columns: minmax(160px, 220px) minmax(180px, 1fr);
       gap: 12px;
       margin-top: 18px;
+      margin-bottom: 18px;
     }
     select, input {
       width: 100%;
@@ -1761,11 +1762,47 @@ const site = String.raw`<!doctype html>
       color: var(--ink);
       font: inherit;
     }
+    .main-topic-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 18px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(246, 248, 251, .96);
+      backdrop-filter: blur(8px);
+    }
+    .main-topic-tabs button {
+      min-height: 46px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: #0f315f;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .main-topic-tabs button:hover {
+      border-color: var(--blue);
+      background: #eef6ff;
+    }
+    .main-topic-tabs button.active {
+      border-color: var(--blue);
+      background: #123d72;
+      color: #fff;
+    }
+    .page-panel { display: none; }
+    .page-panel.active { display: block; }
     .grid {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
       gap: 18px;
-      align-items: start;
+      align-items: stretch;
     }
     section, .card {
       background: var(--panel);
@@ -1893,20 +1930,18 @@ const site = String.raw`<!doctype html>
     }
     .question-workspace {
       display: grid;
-      grid-template-columns: minmax(360px, 1fr) minmax(320px, .62fr);
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
       gap: 16px;
       align-items: start;
     }
     .question-preview {
-      min-height: 520px;
-      max-height: 76vh;
-      overflow: auto;
+      min-height: 760px;
+      max-height: none;
+      overflow: visible;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
-      padding: 16px;
-      position: sticky;
-      top: 12px;
+      padding: clamp(18px, 2.2vw, 28px);
     }
     .question-preview h3 { margin-bottom: 10px; }
     .question-text {
@@ -1915,8 +1950,12 @@ const site = String.raw`<!doctype html>
       font-size: 16px;
     }
     .solution-text {
-      line-height: 1.85;
-      font-size: 16px;
+      line-height: 2;
+      font-size: 17px;
+      max-width: 980px;
+    }
+    .solution-text p {
+      margin: 0 0 14px;
     }
     .solution-text sub,
     .solution-text sup {
@@ -1993,19 +2032,22 @@ const site = String.raw`<!doctype html>
     .question-list {
       display: grid;
       gap: 10px;
-      max-height: 76vh;
+      max-height: calc(100vh - 116px);
       overflow: auto;
       padding-right: 4px;
+      position: sticky;
+      top: 74px;
     }
     .question-item {
       width: 100%;
-      min-height: 58px;
-      padding: 12px 14px;
+      min-height: 50px;
+      padding: 10px 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
       color: var(--ink);
       font: inherit;
+      font-size: 15px;
       font-weight: 700;
       text-align: left;
       cursor: pointer;
@@ -2592,8 +2634,9 @@ const site = String.raw`<!doctype html>
     .top-link { margin-left: auto; }
     @media print {
       body { background: #fff; color: #000; }
-      header, .toolbar, .pretest-nav, .pretest-toolbar, .question-list, .links, .resource-list { display: none !important; }
+      header, .toolbar, .main-topic-tabs, .pretest-nav, .pretest-toolbar, .question-list, .links, .resource-list { display: none !important; }
       main { padding: 0; }
+      .page-panel { display: block !important; }
       section, .card, .pretest-section, .pretest-card, .theme-card, .quiz-card, .focus-card {
         border-color: #999;
         box-shadow: none;
@@ -2612,11 +2655,12 @@ const site = String.raw`<!doctype html>
     }
     @media (max-width: 900px) {
       .grid, .toolbar { grid-template-columns: 1fr; }
+      .main-topic-tabs { grid-template-columns: 1fr; position: static; }
       .paired-panels { grid-template-columns: 1fr; }
       .paired-panels > section { min-height: auto; }
       .question-workspace { grid-template-columns: 1fr; }
       .question-preview { position: static; min-height: auto; max-height: none; }
-      .question-list { max-height: none; }
+      .question-list { max-height: none; position: static; }
       .bar-row { grid-template-columns: 82px 1fr 44px; }
       .pretest-grid, .trend-list, .theme-layout, .history-grid, .history-focus-grid { grid-template-columns: 1fr; }
       .force-step { grid-template-columns: 1fr; }
@@ -2643,44 +2687,52 @@ const site = String.raw`<!doctype html>
   <header>
     <h1>100-114 學年度指考／分科物理歷屆整理</h1>
     <p>薇閣高級中學林群智老師整理編製</p>
-    <div class="toolbar">
-      <select id="yearSelect" aria-label="選擇年度"></select>
-    </div>
   </header>
   <main>
-    <div class="grid">
-      <section>
-        <h2 id="examTitle">年度資料</h2>
-        <div id="examMeta"></div>
-        <div class="links" id="officialLinks"></div>
-      </section>
-      <section>
-        <h2>單元比例</h2>
-        <div class="bars" id="unitBars"></div>
-      </section>
-      <div class="wide paired-panels">
+    <nav class="main-topic-tabs" aria-label="主題分頁">
+      <button type="button" class="active" data-main-tab="exams">歷年試題</button>
+      <button type="button" data-main-tab="history">物理科學史</button>
+      <button type="button" data-main-tab="pretest">素養題目</button>
+    </nav>
+
+    <div class="page-panel active" id="panelExams" data-main-panel="exams">
+      <div class="toolbar">
+        <select id="yearSelect" aria-label="選擇年度"></select>
+      </div>
+      <div class="grid">
         <section>
-          <h2>題型統計</h2>
-          <table>
-            <thead><tr><th>題型</th><th>題數</th></tr></thead>
-            <tbody id="literacyTable"></tbody>
-          </table>
+          <h2 id="examTitle">年度資料</h2>
+          <div id="examMeta"></div>
+          <div class="links" id="officialLinks"></div>
         </section>
         <section>
-          <h2>該年度時事與素養延伸連結</h2>
-          <ul class="resource-list" id="resourceLinks"></ul>
+          <h2>單元比例</h2>
+          <div class="bars" id="unitBars"></div>
+        </section>
+        <div class="wide paired-panels">
+          <section>
+            <h2>題型統計</h2>
+            <table>
+              <thead><tr><th>題型</th><th>題數</th></tr></thead>
+              <tbody id="literacyTable"></tbody>
+            </table>
+          </section>
+          <section>
+            <h2>該年度時事與素養延伸連結</h2>
+            <ul class="resource-list" id="resourceLinks"></ul>
+          </section>
+        </div>
+        <section class="wide">
+          <h2>逐題詳解</h2>
+          <div class="question-workspace">
+            <article class="question-preview" id="questionPreview"></article>
+            <div class="question-list" id="questionList"></div>
+          </div>
         </section>
       </div>
-      <section class="wide">
-        <h2>逐題詳解</h2>
-        <div class="question-workspace">
-          <article class="question-preview" id="questionPreview"></article>
-          <div class="question-list" id="questionList"></div>
-        </div>
-      </section>
     </div>
 
-    <section class="wide history-section" id="physicsHistory">
+    <section class="wide history-section page-panel" id="physicsHistory" data-main-panel="history">
       <div class="history-hero">
         <span class="history-kicker">科學史｜人物實驗｜大考觀念</span>
         <h2>高中物理史</h2>
@@ -2693,27 +2745,21 @@ const site = String.raw`<!doctype html>
           <div class="history-focus-grid">
             <div class="history-focus">
               <strong>力學與天文</strong>
-              克卜勒由第谷觀測資料歸納行星運動定律；牛頓用運動定律與萬有引力統一天上與地上的運動，卡文狄西再以扭秤測得 \(G\)。
             </div>
             <div class="history-focus">
               <strong>熱學與能量</strong>
-              焦耳以熱功當量實驗支持「熱是能量的一種形式」，讓力學作功、熱量與能量守恆連成同一套語言。
             </div>
             <div class="history-focus">
               <strong>波動與光學</strong>
-              牛頓用三稜鏡研究色散，惠更斯主張光具有波動性；楊格雙狹縫干涉成為光波動說的重要證據。
             </div>
             <div class="history-focus">
               <strong>電磁學</strong>
-              厄斯特發現電流磁效應，安培建立電流與磁場關係，法拉第發現電磁感應，冷次定律判斷感應電流方向，克希何夫電路定則把電荷守恆與能量守恆用於多迴路電路；馬克士威統合電磁理論，赫茲實驗證實電磁波。
             </div>
             <div class="history-focus">
               <strong>近代物理與原子</strong>
-              湯木生發現電子，密立坎量得基本電荷，拉塞福金箔散射建立原子核模型，波耳用量子化能階解釋氫光譜。
             </div>
             <div class="history-focus">
               <strong>量子、相對論與宇宙</strong>
-              普朗克以能量量子化處理黑體輻射，愛因斯坦用光量子解釋光電效應，德布羅意提出物質波，哈伯紅移與宇宙微波背景輻射把光譜帶到宇宙尺度。
             </div>
           </div>
         </div>
@@ -2723,13 +2769,17 @@ const site = String.raw`<!doctype html>
           <ul class="history-timeline">
             <li><span class="history-year">1609/1618</span><span>克卜勒發表行星運動定律：橢圓軌道、等面積、\(T^{2}\propto a^{3}\)。</span></li>
             <li><span class="history-year">1687</span><span>牛頓出版《自然哲學的數學原理》，以 \(F=ma\) 與萬有引力統一力學與天體運動。</span></li>
+            <li><span class="history-year">1785</span><span>庫倫以扭秤研究帶電球間的靜電力，建立 \(F=kq_1q_2/r^2\) 的平方反比關係。</span></li>
             <li><span class="history-year">1798</span><span>卡文狄西以扭秤實驗測得萬有引力常數 \(G\)，使地球質量可由實驗估算。</span></li>
             <li><span class="history-year">1801</span><span>楊格雙狹縫干涉顯示光會相長與相消，支持光的波動模型。</span></li>
+            <li><span class="history-year">1818/1822</span><span>菲涅爾以波前疊加解釋繞射，並發展菲涅爾透鏡，把厚透鏡分割成同心環以減少材料。</span></li>
             <li><span class="history-year">1820</span><span>厄斯特發現電流可使磁針偏轉，打開電與磁互相關聯的研究。</span></li>
             <li><span class="history-year">1831</span><span>法拉第發現磁通量改變可產生感應電流，是發電機、變壓器與感應電動勢的基礎。</span></li>
             <li><span class="history-year">1834</span><span>冷次定律指出感應電流方向會反抗磁通量的改變，是判斷感應電流方向的核心規則。</span></li>
             <li><span class="history-year">1840s</span><span>焦耳建立熱功當量，將作功與熱量連結到能量守恆。</span></li>
             <li><span class="history-year">1845</span><span>克希何夫提出電路定則：接點電流守恆、閉合迴路電位變化總和為零。</span></li>
+            <li><span class="history-year">19 世紀中葉</span><span>亥姆霍茲線圈用兩個同軸同半徑線圈產生近似均勻磁場，常用於電子荷質比與磁場量測。</span></li>
+            <li><span class="history-year">1851</span><span>傅科擺以擺動平面相對地面旋轉的現象，提供地球自轉的直接實驗證據。</span></li>
             <li><span class="history-year">1859</span><span>克希何夫與本生建立光譜分析：不同元素有特徵光譜，可由光譜辨識物質組成。</span></li>
             <li><span class="history-year">1860s</span><span>馬克士威統合電磁理論，預測光也是電磁波的一種。</span></li>
             <li><span class="history-year">1885/1888</span><span>巴耳末整理氫原子可見光譜線規律；芮得柏將其推廣成氫原子光譜公式。</span></li>
@@ -2737,7 +2787,9 @@ const site = String.raw`<!doctype html>
             <li><span class="history-year">1895-1898</span><span>侖琴發現 X 射線；貝克勒發現放射性；居禮夫婦發現釙與鐳。</span></li>
             <li><span class="history-year">1897/1909</span><span>湯木生發現電子並求荷質比；密立坎油滴實驗確認電荷量子化並測得基本電荷。</span></li>
             <li><span class="history-year">1900/1905</span><span>普朗克提出能量量子化解釋黑體輻射；愛因斯坦以光量子解釋光電效應。</span></li>
+            <li><span class="history-year">1912/1913</span><span>勞厄觀察 X 射線經晶體產生繞射；布拉格父子建立布拉格定律 \(2d\sin\theta=n\lambda\)。</span></li>
             <li><span class="history-year">1911-1913</span><span>拉塞福金箔散射提出原子核模型；波耳以量子化能階解釋氫原子光譜。</span></li>
+            <li><span class="history-year">1923</span><span>康普頓散射顯示 X 射線與電子碰撞後波長改變，支持光子具有動量與粒子性。</span></li>
             <li><span class="history-year">1924-1927</span><span>德布羅意提出物質波；戴維森與革末用電子繞射驗證電子也具有波動性。</span></li>
             <li><span class="history-year">1929/1965</span><span>哈伯由星系光譜紅移建立宇宙膨脹圖像；潘奇亞斯與威爾森偵測到宇宙微波背景。</span></li>
           </ul>
@@ -2764,6 +2816,13 @@ const site = String.raw`<!doctype html>
                   <td>扭秤裝置：兩小鉛球受大鉛球吸引造成懸線扭轉，利用扭轉角與力矩平衡求引力。<small><a href="docs/1-1_history_104.pdf" target="_blank" rel="noopener">附件 PDF：科學史整理</a></small></td>
                 </tr>
                 <tr>
+                  <td class="history-theme-cell">力學與天文</td>
+                  <td class="history-person-cell">傅科擺</td>
+                  <td>單擺、慣性參考系、地球自轉、角速度與緯度效應。</td>
+                  <td>說明擺動平面近似保持固定，而地面隨地球自轉；判斷擺面相對地面轉動方向與週期。</td>
+                  <td>傅科擺：長擺在小角度下作近似單擺運動，擺動平面相對遙遠星空近似不變；地面轉動造成觀察到的擺面旋轉。<small><a href="https://www.britannica.com/science/Foucault-pendulum" target="_blank" rel="noopener">Britannica：Foucault pendulum</a></small></td>
+                </tr>
+                <tr>
                   <td class="history-theme-cell">熱學與能量</td>
                   <td class="history-person-cell">焦耳</td>
                   <td>熱功當量、能量守恆、熱量與功。</td>
@@ -2779,10 +2838,24 @@ const site = String.raw`<!doctype html>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">波動與光學</td>
+                  <td class="history-person-cell">菲涅爾</td>
+                  <td>繞射、波前疊加、半波帶、薄透鏡成像與菲涅爾透鏡。</td>
+                  <td>說明光遇障礙或孔徑邊緣會繞射；判斷孔徑越小或波長越長，繞射越明顯。菲涅爾透鏡則把厚透鏡分割成同心環，保留折射聚光功能並減少厚度。</td>
+                  <td>繞射可用單狹縫、圓孔或直邊遮擋單色光觀察亮暗分布；菲涅爾透鏡常見於燈塔、投影、太陽能集光與薄型放大鏡。<small><a href="https://www.britannica.com/biography/Augustin-Jean-Fresnel" target="_blank" rel="noopener">Britannica：Fresnel</a>｜<a href="https://www.britannica.com/technology/Fresnel-lens" target="_blank" rel="noopener">Britannica：Fresnel lens</a></small></td>
+                </tr>
+                <tr>
+                  <td class="history-theme-cell">波動與光學</td>
                   <td class="history-person-cell">夫朗和斐、克希何夫與本生、巴耳末、芮得柏</td>
                   <td>連續光譜、吸收暗線、發射明線、氫原子線系與光子能量。</td>
                   <td>判斷明線或暗線來源；用 \(E=hf=\dfrac{hc}{\lambda}\) 與 \(\dfrac{1}{\lambda}=R_H\left(\dfrac{1}{n_f^2}-\dfrac{1}{n_i^2}\right)\) 求波長或能階差。巴耳末系為 \(n_i\to2\)，最大能量差 \(E_{\infty}-E_2=3.4\,\mathrm{eV}\)，最小可見系列能量差 \(E_3-E_2=1.9\,\mathrm{eV}\)。</td>
                   <td>1814 年夫朗和斐觀察太陽光譜暗線；1859 年克希何夫與本生建立元素特徵光譜分析；1885 年巴耳末整理氫可見光譜，1888 年芮得柏推廣公式。分光鏡或繞射光柵可把光分成不同波長；氫放電管可觀察巴耳末系明線，太陽光譜暗線可用吸收光譜解釋。<small><a href="https://www.britannica.com/science/spectral-line-series" target="_blank" rel="noopener">Britannica：spectral line series</a>｜<a href="https://www.britannica.com/science/spectroscopy/Basic-properties-of-atoms" target="_blank" rel="noopener">Britannica：spectroscopy history</a></small></td>
+                </tr>
+                <tr>
+                  <td class="history-theme-cell">電磁學</td>
+                  <td class="history-person-cell">庫倫扭秤實驗</td>
+                  <td>庫倫定律、靜電力、平方反比、力矩平衡。</td>
+                  <td>由 \(F=kq_1q_2/r^2\) 判斷距離改變時靜電力倍率；用扭轉角與力矩平衡推估帶電球間作用力，進一步求庫倫定律常數 \(k\)。</td>
+                  <td>庫倫扭秤：帶電小球間的吸引或排斥造成細絲扭轉；改變距離 \(r\) 可驗證靜電力與 \(1/r^2\) 成正比，量得作用力後可由 \(k=Fr^2/(q_1q_2)\) 估測庫倫常數。在 SI 制中 \(k=1/(4\pi\varepsilon_0)\)。<small><a href="https://www.britannica.com/science/Coulombs-law" target="_blank" rel="noopener">Britannica：Coulomb's law</a>｜<a href="https://www.britannica.com/technology/torsion-balance" target="_blank" rel="noopener">Britannica：torsion balance</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">電磁學</td>
@@ -2804,6 +2877,13 @@ const site = String.raw`<!doctype html>
                   <td>接點定則、迴路定則、電荷守恆與能量守恆。</td>
                   <td>接點：\(\sum I_{\mathrm{in}}=\sum I_{\mathrm{out}}\)；閉合迴路：\(\sum \Delta V=0\)，用於多電池、多電阻電路。</td>
                   <td>多迴路電路板、電池、電阻與安培計可驗證接點電流分流；沿任一閉合迴路量測電位升降，總和為零。<small><a href="https://www.britannica.com/science/Kirchhoffs-rules" target="_blank" rel="noopener">Britannica：Kirchhoff's rules</a>｜<a href="https://www.britannica.com/science/electricity/Kirchhoffs-laws-of-electric-circuits" target="_blank" rel="noopener">Britannica：Kirchhoff's laws of electric circuits</a></small></td>
+                </tr>
+                <tr>
+                  <td class="history-theme-cell">電磁學</td>
+                  <td class="history-person-cell">亥姆霍茲線圈</td>
+                  <td>近似均勻磁場、右手定則、磁力提供向心力。</td>
+                  <td>線圈電流 \(I\) 越大，中心磁場 \(B\) 越大；帶電粒子在垂直磁場中滿足 \(qvB=mv^2/r\)，可用半徑反推荷質比或速度。</td>
+                  <td>兩個同軸同半徑線圈相距約一個半徑並通同向電流，可在中心區域產生近似均勻磁場；常配合電子束管或霍爾探針量測。<small><a href="https://web.mit.edu/8.02t/www/materials/modules/guide10.pdf" target="_blank" rel="noopener">MIT：Magnetic fields and Helmholtz coils</a>｜<a href="https://www.britannica.com/science/magnetic-field" target="_blank" rel="noopener">Britannica：magnetic field</a></small></td>
                 </tr>
                 <tr>
                   <td class="history-theme-cell">電磁學</td>
@@ -2834,6 +2914,20 @@ const site = String.raw`<!doctype html>
                   <td>陰極射線管與螢光屏可觀察 X 射線；鈾鹽使照相底片感光顯示放射性；查兌克以 \(\alpha\) 粒子撞擊鈹產生中性輻射來推論中子。<small><a href="docs/1-1_history_104.pdf" target="_blank" rel="noopener">附件 PDF：科學史整理</a></small></td>
                 </tr>
                 <tr>
+                  <td class="history-theme-cell">近代物理與原子</td>
+                  <td class="history-person-cell">勞厄、布拉格父子</td>
+                  <td>X 射線繞射、晶格間距、建設性干涉、布拉格定律。</td>
+                  <td>晶面間距 \(d\)、入射角 \(\theta\) 與波長 \(\lambda\) 滿足 \(2d\sin\theta=n\lambda\) 時出現繞射強峰；可由角度反推晶格間距或 X 射線波長。</td>
+                  <td>勞厄實驗讓 X 射線通過晶體得到斑點繞射圖樣，證明晶體可作為三維繞射光柵；布拉格定律把晶面反射的光程差寫成 \(2d\sin\theta\)。<small><a href="https://www.nobelprize.org/prizes/physics/1914/laue/facts/" target="_blank" rel="noopener">Nobel Prize：Laue</a>｜<a href="https://www.nobelprize.org/prizes/physics/1915/summary/" target="_blank" rel="noopener">Nobel Prize：Bragg</a>｜<a href="https://www.britannica.com/science/Bragg-law" target="_blank" rel="noopener">Britannica：Bragg law</a></small></td>
+                </tr>
+                <tr>
+                  <td class="history-theme-cell">近代物理與原子</td>
+                  <td class="history-person-cell">康普頓散射</td>
+                  <td>X 射線光子、動量守恆、波長改變、光的粒子性。</td>
+                  <td>光子與近自由電子碰撞後散射，散射光波長變長；用 \(p=h/\lambda\) 說明光子帶有動量，並以能量與動量守恆判斷現象。</td>
+                  <td>以 X 射線照射石墨等材料，量測不同散射角的波長位移；康普頓效應是光子粒子性的關鍵證據。<small><a href="https://www.nobelprize.org/prizes/physics/1927/compton/facts/" target="_blank" rel="noopener">Nobel Prize：Compton</a>｜<a href="https://www.britannica.com/science/Compton-effect" target="_blank" rel="noopener">Britannica：Compton effect</a></small></td>
+                </tr>
+                <tr>
                   <td class="history-theme-cell">量子、相對論與宇宙</td>
                   <td class="history-person-cell">普朗克、愛因斯坦</td>
                   <td>黑體輻射、光子能量、光電效應、波粒二象性。</td>
@@ -2861,7 +2955,7 @@ const site = String.raw`<!doctype html>
       </div>
     </section>
 
-    <section class="wide pretest-section" id="pretestTop">
+    <section class="wide pretest-section page-panel" id="pretestTop" data-main-panel="pretest">
       <div class="pretest-hero">
         <span class="pretest-kicker">高三考前複習｜科技情境｜素養題</span>
         <h2>2026 分科測驗物理科技情境與素養題預試題</h2>
@@ -3145,7 +3239,7 @@ const site = String.raw`<!doctype html>
   <script>
     const DATA = ${JSON.stringify(payload)};
     const PRETEST_DATA = ${JSON.stringify(pretestData)};
-    const state = { year: DATA.exams[0]?.year };
+    const state = { year: DATA.exams[0]?.year, activeMain: "exams" };
     const pretestState = { mode: "student", answers: {}, activeTopic: PRETEST_DATA.groups[0]?.id || "" };
     const $ = (id) => document.getElementById(id);
     const assetVersion = encodeURIComponent(DATA.generatedAt || "");
@@ -3437,7 +3531,7 @@ const site = String.raw`<!doctype html>
         .replace(/\^([+\-−]?\d+)/g, (_, exp) => toSup(exp))
         .replace(/_([0-9]+|[A-Za-z\u0370-\u03ff]+)/g, (_, sub) => toSub(sub))
       )
-        .replace(/\n{2,}/g, "</p><p class=\"solution-text\">")
+        .replace(/\n{2,}/g, "<br><br>")
         .replace(/\n/g, "<br>");
     }
 
@@ -3449,6 +3543,24 @@ const site = String.raw`<!doctype html>
         }
         return renderPlainScientificText(part);
       }).join("");
+    }
+
+    function renderSolutionText(value) {
+      const text = String(value || "").trim();
+      if (!text) return '<p class="small">尚未補入詳解。</p>';
+      const explicitParagraphs = text.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
+      const paragraphs = explicitParagraphs.length > 1
+        ? explicitParagraphs
+        : text
+          .split(/(?<=。)/)
+          .map((part) => part.trim())
+          .filter(Boolean)
+          .reduce((chunks, sentence, index) => {
+            const chunkIndex = Math.floor(index / 2);
+            chunks[chunkIndex] = (chunks[chunkIndex] || "") + sentence;
+            return chunks;
+          }, []);
+      return paragraphs.map((paragraph) => '<p>' + renderScientificText(paragraph) + '</p>').join("");
     }
 
     function cleanQuestionText(value) {
@@ -3582,6 +3694,19 @@ const site = String.raw`<!doctype html>
       }
     }
 
+    function renderMainPanels() {
+      document.querySelectorAll("[data-main-tab]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.mainTab === state.activeMain);
+      });
+      document.querySelectorAll("[data-main-panel]").forEach((panel) => {
+        panel.classList.toggle("active", panel.dataset.mainPanel === state.activeMain);
+      });
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        const activePanel = document.querySelector('[data-main-panel="' + state.activeMain + '"]');
+        if (activePanel) window.MathJax.typesetPromise([activePanel]).catch(() => {});
+      }
+    }
+
     function renderSelectors() {
       $("yearSelect").innerHTML = DATA.exams.map((exam) => '<option value="' + exam.year + '">' + exam.year + " 學年度 " + exam.type + '</option>').join("");
       $("yearSelect").value = state.year;
@@ -3685,7 +3810,7 @@ const site = String.raw`<!doctype html>
         '</div>' +
         officialPreview +
         '<h3>詳解</h3>' +
-        '<p class="solution-text">' + renderScientificText(q.solution) + '</p>' +
+        '<div class="solution-text">' + renderSolutionText(q.solution) + '</div>' +
         renderSolutionDiagrams(q.solutionDiagrams);
       typesetMath();
     }
@@ -3699,6 +3824,13 @@ const site = String.raw`<!doctype html>
     $("yearSelect").addEventListener("change", (event) => {
       state.year = Number(event.target.value);
       renderExam();
+    });
+    document.querySelector(".main-topic-tabs").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-main-tab]");
+      if (!button) return;
+      state.activeMain = button.dataset.mainTab;
+      renderMainPanels();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
     $("questionList").addEventListener("click", (event) => {
       const button = event.target.closest(".question-item");
@@ -3734,6 +3866,7 @@ const site = String.raw`<!doctype html>
     renderSelectors();
     renderExam();
     renderPretest();
+    renderMainPanels();
   </script>
 </body>
 </html>`;

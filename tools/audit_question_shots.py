@@ -55,6 +55,48 @@ def extract_group_headers(year):
     return headers
 
 
+def extract_section_headers(year):
+    pdf_path = DOWNLOADS / str(year) / "questionPdf.pdf"
+    if not pdf_path.exists():
+        return []
+    reader = PdfReader(str(pdf_path))
+    headers = []
+    for page_index, page in enumerate(reader.pages, start=1):
+        fragments = []
+
+        def visitor(text, cm, tm, font, size):
+            clean = " ".join((text or "").split())
+            if clean:
+                fragments.append((float(tm[4]), float(tm[5]), clean))
+
+        page.extract_text(visitor_text=visitor)
+        lines = []
+        for x, y, text in sorted(fragments, key=lambda item: (-item[1], item[0])):
+            for line in lines:
+                if abs(line["y"] - y) <= 3.0:
+                    line["parts"].append((x, text))
+                    line["min_x"] = min(line["min_x"], x)
+                    line["y"] = (line["y"] + y) / 2
+                    break
+            else:
+                lines.append({"y": y, "min_x": x, "parts": [(x, text)]})
+
+        for line in lines:
+            joined = "".join(part for _, part in sorted(line["parts"]))
+            compact = re.sub(r"\s+", "", joined)
+            if not 45 <= line["min_x"] <= 100:
+                continue
+            if "多選題" in compact or "第貳部分" in compact or "非選擇題" in compact:
+                headers.append(
+                    {
+                        "page": page_index,
+                        "y": float(line["y"]),
+                        "text": compact[:24],
+                    }
+                )
+    return headers
+
+
 def main():
     data = json.loads(DATA_PATH.read_text(encoding="utf-8-sig"))
     report = {
@@ -64,6 +106,8 @@ def main():
             "missingAudit": 0,
             "boundaryOverruns": 0,
             "groupHeaderIssues": 0,
+            "sectionHeaderIssues": 0,
+            "sequenceIssues": 0,
         },
         "years": [],
     }
@@ -71,11 +115,13 @@ def main():
     for analysis in data.get("analysis", []):
         year_report = {"year": analysis.get("year"), "items": []}
         group_headers = extract_group_headers(analysis.get("year"))
+        section_headers = extract_section_headers(analysis.get("year"))
         questions_by_no = {
             int(question.get("no")): question
             for question in analysis.get("questions", [])
             if question.get("no") is not None
         }
+        previous_start = None
         for question in analysis.get("questions", []):
             report["summary"]["questions"] += 1
             flags = []
@@ -127,6 +173,40 @@ def main():
                             )
                             report["summary"]["groupHeaderIssues"] += 1
 
+            for row in audit_rows:
+                page_no = row.get("page")
+                top = row.get("topPdfY")
+                bottom = row.get("bottomPdfY")
+                if top is None or bottom is None:
+                    continue
+                for header in section_headers:
+                    if header["page"] != page_no:
+                        continue
+                    if float(top) > header["y"] > float(bottom):
+                        flags.append(f"section-header-included-p{page_no}-{header['text']}")
+                        report["summary"]["sectionHeaderIssues"] += 1
+
+            first_row = audit_rows[0] if audit_rows else None
+            if first_row and first_row.get("page") is not None and first_row.get("topPdfY") is not None:
+                current_start = {
+                    "no": question.get("no"),
+                    "page": int(first_row["page"]),
+                    "y": float(first_row["topPdfY"]),
+                }
+                if previous_start and (
+                    current_start["page"] < previous_start["page"]
+                    or (
+                        current_start["page"] == previous_start["page"]
+                        and current_start["y"] > previous_start["y"] + 3.0
+                    )
+                ):
+                    flags.append(
+                        "question-start-sequence-regression-"
+                        f"prev-q{previous_start['no']}-p{previous_start['page']}"
+                    )
+                    report["summary"]["sequenceIssues"] += 1
+                previous_start = current_start
+
             if flags:
                 year_report["items"].append(
                     {
@@ -146,7 +226,14 @@ def main():
     print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
     if any(
         report["summary"][key]
-        for key in ["missingImages", "missingAudit", "boundaryOverruns", "groupHeaderIssues"]
+        for key in [
+            "missingImages",
+            "missingAudit",
+            "boundaryOverruns",
+            "groupHeaderIssues",
+            "sectionHeaderIssues",
+            "sequenceIssues",
+        ]
     ):
         raise SystemExit(1)
 

@@ -4,7 +4,9 @@
     "missingImages": 0,
     "missingAudit": 0,
     "boundaryOverruns": 0,
-    "groupHeaderIssues": 0
+    "groupHeaderIssues": 0,
+    "sectionHeaderIssues": 0,
+    "sequenceIssues": 0
   },
   "years": [
     {

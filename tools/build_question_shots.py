@@ -5,7 +5,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from pdf2image import convert_from_path
-from PIL import Image
+from PIL import Image, ImageDraw
 from pypdf import PdfReader
 
 
@@ -20,10 +20,20 @@ MANUAL_STARTS = {
     (114, 21): {"page": 6, "y": 353.7},
     (110, 22): {"page": 7, "y": 606.1},
     (106, 15): {"page": 4, "y": 250.0},
+    (106, 17): {"page": 5, "y": 590.0},
     (105, 13): {"page": 4, "y": 270.0},
+    (105, 5): {"page": 2, "y": 254.0},
+    (105, 6): {"page": 2, "y": 175.7},
+    (105, 19): {"page": 6, "y": 599.36},
+    (105, 20): {"page": 6, "y": 558.32},
     (104, 7): {"page": 3, "y": 400.0},
     (104, 8): {"page": 3, "y": 167.0},
+    (103, 4): {"page": 2, "y": 359.0},
+    (103, 5): {"page": 3, "y": 739.0},
+    (103, 6): {"page": 3, "y": 509.0},
+    (103, 7): {"page": 4, "y": 742.7},
     (103, 10): {"page": 4, "y": 252.0},
+    (101, 2): {"page": 2, "y": 479.0},
     (101, 16): {"page": 5, "y": 400.4},
     (100, 4): {"page": 2, "y": 245.0},
     (100, 7): {"page": 3, "y": 593.0},
@@ -58,11 +68,21 @@ MANUAL_ENDS = {
     (108, 20): {"page": 6, "y": 414.0},
     (108, 24): {"page": 7, "y": 151.0},
     (111, 24): {"page": 8, "y": 470.0},
-    (107, 20): {"page": 6, "y": 410.0},
+    (107, 20): {"page": 6, "y": 498.0},
     (107, 24): {"page": 7, "y": 390.0},
+    (106, 17): {"page": 5, "y": 420.0},
+    (105, 5): {"page": 2, "y": 190.0},
+    (105, 20): {"page": 6, "y": 513.0},
+    (103, 5): {"page": 3, "y": 525.0},
+    (101, 2): {"page": 2, "y": 320.0},
+    (101, 20): {"page": 6, "y": 220.0},
     (100, 6): {"page": 3, "y": 623.0},
     (100, 7): {"page": 3, "y": 562.0},
 }
+
+
+def is_section_heading(compact: str) -> bool:
+    return "多選題" in compact or "第貳部分" in compact or "非選擇題" in compact
 
 
 def rel_url(path: Path) -> str:
@@ -100,6 +120,8 @@ def extract_question_starts(pdf_path: Path):
                 continue
             joined = "".join(part for _, part in sorted(line["parts"]))
             compact = re.sub(r"\s+", "", joined)
+            if is_section_heading(compact):
+                continue
             group_match = re.match(
                 r"^(\d{1,2})[-－–~～](\d{1,2})(?:第)?題(?:為)?題組$",
                 compact,
@@ -172,7 +194,7 @@ def all_candidates(year, no, starts_by_page, reader):
         start = starts_by_page[page_no].get(no)
         if start:
             candidates.append(start)
-    return sorted(candidates, key=lambda item: (item["page"], -item["y"]))
+    return sorted(candidates, key=lambda item: (0 if item.get("manual") else 1, item["page"], -item["y"]))
 
 
 def build_sequential_starts(year, questions, starts_by_page, reader):
@@ -182,13 +204,16 @@ def build_sequential_starts(year, questions, starts_by_page, reader):
         no = int(question["no"])
         chosen = None
         for candidate in all_candidates(year, no, starts_by_page, reader):
+            if candidate.get("manual"):
+                chosen = candidate
+                break
             if previous is None:
                 chosen = candidate
                 break
             if candidate["page"] > previous["page"]:
                 chosen = candidate
                 break
-            if candidate["page"] == previous["page"] and candidate["y"] < previous["y"] - 8:
+            if candidate["page"] == previous["page"] and candidate["y"] < previous["y"] - 2.5:
                 chosen = candidate
                 break
         if chosen is None:
@@ -197,6 +222,42 @@ def build_sequential_starts(year, questions, starts_by_page, reader):
             mapped[no] = chosen
             previous = chosen
     return mapped
+
+
+def extract_section_headers(pdf_path: Path):
+    reader = PdfReader(str(pdf_path))
+    headers_by_page = {}
+    for page_index, page in enumerate(reader.pages, start=1):
+        fragments = []
+
+        def visitor(text, cm, tm, font, size):
+            clean = " ".join((text or "").split())
+            x, y = float(tm[4]), float(tm[5])
+            if clean and x > 20 and y > 30:
+                fragments.append((x, y, clean))
+
+        page.extract_text(visitor_text=visitor)
+        lines = []
+        for x, y, text in sorted(fragments, key=lambda item: (-item[1], item[0])):
+            for line in lines:
+                if abs(line["y"] - y) <= 3.0:
+                    line["parts"].append((x, text))
+                    line["min_x"] = min(line["min_x"], x)
+                    line["y"] = (line["y"] + y) / 2
+                    break
+            else:
+                lines.append({"y": y, "min_x": x, "parts": [(x, text)]})
+
+        for line in lines:
+            if not 45 <= line["min_x"] <= 110:
+                continue
+            joined = "".join(part for _, part in sorted(line["parts"]))
+            compact = re.sub(r"\s+", "", joined)
+            if is_section_heading(compact):
+                headers_by_page.setdefault(page_index, []).append(
+                    {"y": float(line["y"]), "text": compact[:32]}
+                )
+    return headers_by_page
 
 
 def compose_manual_group_context(year_dir):
@@ -211,6 +272,24 @@ def compose_manual_group_context(year_dir):
     combined.paste(stem, (0, 0))
     combined.paste(q26, (0, stem.height))
     combined.save(q26_path, optimize=True)
+
+
+def repair_106_column_overlap(year_dir):
+    q17_path = year_dir / "q17.png"
+    if q17_path.exists():
+        q17 = Image.open(q17_path).convert("RGB")
+        width, height = q17.size
+        draw = ImageDraw.Draw(q17)
+        draw.rectangle((0, int(height * 0.735), int(width * 0.58), height), fill="white")
+        q17.save(q17_path, optimize=True)
+
+    q18_path = year_dir / "q18.png"
+    if q18_path.exists():
+        q18 = Image.open(q18_path).convert("RGB")
+        width, height = q18.size
+        draw = ImageDraw.Draw(q18)
+        draw.rectangle((int(width * 0.62), 0, width, int(height * 0.36)), fill="white")
+        q18.save(q18_path, optimize=True)
 
 
 def crop_box(
@@ -258,7 +337,10 @@ def crop_box(
     if bottom <= top + 60 and not first_segment:
         return None
     if bottom <= top + 60:
-        bottom = min(image.height, top + 260)
+        fallback_bottom = min(image.height, top + 260)
+        if next_boundary is not None:
+            fallback_bottom = min(fallback_bottom, int((page_h - next_boundary) * sy))
+        bottom = fallback_bottom
     if min_height:
         requested_bottom = min(image.height, top + int(min_height))
         if next_boundary is not None:
@@ -293,6 +375,7 @@ def main():
             continue
 
         starts_by_page, reader = extract_question_starts(pdf_path)
+        section_headers = extract_section_headers(pdf_path)
         year_dir = OUTPUT_ROOT / str(year)
         year_dir.mkdir(parents=True, exist_ok=True)
 
@@ -342,6 +425,20 @@ def main():
                     if manual_end and manual_end["page"] == page_no and page_no == end_page
                     else None
                 )
+                if manual_end_y is None:
+                    top_limit = (
+                        segment_start_y
+                        if page_no == start["page"]
+                        else float(page.mediabox.height) - 82
+                    )
+                    bottom_limit = segment_next_y if segment_next_y is not None else 54
+                    section_candidates = [
+                        header["y"] + 12
+                        for header in section_headers.get(page_no, [])
+                        if top_limit - 2 > header["y"] > bottom_limit + 2
+                    ]
+                    if section_candidates:
+                        manual_end_y = max(section_candidates)
                 crop = crop_box(
                     page,
                     image,
@@ -383,6 +480,8 @@ def main():
             total += 1
 
         print(f"{year}: generated {made}/{len(questions)} question shots")
+        if year == 106:
+            repair_106_column_overlap(year_dir)
         if year == 111:
             compose_manual_group_context(year_dir)
 
